@@ -10,26 +10,26 @@
       body {
           font-family: "Inter", sans-serif;
           background: linear-gradient(135deg, #ffd6e8, #c8e7ff);
-          padding: 40px;
+          padding: 20px;
           margin: 0;
       }
 
       h1 {
           font-family: "Fredoka", sans-serif;
-          font-size: 3.2rem;
+          font-size: 2.5rem;
           text-align: center;
           color: #fff;
-          margin-bottom: 40px;
+          margin-bottom: 22px;
           text-shadow: 0 4px 8px rgba(0,0,0,0.2);
       }
 
       table {
           width: 100%;
           background: white;
-          border-radius: 22px;
+          border-radius: 20px;
           overflow: hidden;
-          border: 4px solid #fff;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+          border: 3px solid #fff;
+          box-shadow: 0 8px 18px rgba(0,0,0,0.18);
       }
 
       thead {
@@ -38,8 +38,8 @@
       }
 
       th {
-          padding: 22px;
-          font-size: 2rem;
+          padding: 14px;
+          font-size: 1.4rem;
           font-family: "Fredoka", sans-serif;
       }
 
@@ -56,21 +56,21 @@
       }
 
       td {
-          padding: 24px;
+          padding: 14px;
           vertical-align: top;
-          font-size: 1.8rem;
+          font-size: 1.3rem;
       }
 
-      /* Kid name badges — bigger and brighter */
+      /* Kid name badges — slightly smaller */
       .kid-name {
           font-family: "Fredoka", sans-serif;
-          font-size: 2.2rem;
+          font-size: 1.6rem;
           font-weight: 600;
-          padding: 14px 26px;
-          border-radius: 50px;
+          padding: 8px 18px;
+          border-radius: 40px;
           color: white;
           display: inline-block;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+          box-shadow: 0 3px 6px rgba(0,0,0,0.2);
       }
 
       /* Pastel colors */
@@ -83,12 +83,12 @@
 
       ul {
           margin: 0;
-          padding-left: 30px;
+          padding-left: 20px;
       }
 
       li {
-          margin-bottom: 14px;
-          font-size: 1.8rem;
+          margin-bottom: 6px;
+          font-size: 1.3rem;
       }
   </style>
 </head>
@@ -108,30 +108,12 @@
 
 <script>
   const KIDS = [
-    {
-      name: "Ellie",
-      chores: ["Garbages", "Kitchen window above the sink"]
-    },
-    {
-      name: "Brooklyn",
-      chores: ["Kitchen bathroom", "Black bone marks"]
-    },
-    {
-      name: "Hazel",
-      chores: ["Shutters", "Scoop poop"]
-    },
-    {
-      name: "Maverick",
-      chores: ["Kids bathroom"]
-    },
-    {
-      name: "Hinckley",
-      chores: ["Van", "Garage"]
-    },
-    {
-      name: "Adaline",
-      chores: ["Shoe basket", "White doors"]
-    }
+    { name: "Ellie", chores: ["Garbages", "Kitchen window above the sink"] },
+    { name: "Brooklyn", chores: ["Kitchen bathroom", "Black bone marks"] },
+    { name: "Hazel", chores: ["Shutters", "Scoop poop"] },
+    { name: "Maverick", chores: ["Kids bathroom"] },
+    { name: "Hinckley", chores: ["Van", "Garage"] },
+    { name: "Adaline", chores: ["Shoe basket", "White doors"] }
   ];
 
   function renderTable() {
