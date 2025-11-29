@@ -169,33 +169,47 @@
 
   renderTable();
 
-  // Create falling snowflakes
-  const MAX_SNOWFLAKES = 25;
-  let snowflakeCount = 0;
+  // Create falling snowflakes (wrapped in try-catch for browser compatibility)
+  try {
+    var MAX_SNOWFLAKES = 25;
+    var snowflakeCount = 0;
 
-  function createSnowflake() {
-    if (snowflakeCount >= MAX_SNOWFLAKES || document.hidden) {
-      return;
+    function createSnowflake() {
+      try {
+        if (snowflakeCount >= MAX_SNOWFLAKES) {
+          return;
+        }
+        // Check document.hidden safely
+        if (typeof document.hidden !== 'undefined' && document.hidden) {
+          return;
+        }
+
+        var snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.innerHTML = '&#10052;';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        var duration = Math.random() * 3 + 4;
+        snowflake.style.animationDuration = duration + 's';
+        snowflake.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+        document.body.appendChild(snowflake);
+        snowflakeCount++;
+
+        setTimeout(function() {
+          if (snowflake.parentNode) {
+            snowflake.parentNode.removeChild(snowflake);
+          }
+          snowflakeCount--;
+        }, (duration + 0.5) * 1000);
+      } catch (e) {
+        // Silently fail - snowflakes are non-essential
+      }
     }
 
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.textContent = '❄';
-    snowflake.style.left = Math.random() * 100 + 'vw';
-    const duration = Math.random() * 3 + 4;
-    snowflake.style.animationDuration = duration + 's';
-    snowflake.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
-    document.body.appendChild(snowflake);
-    snowflakeCount++;
-
-    setTimeout(() => {
-      snowflake.remove();
-      snowflakeCount--;
-    }, (duration + 0.5) * 1000);
+    // Create snowflakes periodically
+    setInterval(createSnowflake, 300);
+  } catch (e) {
+    // Snowflake animation not supported - table will still work
   }
-
-  // Create snowflakes periodically
-  setInterval(createSnowflake, 300);
 
 </script>
 
