@@ -145,8 +145,12 @@
   function renderTable() {
     var tbody = document.querySelector("#choreTable tbody");
     if (!tbody) {
-      tbody = document.getElementById("choreTable").getElementsByTagName("tbody")[0];
+      var table = document.getElementById("choreTable");
+      if (table) {
+        tbody = table.getElementsByTagName("tbody")[0];
+      }
     }
+    if (!tbody) return;
     tbody.innerHTML = "";
 
     for (var i = 0; i < KIDS.length; i++) {
@@ -154,7 +158,10 @@
       var tr = document.createElement("tr");
 
       var nameCell = document.createElement("td");
-      nameCell.innerHTML = '<div class="kid-name ' + kid.name + '">' + kid.name + '</div>';
+      var nameDiv = document.createElement("div");
+      nameDiv.setAttribute("class", "kid-name " + kid.name);
+      nameDiv.textContent = kid.name;
+      nameCell.appendChild(nameDiv);
 
       var choresCell = document.createElement("td");
       var ul = document.createElement("ul");
@@ -190,7 +197,7 @@
 
         var snowflake = document.createElement('div');
         snowflake.setAttribute('class', 'snowflake');
-        snowflake.innerHTML = '&#10052;';
+        snowflake.textContent = '\u2744';
         snowflake.style.left = Math.random() * 100 + 'vw';
         var duration = Math.random() * 3 + 4;
         snowflake.style.animationDuration = duration + 's';
