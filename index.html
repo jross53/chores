@@ -9,9 +9,12 @@
   <style>
       body {
           font-family: "Inter", sans-serif;
-          background: linear-gradient(135deg, #ffd6e8, #c8e7ff);
+          background: linear-gradient(135deg, #1a472a, #2d5a27, #8b0000);
           padding: 20px;
           margin: 0;
+          min-height: 100vh;
+          position: relative;
+          overflow-x: hidden;
       }
 
       h1 {
@@ -20,7 +23,30 @@
           text-align: center;
           color: #fff;
           margin-bottom: 22px;
-          text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,215,0,0.3);
+      }
+
+      /* Snowflake animation */
+      .snowflake {
+          position: fixed;
+          top: -10px;
+          color: #fff;
+          font-size: 1.5rem;
+          pointer-events: none;
+          animation: fall linear infinite;
+          opacity: 0.8;
+          z-index: 1000;
+      }
+
+      @keyframes fall {
+          0% {
+              transform: translateY(-10px) rotate(0deg);
+              opacity: 0.8;
+          }
+          100% {
+              transform: translateY(100vh) rotate(360deg);
+              opacity: 0.3;
+          }
       }
 
       table {
@@ -33,7 +59,7 @@
       }
 
       thead {
-          background: linear-gradient(120deg, #7ac7ff 0%, #9d88ff 100%);
+          background: linear-gradient(120deg, #c41e3a 0%, #228b22 100%);
           color: #fff;
       }
 
@@ -94,7 +120,7 @@
 </head>
 <body>
 
-<h1>📺 Kids' Chore Table</h1>
+<h1>🎄 Kids' Christmas Chore Table 🎅</h1>
 
 <table id="choreTable">
   <thead>
@@ -142,6 +168,35 @@
   }
 
   renderTable();
+
+  // Create falling snowflakes
+  const MAX_SNOWFLAKES = 25;
+  let snowflakeCount = 0;
+
+  function createSnowflake() {
+    if (snowflakeCount >= MAX_SNOWFLAKES || document.hidden) {
+      return;
+    }
+
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.textContent = '❄';
+    snowflake.style.left = Math.random() * 100 + 'vw';
+    const duration = Math.random() * 3 + 4;
+    snowflake.style.animationDuration = duration + 's';
+    snowflake.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+    document.body.appendChild(snowflake);
+    snowflakeCount++;
+
+    setTimeout(() => {
+      snowflake.remove();
+      snowflakeCount--;
+    }, (duration + 0.5) * 1000);
+  }
+
+  // Create snowflakes periodically
+  setInterval(createSnowflake, 300);
+
 </script>
 
 </body>
