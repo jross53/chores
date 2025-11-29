@@ -133,7 +133,7 @@
 </table>
 
 <script>
-  const KIDS = [
+  var KIDS = [
     { name: "Ellie", chores: ["Kitchen bathroom", "1 load of laundry"] },
     { name: "Brooklyn", chores: ["Kids bathroom", "Scoop poop"] },
     { name: "Hazel", chores: ["Garbages", "Railings"] },
@@ -143,59 +143,87 @@
   ];
 
   function renderTable() {
-    const tbody = document.querySelector("#choreTable tbody");
-    tbody.innerHTML = "";
+    var tbody = document.querySelector("#choreTable tbody");
+    if (!tbody) {
+      var table = document.getElementById("choreTable");
+      if (table) {
+        tbody = table.getElementsByTagName("tbody")[0];
+      }
+    }
+    if (!tbody) return;
+    // Clear existing rows safely
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
 
-    KIDS.forEach(kid => {
-      const tr = document.createElement("tr");
+    for (var i = 0; i < KIDS.length; i++) {
+      var kid = KIDS[i];
+      var tr = document.createElement("tr");
 
-      const nameCell = document.createElement("td");
-      nameCell.innerHTML = `<div class="kid-name ${kid.name}">${kid.name}</div>`;
+      var nameCell = document.createElement("td");
+      var nameDiv = document.createElement("div");
+      nameDiv.setAttribute("class", "kid-name " + kid.name);
+      nameDiv.textContent = kid.name;
+      nameCell.appendChild(nameDiv);
 
-      const choresCell = document.createElement("td");
-      const ul = document.createElement("ul");
-      kid.chores.forEach(chore => {
-        const li = document.createElement("li");
-        li.textContent = chore;
+      var choresCell = document.createElement("td");
+      var ul = document.createElement("ul");
+      for (var j = 0; j < kid.chores.length; j++) {
+        var li = document.createElement("li");
+        li.textContent = kid.chores[j];
         ul.appendChild(li);
-      });
+      }
       choresCell.appendChild(ul);
 
       tr.appendChild(nameCell);
       tr.appendChild(choresCell);
       tbody.appendChild(tr);
-    });
+    }
   }
 
   renderTable();
 
-  // Create falling snowflakes
-  const MAX_SNOWFLAKES = 25;
-  let snowflakeCount = 0;
+  // Create falling snowflakes (wrapped in try-catch for browser compatibility)
+  try {
+    var MAX_SNOWFLAKES = 25;
+    var snowflakeCount = 0;
 
-  function createSnowflake() {
-    if (snowflakeCount >= MAX_SNOWFLAKES || document.hidden) {
-      return;
+    function createSnowflake() {
+      try {
+        if (snowflakeCount >= MAX_SNOWFLAKES) {
+          return;
+        }
+        // Check document.hidden safely
+        if (typeof document.hidden !== 'undefined' && document.hidden) {
+          return;
+        }
+
+        var snowflake = document.createElement('div');
+        snowflake.setAttribute('class', 'snowflake');
+        snowflake.textContent = '\u2744';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        var duration = Math.random() * 3 + 4;
+        snowflake.style.animationDuration = duration + 's';
+        snowflake.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
+        document.body.appendChild(snowflake);
+        snowflakeCount++;
+
+        setTimeout(function() {
+          if (snowflake.parentNode) {
+            snowflake.parentNode.removeChild(snowflake);
+            snowflakeCount--;
+          }
+        }, (duration + 0.5) * 1000);
+      } catch (e) {
+        // Silently fail - snowflakes are non-essential
+      }
     }
 
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.textContent = '❄';
-    snowflake.style.left = Math.random() * 100 + 'vw';
-    const duration = Math.random() * 3 + 4;
-    snowflake.style.animationDuration = duration + 's';
-    snowflake.style.fontSize = (Math.random() * 1 + 0.8) + 'rem';
-    document.body.appendChild(snowflake);
-    snowflakeCount++;
-
-    setTimeout(() => {
-      snowflake.remove();
-      snowflakeCount--;
-    }, (duration + 0.5) * 1000);
+    // Create snowflakes periodically
+    setInterval(createSnowflake, 300);
+  } catch (e) {
+    // Snowflake animation not supported - table will still work
   }
-
-  // Create snowflakes periodically
-  setInterval(createSnowflake, 300);
 
 </script>
 
