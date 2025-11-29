@@ -151,7 +151,10 @@
       }
     }
     if (!tbody) return;
-    tbody.innerHTML = "";
+    // Clear existing rows safely
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
 
     for (var i = 0; i < KIDS.length; i++) {
       var kid = KIDS[i];
@@ -208,8 +211,8 @@
         setTimeout(function() {
           if (snowflake.parentNode) {
             snowflake.parentNode.removeChild(snowflake);
+            snowflakeCount--;
           }
-          snowflakeCount--;
         }, (duration + 0.5) * 1000);
       } catch (e) {
         // Silently fail - snowflakes are non-essential
