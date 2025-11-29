@@ -133,7 +133,7 @@
 </table>
 
 <script>
-  const KIDS = [
+  var KIDS = [
     { name: "Ellie", chores: ["Kitchen bathroom", "1 load of laundry"] },
     { name: "Brooklyn", chores: ["Kids bathroom", "Scoop poop"] },
     { name: "Hazel", chores: ["Garbages", "Railings"] },
@@ -143,28 +143,32 @@
   ];
 
   function renderTable() {
-    const tbody = document.querySelector("#choreTable tbody");
+    var tbody = document.querySelector("#choreTable tbody");
+    if (!tbody) {
+      tbody = document.getElementById("choreTable").getElementsByTagName("tbody")[0];
+    }
     tbody.innerHTML = "";
 
-    KIDS.forEach(kid => {
-      const tr = document.createElement("tr");
+    for (var i = 0; i < KIDS.length; i++) {
+      var kid = KIDS[i];
+      var tr = document.createElement("tr");
 
-      const nameCell = document.createElement("td");
-      nameCell.innerHTML = `<div class="kid-name ${kid.name}">${kid.name}</div>`;
+      var nameCell = document.createElement("td");
+      nameCell.innerHTML = '<div class="kid-name ' + kid.name + '">' + kid.name + '</div>';
 
-      const choresCell = document.createElement("td");
-      const ul = document.createElement("ul");
-      kid.chores.forEach(chore => {
-        const li = document.createElement("li");
-        li.textContent = chore;
+      var choresCell = document.createElement("td");
+      var ul = document.createElement("ul");
+      for (var j = 0; j < kid.chores.length; j++) {
+        var li = document.createElement("li");
+        li.textContent = kid.chores[j];
         ul.appendChild(li);
-      });
+      }
       choresCell.appendChild(ul);
 
       tr.appendChild(nameCell);
       tr.appendChild(choresCell);
       tbody.appendChild(tr);
-    });
+    }
   }
 
   renderTable();
@@ -185,7 +189,7 @@
         }
 
         var snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
+        snowflake.setAttribute('class', 'snowflake');
         snowflake.innerHTML = '&#10052;';
         snowflake.style.left = Math.random() * 100 + 'vw';
         var duration = Math.random() * 3 + 4;
