@@ -87,6 +87,22 @@
           font-size: 1.3rem;
       }
 
+      /* Kid profile section */
+      .kid-profile {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+
+      .kid-avatar {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid #fff;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+
       /* Kid name badges — slightly smaller */
       .kid-name {
           font-family: "Fredoka", sans-serif;
@@ -161,10 +177,23 @@
       var tr = document.createElement("tr");
 
       var nameCell = document.createElement("td");
+      var profileDiv = document.createElement("div");
+      profileDiv.setAttribute("class", "kid-profile");
+
+      // Create avatar image
+      var avatar = document.createElement("img");
+      avatar.setAttribute("src", kid.name + ".png");
+      avatar.setAttribute("alt", kid.name + " avatar");
+      avatar.setAttribute("class", "kid-avatar");
+
+      // Create name badge
       var nameDiv = document.createElement("div");
       nameDiv.setAttribute("class", "kid-name " + kid.name);
       nameDiv.textContent = kid.name;
-      nameCell.appendChild(nameDiv);
+
+      profileDiv.appendChild(avatar);
+      profileDiv.appendChild(nameDiv);
+      nameCell.appendChild(profileDiv);
 
       var choresCell = document.createElement("td");
       var ul = document.createElement("ul");
