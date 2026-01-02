@@ -1,0 +1,1 @@
+- Remember this runs on my Samsung TV so anything we do needs to be compatible with the browser on the TV.
