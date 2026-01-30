@@ -9,6 +9,10 @@
   <style>
       body {
           font-family: "Inter", sans-serif;
+          /* Fallback solid color for very old browsers */
+          background: #ff8fab;
+          /* Webkit gradient for older Samsung TV browsers */
+          background: -webkit-linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c1, #ffc2d1);
           background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffb3c1, #ffc2d1);
           padding: 20px;
           margin: 0;
@@ -23,59 +27,81 @@
           text-align: center;
           color: #fff;
           margin-bottom: 22px;
+          -webkit-text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,182,193,0.5);
           text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,182,193,0.5);
       }
 
-      /* Floating heart animation */
+      /* Simple heart animation for Samsung TV compatibility */
       .floating-heart {
           position: fixed;
           top: -10px;
           color: #ff1744;
           font-size: 1.8rem;
           pointer-events: none;
+          -webkit-animation: float linear infinite;
           animation: float linear infinite;
           opacity: 0.7;
           z-index: 1000;
       }
 
-      @keyframes float {
+      @-webkit-keyframes float {
           0% {
-              transform: translateY(-10px) rotate(0deg);
+              -webkit-transform: translateY(-10px);
+              transform: translateY(-10px);
               opacity: 0.7;
           }
-          50% {
-              opacity: 0.9;
-          }
           100% {
-              transform: translateY(100vh) rotate(15deg);
+              -webkit-transform: translateY(100vh);
+              transform: translateY(100vh);
               opacity: 0.2;
           }
       }
 
-      /* Card flexbox layout for Samsung TV compatibility */
+      @keyframes float {
+          0% {
+              -webkit-transform: translateY(-10px);
+              transform: translateY(-10px);
+              opacity: 0.7;
+          }
+          100% {
+              -webkit-transform: translateY(100vh);
+              transform: translateY(100vh);
+              opacity: 0.2;
+          }
+      }
+
+      /* Card layout optimized for Samsung TV browsers */
       .chores-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
+          text-align: center;
           max-width: 1600px;
           margin: 0 auto;
-          /* Fallback spacing for older browsers */
-          margin-left: -10px;
-          margin-right: -10px;
+          padding: 0 10px;
+          /* Clear float issues */
+          overflow: hidden;
       }
 
       .chore-card {
+          /* Fallback solid background for older browsers */
+          background: #fff;
+          background: -webkit-linear-gradient(145deg, #fff, #fef7f7);
           background: linear-gradient(145deg, #fff, #fef7f7);
+          /* Fallback border-radius */
           border-radius: 16px;
+          -webkit-border-radius: 16px;
           padding: 20px;
+          /* Fallback box-shadow */
           box-shadow: 0 6px 12px rgba(255,20,147,0.15);
+          -webkit-box-shadow: 0 6px 12px rgba(255,20,147,0.15);
           border: 2px solid #ffb3c1;
-          transition: transform 0.2s ease;
+          /* Simplified transition for older browsers */
+          -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
           width: 300px;
-          min-width: 280px;
-          flex: 0 0 auto;
-          /* Fallback spacing for older browsers */
           margin: 10px;
+          /* Float-based layout for maximum compatibility */
+          display: inline-block;
+          vertical-align: top;
+          text-align: left;
           position: relative;
       }
 
@@ -87,35 +113,41 @@
           font-size: 1.5rem;
           background: #ff6b9d;
           border-radius: 50%;
+          -webkit-border-radius: 50%;
           width: 32px;
           height: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          text-align: center;
+          line-height: 32px;
           box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+          -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       }
 
       .chore-card:hover {
-          transform: translateY(-3px) scale(1.02);
+          /* Simplified hover effect */
+          -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
           box-shadow: 0 8px 16px rgba(255,20,147,0.25);
+          -webkit-box-shadow: 0 8px 16px rgba(255,20,147,0.25);
           border-color: #ff6b9d;
       }
 
-      /* Kid profile section */
+      /* Kid profile section - Samsung TV compatible */
       .kid-profile {
-          display: flex;
-          align-items: center;
-          gap: 16px;
           margin-bottom: 18px;
+          overflow: hidden; /* Clear floats */
       }
 
       .kid-avatar {
           width: 80px;
           height: 80px;
           border-radius: 50%;
+          -webkit-border-radius: 50%;
           object-fit: cover;
           border: 4px solid #ff6b9d;
           box-shadow: 0 4px 8px rgba(255,20,147,0.3);
+          -webkit-box-shadow: 0 4px 8px rgba(255,20,147,0.3);
+          float: left;
+          margin-right: 16px;
           position: relative;
       }
 
@@ -127,24 +159,28 @@
           font-size: 1.2rem;
           background: white;
           border-radius: 50%;
+          -webkit-border-radius: 50%;
           width: 28px;
           height: 28px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          text-align: center;
+          line-height: 28px;
           box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+          -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
       }
 
-      /* Kid name badges — optimized for cards */
+      /* Kid name badges — optimized for Samsung TV */
       .kid-name {
           font-family: "Fredoka", sans-serif;
           font-size: 1.4rem;
           font-weight: 600;
           padding: 6px 14px;
           border-radius: 20px;
+          -webkit-border-radius: 20px;
           color: white;
           display: inline-block;
           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          margin-top: 20px; /* Space from avatar */
       }
 
       /* Pastel colors */
