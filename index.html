@@ -2,103 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>St. Patrick's Day Chore Shamrocks</title>
+  <title>Ross Family Basecamp Chores</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
+      :root {
+          --sky-top: #20344a;
+          --sky-mid: #45627a;
+          --sky-bottom: #e6d0a8;
+          --pine-deep: #173126;
+          --pine-mid: #28503d;
+          --pine-light: #3d6c52;
+          --wood-dark: #5f3f29;
+          --wood-mid: #8a5d3b;
+          --wood-light: #b98255;
+          --paper: #f6ecd8;
+          --paper-shadow: #d9c2a0;
+          --ink: #2c2117;
+          --snow: rgba(255, 250, 240, 0.85);
+      }
+
       body {
-          font-family: "Inter", sans-serif;
-          /* Fallback solid color for very old browsers */
-          background: #4caf50;
-          /* Webkit gradient for older Samsung TV browsers */
-          background: -webkit-linear-gradient(135deg, #2e7d32, #4caf50, #66bb6a, #81c784);
-          background: linear-gradient(135deg, #2e7d32, #4caf50, #66bb6a, #81c784);
-          padding: 12px;
+          font-family: "Nunito", sans-serif;
+          background: #284157;
+          background:
+              radial-gradient(circle at top, rgba(255, 244, 214, 0.35), transparent 30%),
+              linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--sky-bottom) 100%);
+          padding: 18px 12px 28px;
           margin: 0;
           min-height: 100vh;
           position: relative;
           overflow-x: hidden;
+          color: var(--ink);
+      }
+
+      body::before,
+      body::after {
+          content: "";
+          position: fixed;
+          left: 0;
+          width: 100%;
+          pointer-events: none;
+      }
+
+      body::before {
+          bottom: 0;
+          height: 44vh;
+          background:
+              linear-gradient(160deg, transparent 0 16%, rgba(14, 28, 20, 0.9) 16% 18%, transparent 18% 26%, rgba(14, 28, 20, 0.88) 26% 29%, transparent 29% 38%, rgba(14, 28, 20, 0.92) 38% 42%, transparent 42%),
+              linear-gradient(175deg, transparent 0 8%, rgba(29, 54, 41, 0.95) 8% 12%, transparent 12% 20%, rgba(29, 54, 41, 0.95) 20% 24%, transparent 24% 32%, rgba(29, 54, 41, 0.94) 32% 36%, transparent 36%),
+              linear-gradient(180deg, transparent 0 24%, #3d5f4f 24% 55%, #274233 55% 100%);
+          opacity: 0.95;
+          z-index: 0;
+      }
+
+      body::after {
+          top: 0;
+          height: 36vh;
+          background:
+              radial-gradient(circle at 82% 18%, rgba(255, 239, 201, 0.78) 0 9%, transparent 10%),
+              linear-gradient(180deg, rgba(255,255,255,0.10), transparent 42%);
+          z-index: 0;
       }
 
       h1 {
-          font-family: "Fredoka", sans-serif;
-          font-size: 2.2rem;
+          font-family: "Abril Fatface", serif;
+          font-size: 2.8rem;
           text-align: center;
-          color: #fff;
-          margin: 0 0 12px 0;
-          -webkit-text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(129,199,132,0.5);
-          text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(129,199,132,0.5);
+          color: #fff7eb;
+          margin: 0;
+          letter-spacing: 0.03em;
+          text-shadow: 0 4px 16px rgba(0,0,0,0.34);
       }
 
-      /* Simple shamrock animation for Samsung TV compatibility */
-      .floating-shamrock {
+      .hero {
+          position: relative;
+          z-index: 1;
+          text-align: center;
+          max-width: 1100px;
+          margin: 0 auto 20px;
+          padding: 20px 14px 10px;
+      }
+
+      .hero-subtitle {
+          color: rgba(255, 244, 228, 0.88);
+          font-size: 1rem;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          margin-top: 8px;
+      }
+
+      .floating-flake {
           position: fixed;
           top: -10px;
-          color: #4caf50;
-          font-size: 1.8rem;
+          color: var(--snow);
+          font-size: 1rem;
           pointer-events: none;
-          -webkit-animation: float linear infinite;
-          animation: float linear infinite;
+          -webkit-animation: drift linear infinite;
+          animation: drift linear infinite;
           opacity: 0.7;
-          z-index: 1000;
+          z-index: 2;
       }
 
-      @-webkit-keyframes float {
+      @-webkit-keyframes drift {
           0% {
-              -webkit-transform: translateY(-10px);
-              transform: translateY(-10px);
-              opacity: 0.7;
+              -webkit-transform: translateY(-10px) translateX(0);
+              transform: translateY(-10px) translateX(0);
+              opacity: 0;
           }
+          15% { opacity: 0.75; }
           100% {
-              -webkit-transform: translateY(100vh);
-              transform: translateY(100vh);
-              opacity: 0.2;
+              -webkit-transform: translateY(100vh) translateX(35px);
+              transform: translateY(100vh) translateX(35px);
+              opacity: 0.15;
           }
       }
 
-      @keyframes float {
+      @keyframes drift {
           0% {
-              -webkit-transform: translateY(-10px);
-              transform: translateY(-10px);
-              opacity: 0.7;
+              -webkit-transform: translateY(-10px) translateX(0);
+              transform: translateY(-10px) translateX(0);
+              opacity: 0;
           }
+          15% { opacity: 0.75; }
           100% {
-              -webkit-transform: translateY(100vh);
-              transform: translateY(100vh);
-              opacity: 0.2;
+              -webkit-transform: translateY(100vh) translateX(35px);
+              transform: translateY(100vh) translateX(35px);
+              opacity: 0.15;
           }
       }
 
-      /* Card layout optimized for Samsung TV browsers */
       .chores-container {
+          position: relative;
+          z-index: 1;
           text-align: center;
           max-width: 1600px;
           margin: 0 auto;
           padding: 0 10px;
-          /* Clear float issues */
           overflow: hidden;
       }
 
       .chore-card {
-          /* Fallback solid background for older browsers */
-          background: #fff;
-          background: -webkit-linear-gradient(145deg, #fff, #f7fef7);
-          background: linear-gradient(145deg, #fff, #f7fef7);
-          /* Fallback border-radius */
-          border-radius: 16px;
-          -webkit-border-radius: 16px;
-          padding: 14px;
-          /* Fallback box-shadow */
-          box-shadow: 0 6px 12px rgba(76,175,80,0.15);
-          -webkit-box-shadow: 0 6px 12px rgba(76,175,80,0.15);
-          border: 2px solid #a5d6a7;
-          /* Simplified transition for older browsers */
-          -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+          background:
+              linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0)),
+              linear-gradient(145deg, #f8efd9, var(--paper));
+          border-radius: 22px;
+          -webkit-border-radius: 22px;
+          padding: 16px 16px 18px;
+          box-shadow: 0 16px 34px rgba(22, 28, 26, 0.28);
+          -webkit-box-shadow: 0 16px 34px rgba(22, 28, 26, 0.28);
+          border: 1px solid rgba(111, 77, 49, 0.35);
+          -webkit-transition: all 0.25s ease;
+          transition: all 0.25s ease;
           width: 300px;
-          margin: 6px;
-          /* Float-based layout for maximum compatibility */
+          margin: 8px;
           display: inline-block;
           vertical-align: top;
           text-align: left;
@@ -106,35 +165,29 @@
       }
 
       .chore-card::before {
-          content: "🍀";
+          content: "";
           position: absolute;
-          top: -8px;
-          right: -8px;
-          font-size: 1.5rem;
-          background: #4caf50;
-          border-radius: 50%;
-          -webkit-border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          text-align: center;
-          line-height: 32px;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-          -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+          left: 14px;
+          right: 14px;
+          top: 10px;
+          height: 10px;
+          border-radius: 999px;
+          background: linear-gradient(90deg, var(--wood-dark), var(--wood-light), var(--wood-dark));
+          opacity: 0.8;
       }
 
       .chore-card:hover {
-          /* Simplified hover effect */
-          -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
-          box-shadow: 0 8px 16px rgba(76,175,80,0.25);
-          -webkit-box-shadow: 0 8px 16px rgba(76,175,80,0.25);
-          border-color: #4caf50;
+          -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+          box-shadow: 0 20px 40px rgba(22, 28, 26, 0.36);
+          -webkit-box-shadow: 0 20px 40px rgba(22, 28, 26, 0.36);
+          border-color: rgba(95, 63, 41, 0.55);
       }
 
-      /* Kid profile section - Samsung TV compatible */
       .kid-profile {
-          margin-bottom: 10px;
-          overflow: hidden; /* Clear floats */
+          margin-bottom: 14px;
+          overflow: hidden;
+          padding-top: 12px;
       }
 
       .kid-avatar {
@@ -143,112 +196,121 @@
           border-radius: 50%;
           -webkit-border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #4caf50;
-          box-shadow: 0 4px 8px rgba(76,175,80,0.3);
-          -webkit-box-shadow: 0 4px 8px rgba(76,175,80,0.3);
+          border: 4px solid #f3ddbf;
+          box-shadow: 0 8px 18px rgba(63, 44, 24, 0.25);
+          -webkit-box-shadow: 0 8px 18px rgba(63, 44, 24, 0.25);
           float: left;
           margin-right: 16px;
-          position: relative;
       }
 
-      .kid-avatar::after {
-          content: "☘️";
-          position: absolute;
-          bottom: -5px;
-          right: -5px;
-          font-size: 1.2rem;
-          background: white;
-          border-radius: 50%;
-          -webkit-border-radius: 50%;
-          width: 28px;
-          height: 28px;
-          text-align: center;
-          line-height: 28px;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-          -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-      }
-
-      /* Kid name badges — optimized for Samsung TV */
       .kid-name {
-          font-family: "Fredoka", sans-serif;
-          font-size: 1.4rem;
-          font-weight: 600;
-          padding: 6px 14px;
-          border-radius: 20px;
-          -webkit-border-radius: 20px;
-          color: white;
+          font-family: "Abril Fatface", serif;
+          font-size: 1.45rem;
+          font-weight: 400;
+          padding: 8px 16px;
+          border-radius: 14px;
+          -webkit-border-radius: 14px;
+          color: #fff6eb;
           display: inline-block;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-          -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-          margin-top: 20px; /* Space from avatar */
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 5px 12px rgba(0,0,0,0.18);
+          -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 5px 12px rgba(0,0,0,0.18);
+          margin-top: 18px;
+          letter-spacing: 0.02em;
       }
 
-      /* Pastel colors */
-      .Ellie { background: #ff6f91; }
-      .Brooklyn { background: #ff9671; }
-      .Hazel { background: #ffc75f; color:#333; }
-      .Maverick { background: #f9f871; color:#333; }
-      .Hinckley { background: #5fd490; }
-      .Adaline { background: #6ec6ff; }
-      .Raleigh { background: #d4a5ff; }
+      .Ellie { background: linear-gradient(135deg, #8c4d2a, #bf8250); }
+      .Brooklyn { background: linear-gradient(135deg, #7b3f1d, #a56438); }
+      .Hazel { background: linear-gradient(135deg, #82633f, #ba9259); }
+      .Maverick { background: linear-gradient(135deg, #5a4d34, #8a7450); }
+      .Hinckley { background: linear-gradient(135deg, #2f5c4a, #4d7f68); }
+      .Adaline { background: linear-gradient(135deg, #536d7e, #7f94a6); }
+      .Raleigh { background: linear-gradient(135deg, #6c5a46, #9c8465); }
 
       ul {
           margin: 0;
-          padding-left: 18px;
+          padding-left: 20px;
       }
 
       li {
-          margin-bottom: 3px;
-          font-size: 1rem;
-          line-height: 1.3;
+          margin-bottom: 7px;
+          font-size: 1.06rem;
+          line-height: 1.35;
       }
 
       .chore-list-title {
-          font-family: "Fredoka", sans-serif;
-          font-size: 1rem;
-          color: #666;
-          margin-bottom: 8px;
+          font-family: "Nunito", sans-serif;
+          font-size: 0.86rem;
+          color: #735235;
+          margin-bottom: 10px;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.18em;
+          font-weight: 800;
       }
 
-      /* Inspirational quote styling */
       .quote-section {
+          position: relative;
+          z-index: 1;
           text-align: center;
-          margin-top: 12px;
-          padding: 8px;
+          margin: 16px auto 0;
+          padding: 16px 18px 12px;
+          max-width: 960px;
+          background: rgba(53, 41, 30, 0.28);
+          border: 1px solid rgba(255, 242, 224, 0.18);
+          border-radius: 22px;
+          -webkit-border-radius: 22px;
+          backdrop-filter: blur(6px);
       }
 
       .quote {
-          font-family: "Fredoka", sans-serif;
+          font-family: "Abril Fatface", serif;
           font-size: 1.4rem;
-          color: #fff;
-          font-style: italic;
+          color: #fff7eb;
           text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-          margin-bottom: 4px;
+          margin-bottom: 6px;
       }
 
       .quote-emphasis {
           font-style: normal;
           font-weight: 700;
-          color: #fff176;
+          color: #ffd58b;
           text-decoration: underline;
-          text-decoration-color: #c8e6c9;
+          text-decoration-color: rgba(255, 213, 139, 0.45);
           text-shadow: 0 2px 4px rgba(0,0,0,0.35);
       }
 
       .quote-author {
-          font-family: "Inter", sans-serif;
-          font-size: 1rem;
-          color: rgba(255, 255, 255, 0.9);
-          font-weight: 600;
+          font-family: "Nunito", sans-serif;
+          font-size: 0.95rem;
+          color: rgba(255, 246, 235, 0.84);
+          font-weight: 700;
           text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      }
+
+      @media (max-width: 720px) {
+          h1 {
+              font-size: 2.25rem;
+          }
+
+          .hero-subtitle {
+              font-size: 0.82rem;
+              letter-spacing: 0.16em;
+          }
+
+          .chore-card {
+              width: auto;
+              display: block;
+              margin: 10px auto;
+              max-width: 340px;
+          }
       }
   </style>
 </head>
 <body>
 
-<h1>🍀 Ross Family Chores ☘️</h1>
+<div class="hero">
+  <h1>Ross Family Basecamp</h1>
+  <div class="hero-subtitle">Cabin Crew Chores</div>
+</div>
 
 <div class="chores-container" id="choresContainer">
   <!-- Cards will be generated by JavaScript -->
@@ -328,47 +390,45 @@
 
   renderTable();
 
-  // Create falling shamrocks (wrapped in try-catch for browser compatibility)
+  // Create drifting snow for a light cabin feel.
   try {
-    var MAX_SHAMROCKS = 25;
-    var shamrockCount = 0;
-    var shamrocks = ['🍀', '☘️', '🍃', '🌿', '💚'];
+    var MAX_FLAKES = 20;
+    var flakeCount = 0;
+    var flakes = ['•', '✦', '•', '·'];
 
-    function createShamrock() {
+    function createFlake() {
       try {
-        if (shamrockCount >= MAX_SHAMROCKS) {
+        if (flakeCount >= MAX_FLAKES) {
           return;
         }
-        // Check document.hidden safely
         if (typeof document.hidden !== 'undefined' && document.hidden) {
           return;
         }
 
-        var shamrock = document.createElement('div');
-        shamrock.setAttribute('class', 'floating-shamrock');
-        shamrock.textContent = shamrocks[Math.floor(Math.random() * shamrocks.length)];
-        shamrock.style.left = Math.random() * 100 + 'vw';
-        var duration = Math.random() * 3 + 4;
-        shamrock.style.animationDuration = duration + 's';
-        shamrock.style.fontSize = (Math.random() * 0.8 + 1.2) + 'rem';
-        document.body.appendChild(shamrock);
-        shamrockCount++;
+        var flake = document.createElement('div');
+        flake.setAttribute('class', 'floating-flake');
+        flake.textContent = flakes[Math.floor(Math.random() * flakes.length)];
+        flake.style.left = Math.random() * 100 + 'vw';
+        var duration = Math.random() * 4 + 6;
+        flake.style.animationDuration = duration + 's';
+        flake.style.fontSize = (Math.random() * 0.5 + 0.8) + 'rem';
+        document.body.appendChild(flake);
+        flakeCount++;
 
         setTimeout(function() {
-          if (shamrock.parentNode) {
-            shamrock.parentNode.removeChild(shamrock);
-            shamrockCount--;
+          if (flake.parentNode) {
+            flake.parentNode.removeChild(flake);
+            flakeCount--;
           }
         }, (duration + 0.5) * 1000);
       } catch (e) {
-        // Silently fail - shamrocks are non-essential
+        // Silently fail - animation is non-essential
       }
     }
 
-    // Create shamrocks periodically
-    setInterval(createShamrock, 400);
+    setInterval(createFlake, 550);
   } catch (e) {
-    // Shamrock animation not supported - table will still work
+    // Animation not supported - table will still work
   }
 
 </script>
