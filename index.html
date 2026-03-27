@@ -206,6 +206,33 @@
           border-color: rgba(172, 124, 69, 0.52);
       }
 
+      .dance-card {
+          -webkit-animation: hazel-dance 1.4s ease-in-out 1;
+          animation: hazel-dance 1.4s ease-in-out 1;
+          -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+      }
+
+      @-webkit-keyframes hazel-dance {
+          0%, 100% { -webkit-transform: translateX(0) rotate(0deg); transform: translateX(0) rotate(0deg); }
+          10% { -webkit-transform: translateX(-4px) rotate(-2deg); transform: translateX(-4px) rotate(-2deg); }
+          20% { -webkit-transform: translateX(4px) rotate(2deg) translateY(-3px); transform: translateX(4px) rotate(2deg) translateY(-3px); }
+          35% { -webkit-transform: translateX(-6px) rotate(-3deg); transform: translateX(-6px) rotate(-3deg); }
+          50% { -webkit-transform: translateX(6px) rotate(3deg) translateY(-5px); transform: translateX(6px) rotate(3deg) translateY(-5px); }
+          65% { -webkit-transform: translateX(-3px) rotate(-1deg); transform: translateX(-3px) rotate(-1deg); }
+          80% { -webkit-transform: translateX(3px) rotate(1deg) translateY(-2px); transform: translateX(3px) rotate(1deg) translateY(-2px); }
+      }
+
+      @keyframes hazel-dance {
+          0%, 100% { -webkit-transform: translateX(0) rotate(0deg); transform: translateX(0) rotate(0deg); }
+          10% { -webkit-transform: translateX(-4px) rotate(-2deg); transform: translateX(-4px) rotate(-2deg); }
+          20% { -webkit-transform: translateX(4px) rotate(2deg) translateY(-3px); transform: translateX(4px) rotate(2deg) translateY(-3px); }
+          35% { -webkit-transform: translateX(-6px) rotate(-3deg); transform: translateX(-6px) rotate(-3deg); }
+          50% { -webkit-transform: translateX(6px) rotate(3deg) translateY(-5px); transform: translateX(6px) rotate(3deg) translateY(-5px); }
+          65% { -webkit-transform: translateX(-3px) rotate(-1deg); transform: translateX(-3px) rotate(-1deg); }
+          80% { -webkit-transform: translateX(3px) rotate(1deg) translateY(-2px); transform: translateX(3px) rotate(1deg) translateY(-2px); }
+      }
+
       .kid-profile {
           margin-bottom: 14px;
           overflow: hidden;
@@ -352,6 +379,10 @@
 </div>
 
 <script>
+  var DANCE_DURATION_MS = 1400;
+  var DANCE_PAUSE_MS = 1000;
+  var danceTimerId = null;
+
   var KIDS = [
     { name: "Ellie", chores: ["Stainless steel", "Garage-including bag of softball drinks"] },
     { name: "Brooklyn", chores: ["Kids bathroom", "Toy cubbies"] },
@@ -418,7 +449,33 @@
     }
   }
 
+  function startDanceRotation() {
+    var cards = document.querySelectorAll(".chore-card");
+    var danceIndex = 0;
+
+    if (danceTimerId) {
+      clearTimeout(danceTimerId);
+      danceTimerId = null;
+    }
+
+    if (!cards.length) return;
+
+    function queueNextDance() {
+      var activeCard = cards[danceIndex];
+      activeCard.classList.add("dance-card");
+
+      danceTimerId = setTimeout(function() {
+        activeCard.classList.remove("dance-card");
+        danceIndex = (danceIndex + 1) % cards.length;
+        danceTimerId = setTimeout(queueNextDance, DANCE_PAUSE_MS);
+      }, DANCE_DURATION_MS);
+    }
+
+    queueNextDance();
+  }
+
   renderTable();
+  startDanceRotation();
 
   // Create gentle drifting spring symbols for a light Easter feel.
   try {
