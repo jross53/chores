@@ -611,9 +611,9 @@
     </div>
     <div class="hero-copy">
       <h1>Ross Family Chores</h1>
-      <p class="hero-subtitle">Volleyball Season Lineup</p>
-      <p class="hero-message">Call the ball, cover your zone, finish the rally, and leave every room looking like championship point just happened.</p>
-      <div class="hero-scripture">Serve tough. Communicate loud. Finish strong.</div>
+<!--      <p class="hero-subtitle">Volleyball Season Lineup</p>-->
+<!--      <p class="hero-message">Call the ball, cover your zone, finish the rally, and leave every room looking like championship point just happened.</p>-->
+<!--      <div class="hero-scripture">Serve tough. Communicate clearly. Finish strong.</div>-->
     </div>
     <div class="hero-stats">
       <div class="stat-chip"><strong>7</strong> players in rotation</div>
@@ -755,7 +755,9 @@
   try {
     var MAX_SYMBOLS = 18;
     var symbolCount = 0;
-    var symbols = ['🏐', '⚡', '✦', '●'];
+    var MIN_SYMBOL_SIZE_REM = 0.85;
+    var MAX_SYMBOL_SIZE_REM = 2;
+    var symbols = ['🏐','🏐','🏐','🏐','🏐','🏐','🏐','🏐','🏐','🏐'];
 
     function createSymbol() {
       try {
@@ -772,7 +774,7 @@
         symbol.style.left = Math.random() * 100 + 'vw';
         var duration = Math.random() * 4 + 6;
         symbol.style.animationDuration = duration + 's';
-        symbol.style.fontSize = (Math.random() * 0.55 + 0.85) + 'rem';
+        symbol.style.fontSize = (Math.random() * (MAX_SYMBOL_SIZE_REM - MIN_SYMBOL_SIZE_REM) + MIN_SYMBOL_SIZE_REM) + 'rem';
         document.body.appendChild(symbol);
         symbolCount++;
 
