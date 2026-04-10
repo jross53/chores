@@ -2,39 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Ross Family Chores</title>
+  <title>Ross Family Chores - Volleyball Season</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 
   <style>
       :root {
-          --sky-top: #f5c98e;
-          --sky-mid: #f6e1ba;
-          --sky-bottom: #f7f2df;
-          --horizon: #f3dbc7;
-          --garden-deep: #58704c;
-          --garden-mid: #7d9367;
-          --garden-light: #abc48b;
-          --lily: #fff8ef;
-          --lily-shadow: #eadcc7;
-          --gold: #d7a447;
-          --rose: #d98f93;
-          --ink: #463425;
-          --glow: rgba(255, 250, 238, 0.8);
+          --court-wood: #d4a574;
+          --court-line: #ffffff;
+          --net-gray: #e5e5e5;
+          --volleyball-orange: #ff6b35;
+          --volleyball-white: #ffffff;
+          --court-shadow: #b8905a;
+          --deep-court: #a67c52;
+          --light-court: #e8c499;
+          --cream: #fef9f1;
+          --cream-shadow: #f0e6d4;
+          --accent-orange: #ff8c42;
+          --accent-red: #d73027;
+          --accent-blue: #2f5d8c;
+          --scoreboard-navy: #17314c;
+          --scoreboard-glow: #91c8ff;
+          --text-dark: #4a3728;
+          --glow: rgba(255, 255, 255, 0.9);
       }
 
       body {
           font-family: "Nunito", sans-serif;
-          background: #efe5d4;
+          background: #e8c499;
           background:
-              linear-gradient(180deg, rgba(255, 250, 242, 0.38), rgba(239, 229, 212, 0.44)),
-              url("resurrection-background.png") center center / cover no-repeat fixed;
-          padding: 18px 12px 28px;
+              linear-gradient(180deg, rgba(255, 248, 240, 0.4), rgba(232, 196, 153, 0.5)),
+              linear-gradient(45deg, var(--court-wood) 0%, var(--light-court) 50%, var(--court-wood) 100%);
+          padding: 10px 12px 12px;
           margin: 0;
           min-height: 100vh;
           position: relative;
           overflow-x: hidden;
-          color: var(--ink);
+          color: var(--text-dark);
       }
 
       body::before,
@@ -48,7 +52,10 @@
 
       body::before {
           inset: 0;
-          background: linear-gradient(180deg, rgba(92, 74, 53, 0.03), rgba(255,255,255,0.02) 22%, rgba(255,248,240,0.12) 100%);
+          background:
+              linear-gradient(0deg, transparent 48%, var(--court-line) 49%, var(--court-line) 51%, transparent 52%),
+              linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.24) 10.4%, rgba(255,255,255,0.24) 10.8%, transparent 11.2%, transparent 49%, rgba(255,255,255,0.3) 49.4%, rgba(255,255,255,0.3) 50.6%, transparent 51%, transparent 89%, rgba(255,255,255,0.24) 89.4%, rgba(255,255,255,0.24) 89.8%, transparent 90.2%),
+              linear-gradient(180deg, rgba(212, 165, 116, 0.03), rgba(255,255,255,0.02) 22%, rgba(255,248,240,0.12) 100%);
           z-index: 0;
       }
 
@@ -82,45 +89,139 @@
           position: relative;
           z-index: 1;
           text-align: center;
-          max-width: 1120px;
-          margin: 0 auto 26px;
-          padding: 28px 18px 12px;
+          max-width: 1640px;
+          margin: 0 auto 8px;
+          padding: 8px 8px 4px;
       }
 
       .hero-panel {
-          padding: 28px 20px 24px;
-          border-radius: 30px;
+          padding: 14px 18px 12px;
+          border-radius: 24px;
           background:
               linear-gradient(180deg, rgba(255,255,255,0.52), rgba(255,250,242,0.28));
           border: 1px solid rgba(255, 249, 236, 0.62);
           box-shadow: 0 18px 48px rgba(123, 92, 54, 0.1);
           backdrop-filter: blur(2px);
+          display: grid;
+          grid-template-columns: auto 1fr auto;
+          align-items: center;
+          gap: 16px;
+      }
+
+      .scoreboard {
+          display: grid;
+          grid-template-columns: minmax(90px, 1fr) auto minmax(90px, 1fr);
+          gap: 8px;
+          align-items: center;
+          max-width: 380px;
+          margin: 0;
+          padding: 10px 12px;
+          border-radius: 18px;
+          background:
+              radial-gradient(circle at top, rgba(145, 200, 255, 0.16), transparent 48%),
+              linear-gradient(180deg, rgba(26, 52, 79, 0.97), rgba(15, 34, 54, 0.96));
+          color: #f7fbff;
+          border: 2px solid rgba(255,255,255,0.12);
+          box-shadow: 0 20px 38px rgba(30, 45, 63, 0.24);
+      }
+
+      .score-panel {
+          text-align: center;
+      }
+
+      .score-label {
+          font-size: 0.72rem;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.22em;
+          color: rgba(219, 237, 255, 0.74);
+      }
+
+      .score-value {
+          font-size: 1.9rem;
+          font-weight: 800;
+          color: #ffffff;
+          text-shadow: 0 0 16px rgba(145, 200, 255, 0.42);
+      }
+
+      .score-center {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 3px;
+          padding: 0 10px;
+      }
+
+      .score-match {
+          font-size: 0.66rem;
+          text-transform: uppercase;
+          letter-spacing: 0.26em;
+          color: rgba(255,255,255,0.7);
+      }
+
+      .score-vs {
+          font-family: "Cormorant Garamond", serif;
+          font-size: 1.6rem;
+          font-weight: 700;
+          color: #fff4d9;
+      }
+
+      .hero-copy {
+          min-width: 0;
       }
 
       .hero-subtitle {
           color: rgba(91, 63, 34, 0.85);
-          font-size: 0.88rem;
+          font-size: 0.72rem;
           font-weight: 700;
-          letter-spacing: 0.24em;
+          letter-spacing: 0.22em;
           text-transform: uppercase;
-          margin-top: 0;
+          margin: 2px 0 0;
       }
 
       .hero-message {
-          max-width: 720px;
-          margin: 14px auto 0;
-          font-size: 1.08rem;
-          line-height: 1.5;
+          max-width: none;
+          margin: 6px 0 0;
+          font-size: 0.94rem;
+          line-height: 1.25;
           color: #5f4630;
           font-weight: 700;
       }
 
       .hero-scripture {
-          margin-top: 12px;
+          margin-top: 6px;
           font-family: "Cormorant Garamond", serif;
-          font-size: 1.5rem;
+          font-size: 1.18rem;
           color: #715239;
           text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+      }
+
+      .hero-stats {
+          display: flex;
+          justify-content: flex-end;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin: 0;
+          max-width: 360px;
+      }
+
+      .stat-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 12px;
+          border-radius: 999px;
+          background: rgba(255, 253, 248, 0.8);
+          border: 1px solid rgba(153, 112, 62, 0.18);
+          box-shadow: 0 8px 18px rgba(114, 82, 49, 0.08);
+          font-size: 0.8rem;
+          font-weight: 800;
+          color: #6a4a2a;
+      }
+
+      .stat-chip strong {
+          color: var(--accent-red);
+          font-size: 0.92rem;
       }
 
       .floating-symbol {
@@ -167,31 +268,54 @@
       .chores-container {
           position: relative;
           z-index: 1;
-          text-align: center;
-          max-width: 1600px;
+          text-align: initial;
+          max-width: 1640px;
           margin: 0 auto;
-          padding: 0 10px;
+          padding: 10px 8px 4px;
           overflow: hidden;
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 10px;
+          align-items: stretch;
+      }
+
+      .chores-container::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 0;
+          bottom: 0;
+          width: 10px;
+          transform: translateX(-50%);
+          border-radius: 999px;
+          background:
+              linear-gradient(180deg, rgba(255,255,255,0.95), rgba(214,214,214,0.96) 42%, rgba(255,255,255,0.95));
+          box-shadow:
+              0 0 0 4px rgba(255,255,255,0.16),
+              0 10px 28px rgba(91, 67, 39, 0.15);
+          opacity: 0.6;
+          pointer-events: none;
       }
 
       .chore-card {
           background:
               linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,255,255,0.18)),
-              linear-gradient(145deg, var(--lily), #f8eedf);
+              linear-gradient(145deg, var(--cream), #f8eedf);
           border-radius: 22px;
           -webkit-border-radius: 22px;
-          padding: 16px 16px 18px;
-          box-shadow: 0 14px 30px rgba(127, 93, 57, 0.14);
-          -webkit-box-shadow: 0 14px 30px rgba(127, 93, 57, 0.14);
-          border: 1px solid rgba(192, 157, 110, 0.32);
+          padding: 10px 10px 12px;
+          box-shadow: 0 10px 20px rgba(127, 93, 57, 0.14);
+          -webkit-box-shadow: 0 10px 20px rgba(127, 93, 57, 0.14);
+          border: 1px solid rgba(212, 165, 116, 0.32);
           -webkit-transition: all 0.25s ease;
           transition: all 0.25s ease;
-          width: 300px;
-          margin: 8px;
-          display: inline-block;
-          vertical-align: top;
+          width: auto;
+          margin: 0;
+          display: block;
           text-align: left;
           position: relative;
+          overflow: hidden;
+          min-height: 0;
       }
 
       .chore-card::before {
@@ -202,15 +326,29 @@
           top: 10px;
           height: 10px;
           border-radius: 999px;
-          background: linear-gradient(90deg, rgba(217, 164, 71, 0.32), rgba(255,255,255,0.95), rgba(217, 164, 71, 0.32));
+          background: linear-gradient(90deg, rgba(255, 107, 53, 0.32), rgba(255,255,255,0.95), rgba(255, 107, 53, 0.32));
           opacity: 0.95;
       }
 
+      .chore-card::after {
+          content: "";
+          position: absolute;
+          inset: auto -34px -34px auto;
+          width: 94px;
+          height: 94px;
+          border-radius: 50%;
+          background:
+              radial-gradient(circle at center, transparent 50%, rgba(255,255,255,0.92) 51%, rgba(255,255,255,0.92) 54%, transparent 55%),
+              conic-gradient(from 30deg, rgba(255, 107, 53, 0.2), rgba(255,255,255,0.12), rgba(255, 107, 53, 0.2));
+          opacity: 0.8;
+          pointer-events: none;
+      }
+
       .chore-card:hover {
-          -webkit-transform: translateY(-4px);
-          transform: translateY(-4px);
-          box-shadow: 0 20px 40px rgba(127, 93, 57, 0.26);
-          -webkit-box-shadow: 0 20px 40px rgba(127, 93, 57, 0.26);
+          -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+          box-shadow: 0 14px 26px rgba(127, 93, 57, 0.22);
+          -webkit-box-shadow: 0 14px 26px rgba(127, 93, 57, 0.22);
           border-color: rgba(172, 124, 69, 0.52);
       }
 
@@ -242,37 +380,50 @@
       }
 
       .kid-profile {
-          margin-bottom: 14px;
+          margin-bottom: 8px;
           overflow: hidden;
-          padding-top: 12px;
+          padding-top: 8px;
       }
 
       .kid-avatar {
-          width: 80px;
-          height: 80px;
+          width: 54px;
+          height: 54px;
           border-radius: 50%;
           -webkit-border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #fff5e7;
-          box-shadow: 0 8px 18px rgba(136, 98, 56, 0.2);
-          -webkit-box-shadow: 0 8px 18px rgba(136, 98, 56, 0.2);
+          border: 3px solid #fff5e7;
+          box-shadow: 0 6px 12px rgba(136, 98, 56, 0.2);
+          -webkit-box-shadow: 0 6px 12px rgba(136, 98, 56, 0.2);
           float: left;
-          margin-right: 16px;
+          margin-right: 10px;
       }
 
       .kid-name {
           font-family: "Cormorant Garamond", serif;
-          font-size: 1.7rem;
+          font-size: 1.28rem;
           font-weight: 400;
-          padding: 8px 16px;
+          padding: 6px 10px;
           border-radius: 14px;
           -webkit-border-radius: 14px;
           color: #fffef9;
           display: inline-block;
           box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 5px 12px rgba(120,82,45,0.18);
           -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 5px 12px rgba(120,82,45,0.18);
-          margin-top: 18px;
+          margin-top: 8px;
           letter-spacing: 0.02em;
+      }
+
+      .position-tag {
+          display: inline-block;
+          margin: 6px 0 0;
+          padding: 5px 8px;
+          border-radius: 999px;
+          background: rgba(47, 93, 140, 0.11);
+          color: var(--accent-blue);
+          font-size: 0.62rem;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
       }
 
       .Ellie { background: linear-gradient(135deg, #d99d78, #c57f6c); }
@@ -289,42 +440,68 @@
       }
 
       li {
-          margin-bottom: 7px;
-          font-size: 1.06rem;
-          line-height: 1.35;
+          margin-bottom: 5px;
+          font-size: 0.84rem;
+          line-height: 1.2;
+          word-wrap: break-word;
       }
 
       .chore-list-title {
           font-family: "Nunito", sans-serif;
-          font-size: 0.86rem;
+          font-size: 0.74rem;
           color: #8d6b45;
-          margin-bottom: 10px;
+          margin-bottom: 6px;
           text-transform: uppercase;
-          letter-spacing: 0.18em;
+          letter-spacing: 0.16em;
           font-weight: 800;
+      }
+
+      .rotation-label {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 8px 0 6px;
+          gap: 8px;
+      }
+
+      .rotation-zone {
+          font-size: 0.66rem;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--accent-red);
+      }
+
+      .rotation-difficulty {
+          font-size: 0.62rem;
+          font-weight: 800;
+          padding: 4px 8px;
+          border-radius: 999px;
+          background: rgba(255, 140, 66, 0.14);
+          color: #9a5624;
       }
 
       .quote-section {
           position: relative;
           z-index: 1;
           text-align: center;
-          margin: 18px auto 60px;
-          padding: 18px 20px 14px;
-          max-width: 960px;
+          margin: 8px auto 0;
+          padding: 10px 16px 8px;
+          max-width: 1280px;
           background: rgba(255, 250, 241, 0.3);
           border: 1px solid rgba(212, 180, 135, 0.32);
-          border-radius: 22px;
+          border-radius: 18px;
           -webkit-border-radius: 22px;
           backdrop-filter: blur(8px);
-          box-shadow: 0 14px 34px rgba(140, 101, 58, 0.1);
+          box-shadow: 0 8px 18px rgba(140, 101, 58, 0.1);
       }
 
       .quote {
           font-family: "Cormorant Garamond", serif;
-          font-size: 1.9rem;
+          font-size: 1.2rem;
           color: #68452b;
           text-shadow: 0 2px 10px rgba(255,255,255,0.35);
-          margin-bottom: 6px;
+          margin-bottom: 2px;
       }
 
       .quote-emphasis {
@@ -338,15 +515,35 @@
 
       .quote-author {
           font-family: "Nunito", sans-serif;
-          font-size: 0.95rem;
+          font-size: 0.74rem;
           color: rgba(95, 66, 38, 0.82);
           font-weight: 700;
           text-shadow: none;
       }
 
+      @media (max-width: 1400px) {
+          .hero-panel {
+              grid-template-columns: 1fr;
+          }
+
+          .scoreboard,
+          .hero-stats {
+              max-width: none;
+              justify-content: center;
+          }
+
+          .chores-container {
+              grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
+      }
+
       @media (max-width: 720px) {
           h1 {
               font-size: 2.7rem;
+          }
+
+          .hero-panel {
+              display: block;
           }
 
           .hero-subtitle {
@@ -362,11 +559,33 @@
               font-size: 1.28rem;
           }
 
+          .scoreboard {
+              grid-template-columns: 1fr;
+              gap: 8px;
+          }
+
+          .score-center {
+              order: -1;
+          }
+
+          .hero-stats {
+              gap: 8px;
+              justify-content: center;
+          }
+
           .chore-card {
               width: auto;
               display: block;
               margin: 10px auto;
               max-width: 340px;
+          }
+
+          .chores-container {
+              display: block;
+          }
+
+          .chores-container::before {
+              display: none;
           }
 
       }
@@ -375,7 +594,33 @@
 <body>
 
 <div class="hero">
-  <h1>Ross Family Chores</h1>
+  <div class="hero-panel">
+    <div class="scoreboard">
+      <div class="score-panel">
+        <div class="score-label">Home Team</div>
+        <div class="score-value">25</div>
+      </div>
+      <div class="score-center">
+        <div class="score-match">Saturday Rotation</div>
+        <div class="score-vs">VS</div>
+      </div>
+      <div class="score-panel">
+        <div class="score-label">Messes</div>
+        <div class="score-value">0</div>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <h1>Ross Family Chores</h1>
+      <p class="hero-subtitle">Volleyball Season Lineup</p>
+      <p class="hero-message">Call the ball, cover your zone, finish the rally, and leave every room looking like championship point just happened.</p>
+      <div class="hero-scripture">Serve tough. Communicate loud. Finish strong.</div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-chip"><strong>7</strong> players in rotation</div>
+      <div class="stat-chip"><strong>9</strong> chore assignments</div>
+      <div class="stat-chip"><strong>100%</strong> hustle expected</div>
+    </div>
+  </div>
 </div>
 
 <div class="chores-container" id="choresContainer">
@@ -383,7 +628,8 @@
 </div>
 
 <div class="quote-section">
-  <div class="quote">"Why seek ye the living among the dead? He is not here, but is risen."</div>
+  <div class="quote">"Champions keep playing until they get it right."</div>
+  <div class="quote-author">— Billie Jean King</div>
 </div>
 
 <script>
@@ -392,13 +638,13 @@
   var danceTimerId = null;
 
   var KIDS = [
-    { name: "Ellie", chores: ["Softball"] },
-    { name: "Brooklyn", chores: ["Scoop poop"] },
-    { name: "Hazel", chores: ["Garbages"] },
-    { name: "Maverick", chores: ["Kids bathroom"] },
-    { name: "Hinckley", chores: ["Kitchen bathroom"] },
-    { name: "Adaline", chores: ["Shoe basket", "Flags"] },
-    { name: "Raleigh", chores: ["Shoe basket", "Flags"] }
+    { name: "Ellie", position: "Outside Hitter", zone: "Zone 4", intensity: "Match Point", chores: ["Kitchen bathroom (make sure crack between sink and wall gets cleaned)", "Deep clean kitchen counters"] },
+    { name: "Brooklyn", position: "Setter", zone: "Zone 2", intensity: "Quick Tempo", chores: ["Kids bathroom", "Stainless steel (please don't make a mess on the floor with the spray)"] },
+    { name: "Hazel", position: "Libero", zone: "Zone 5", intensity: "All-Out Save", chores: ["Inside Microwave", "Scoop poop"] },
+    { name: "Maverick", position: "Middle Blocker", zone: "Zone 3", intensity: "Big Block", chores: ["Garbages"] },
+    { name: "Hinckley", position: "Defensive Specialist", zone: "Zone 6", intensity: "Floor Burn", chores: ["Vacuum basement"] },
+    { name: "Adaline", position: "Right Side", zone: "Zone 1", intensity: "Strong Finish", chores: ["Shoe basket", "Coat closet"] },
+    { name: "Raleigh", position: "Serving Sub", zone: "Service Line", intensity: "Clutch Serve", chores: ["Shoe basket"] }
   ];
 
   function renderTable() {
@@ -435,11 +681,31 @@
       profileDiv.appendChild(avatar);
       profileDiv.appendChild(nameDiv);
 
+      var positionTag = document.createElement("div");
+      positionTag.setAttribute("class", "position-tag");
+      positionTag.textContent = kid.position;
+      profileDiv.appendChild(positionTag);
+
       // Create chores section
       var choresDiv = document.createElement("div");
+      var rotationLabel = document.createElement("div");
+      rotationLabel.setAttribute("class", "rotation-label");
+
+      var rotationZone = document.createElement("div");
+      rotationZone.setAttribute("class", "rotation-zone");
+      rotationZone.textContent = kid.zone;
+
+      var difficultyTag = document.createElement("div");
+      difficultyTag.setAttribute("class", "rotation-difficulty");
+      difficultyTag.textContent = kid.intensity;
+
+      rotationLabel.appendChild(rotationZone);
+      rotationLabel.appendChild(difficultyTag);
+      choresDiv.appendChild(rotationLabel);
+
       var choreTitle = document.createElement("div");
       choreTitle.setAttribute("class", "chore-list-title");
-      choreTitle.textContent = "Chores";
+      choreTitle.textContent = "Playbook";
       choresDiv.appendChild(choreTitle);
 
       var ul = document.createElement("ul");
@@ -485,11 +751,11 @@
   renderTable();
   startDanceRotation();
 
-  // Create gentle drifting spring symbols for a light Easter feel.
+  // Create gentle drifting volleyball symbols.
   try {
     var MAX_SYMBOLS = 18;
     var symbolCount = 0;
-    var symbols = ['✦', '✿', '·', '❀'];
+    var symbols = ['🏐', '⚡', '✦', '●'];
 
     function createSymbol() {
       try {
