@@ -923,7 +923,7 @@
         <span class="race-overlay-badge-mark">SL</span>
         Random Family Sprint
       </div>
-      <div class="race-overlay-badge">Automatic intermission every 5 minutes</div>
+      <div class="race-overlay-badge" id="raceIntervalLabel"></div>
     </div>
     <div class="race-overlay-title">Mini Race</div>
     <div class="race-overlay-subtitle" id="raceSubtitle">Two runners. One random finish.</div>
@@ -1042,7 +1042,7 @@
 
   renderTable();
 
-  var RACE_INTERVAL_MS = 15 * 1000;
+  var RACE_INTERVAL_MS = 120 * 1000;
   var RACE_COUNTDOWN_MS = 3000;
   var RACE_FINISH_BUFFER_MS = 1800;
   var raceTimerId = null;
@@ -1051,12 +1051,24 @@
   var raceOverlay = document.getElementById("raceOverlay");
   var raceStatus = document.getElementById("raceStatus");
   var raceSubtitle = document.getElementById("raceSubtitle");
+  var raceIntervalLabel = document.getElementById("raceIntervalLabel");
   var runnerOne = document.getElementById("runnerOne");
   var runnerTwo = document.getElementById("runnerTwo");
   var runnerOneAvatar = document.getElementById("runnerOneAvatar");
   var runnerTwoAvatar = document.getElementById("runnerTwoAvatar");
   var runnerOneName = document.getElementById("runnerOneName");
   var runnerTwoName = document.getElementById("runnerTwoName");
+
+  function formatRaceInterval(intervalMs) {
+    var totalSeconds = Math.round(intervalMs / 1000);
+    if (totalSeconds % 60 === 0) {
+      var minutes = totalSeconds / 60;
+      return "Automatic intermission every " + minutes + " minute" + (minutes === 1 ? "" : "s");
+    }
+    return "Automatic intermission every " + totalSeconds + " seconds";
+  }
+
+  raceIntervalLabel.textContent = formatRaceInterval(RACE_INTERVAL_MS);
 
   function pickRacePair() {
     var firstIndex = Math.floor(Math.random() * KIDS.length);
