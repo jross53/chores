@@ -331,6 +331,15 @@
           min-width: 0;
       }
 
+      .race-wins {
+          margin-top: 8px;
+          font-size: 0.8rem;
+          font-weight: 800;
+          letter-spacing: 0.04em;
+          color: #2a587b;
+          text-transform: uppercase;
+      }
+
       .race-bib {
           display: inline-block;
           padding: 5px 9px;
@@ -758,6 +767,11 @@
               margin-bottom: 4px;
           }
 
+          .race-wins {
+              margin-top: 5px;
+              font-size: 0.62rem;
+          }
+
           .kid-name {
               font-size: 1.42rem;
               padding: 2px 8px;
@@ -939,13 +953,13 @@
 
 <script>
   var KIDS = [
-    { name: "Ellie", position: "Outside Hitter", zone: "Zone 4", intensity: "Match Point", chores: ["Basement bathroom", "Hand wash dishes"] },
-    { name: "Brooklyn", position: "Setter", zone: "Zone 2", intensity: "Quick Tempo", chores: ["Kids bathroom", "Scoop poop"] },
-    { name: "Hazel", position: "Libero", zone: "Zone 5", intensity: "All-Out Save", chores: ["Garbages", "Kitchen window"] },
-    { name: "Maverick", position: "Middle Blocker", zone: "Zone 3", intensity: "Big Block", chores: ["Kitchen bathroom", "Bedroom walls"] },
-    { name: "Hinckley", position: "Defensive Specialist", zone: "Zone 6", intensity: "Floor Burn", chores: ["Basement sink", "Garage"] },
-    { name: "Adaline", position: "Right Side", zone: "Zone 1", intensity: "Strong Finish", chores: ["Shoe basket", "Pantry"] },
-    { name: "Raleigh", position: "Serving Sub", zone: "Service Line", intensity: "Clutch Serve", chores: ["Shoe basket"] }
+    { name: "Ellie", position: "Outside Hitter", zone: "Zone 4", intensity: "Match Point", chores: ["Basement bathroom", "Hand wash dishes"], raceWins: 0 },
+    { name: "Brooklyn", position: "Setter", zone: "Zone 2", intensity: "Quick Tempo", chores: ["Kids bathroom", "Scoop poop"], raceWins: 0 },
+    { name: "Hazel", position: "Libero", zone: "Zone 5", intensity: "All-Out Save", chores: ["Garbages", "Kitchen window"], raceWins: 0 },
+    { name: "Maverick", position: "Middle Blocker", zone: "Zone 3", intensity: "Big Block", chores: ["Kitchen bathroom", "Bedroom walls"], raceWins: 0 },
+    { name: "Hinckley", position: "Defensive Specialist", zone: "Zone 6", intensity: "Floor Burn", chores: ["Basement sink", "Garage"], raceWins: 0 },
+    { name: "Adaline", position: "Right Side", zone: "Zone 1", intensity: "Strong Finish", chores: ["Shoe basket", "Pantry"], raceWins: 0 },
+    { name: "Raleigh", position: "Serving Sub", zone: "Service Line", intensity: "Clutch Serve", chores: ["Shoe basket"], raceWins: 0 }
   ];
 
   function renderTable() {
@@ -985,8 +999,13 @@
       nameDiv.setAttribute("class", "kid-name " + kid.name);
       nameDiv.textContent = kid.name;
 
+      var winsDiv = document.createElement("div");
+      winsDiv.setAttribute("class", "race-wins");
+      winsDiv.textContent = "Races won: " + kid.raceWins;
+
       textWrap.appendChild(bibDiv);
       textWrap.appendChild(nameDiv);
+      textWrap.appendChild(winsDiv);
 
       profileDiv.appendChild(avatar);
       profileDiv.appendChild(textWrap);
@@ -1024,7 +1043,7 @@
   renderTable();
 
   var RACE_INTERVAL_MS = 15 * 1000;
-  var RACE_COUNTDOWN_MS = 1400;
+  var RACE_COUNTDOWN_MS = 3000;
   var RACE_FINISH_BUFFER_MS = 1800;
   var raceTimerId = null;
   var raceHideTimerId = null;
@@ -1139,6 +1158,8 @@
       }, Math.max(midDurationSlow, midDurationFast) * 1000 + 120);
 
       setTimeout(function() {
+        winner.raceWins = (winner.raceWins || 0) + 1;
+        renderTable();
         raceStatus.classList.add("flash");
         raceStatus.textContent = winner.name + " wins!";
       }, finishAnnouncementDelay);
