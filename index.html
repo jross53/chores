@@ -263,9 +263,9 @@
       }
 
       .chores-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
-          gap: 18px;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -9px;
       }
 
       .chore-card {
@@ -279,6 +279,8 @@
           text-align: left;
           position: relative;
           overflow: hidden;
+          width: calc(25% - 18px);
+          margin: 0 9px 18px;
       }
 
       .chore-card::before {
@@ -436,6 +438,197 @@
           letter-spacing: 0.04em;
       }
 
+      .race-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 2000;
+          display: none;
+          padding: 28px 34px;
+          background:
+              radial-gradient(circle at 50% 0%, rgba(255,255,255,0.16), transparent 26%),
+              linear-gradient(180deg, rgba(16,26,84,0.96), rgba(13,144,209,0.94) 54%, rgba(172,208,95,0.9));
+          color: #ffffff;
+      }
+
+      .race-overlay.active {
+          display: block;
+      }
+
+      .race-overlay::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+              linear-gradient(135deg, rgba(255,255,255,0.08) 0 15%, transparent 15% 100%),
+              linear-gradient(225deg, rgba(255,255,255,0.06) 0 10%, transparent 10% 100%);
+          pointer-events: none;
+      }
+
+      .race-overlay-content {
+          position: relative;
+          z-index: 1;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .race-overlay-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 18px;
+      }
+
+      .race-overlay-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 8px 14px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.22);
+          font-size: 0.78rem;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+      }
+
+      .race-overlay-badge-mark {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--gold);
+          color: var(--navy);
+          font-size: 0.76rem;
+          font-weight: 800;
+      }
+
+      .race-overlay-title {
+          font-family: "Bebas Neue", sans-serif;
+          font-size: clamp(2.8rem, 7vw, 5.8rem);
+          line-height: 0.92;
+          letter-spacing: 0.05em;
+          margin: 0 0 8px;
+      }
+
+      .race-overlay-subtitle {
+          font-size: 1rem;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.92);
+      }
+
+      .race-track {
+          position: relative;
+          flex: 1;
+          margin-top: 20px;
+          border-radius: 32px;
+          overflow: hidden;
+          background:
+              linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
+              linear-gradient(180deg, #39506c 0%, #2d435c 100%);
+          border: 1px solid rgba(255,255,255,0.18);
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+      }
+
+      .race-track::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+              repeating-linear-gradient(180deg,
+                  transparent 0 24%,
+                  rgba(255,255,255,0.18) 24% 25%,
+                  transparent 25% 49%,
+                  rgba(255,255,255,0.18) 49% 50%,
+                  transparent 50% 74%,
+                  rgba(255,255,255,0.18) 74% 75%,
+                  transparent 75% 100%),
+              linear-gradient(90deg, rgba(255,255,255,0.12) 0 3%, transparent 3% 97%, rgba(255,255,255,0.94) 97% 100%);
+          pointer-events: none;
+      }
+
+      .lane {
+          position: relative;
+          height: 50%;
+      }
+
+      .lane-inner {
+          position: absolute;
+          inset: 0;
+      }
+
+      .lane-label {
+          position: absolute;
+          left: 18px;
+          top: 16px;
+          z-index: 2;
+          padding: 6px 10px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.14);
+          border: 1px solid rgba(255,255,255,0.16);
+          font-size: 0.72rem;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+      }
+
+      .runner {
+          position: absolute;
+          left: 18px;
+          top: 50%;
+          transform: translate(-140px, -50%);
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          transition-property: transform;
+          transition-timing-function: linear;
+          z-index: 2;
+      }
+
+      .runner-avatar {
+          width: 92px;
+          height: 92px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 5px solid #ffffff;
+          box-shadow: 0 12px 28px rgba(0,0,0,0.24);
+          background: rgba(255,255,255,0.18);
+      }
+
+      .runner-name {
+          display: inline-flex;
+          align-items: center;
+          padding: 8px 14px;
+          border-radius: 999px;
+          font-family: "Bebas Neue", sans-serif;
+          font-size: 1.9rem;
+          letter-spacing: 0.06em;
+          color: #ffffff;
+          box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+      }
+
+      .race-status {
+          margin-top: 16px;
+          min-height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-family: "Bebas Neue", sans-serif;
+          font-size: clamp(1.8rem, 4vw, 3rem);
+          letter-spacing: 0.06em;
+      }
+
+      .race-status.flash {
+          color: var(--gold);
+      }
+
       @media (min-width: 1100px) and (orientation: landscape) {
           body {
               padding: 10px 10px 12px;
@@ -529,15 +722,12 @@
               margin-top: 2px;
           }
 
-          .chores-container {
-              grid-template-columns: repeat(4, minmax(0, 1fr));
-              gap: 10px;
-          }
-
           .chore-card {
               border-radius: 18px;
               padding: 12px 12px 10px 14px;
               box-shadow: 0 10px 24px rgba(10, 18, 48, 0.18);
+              width: calc(25% - 10px);
+              margin: 0 5px 10px;
           }
 
           .chore-card::before {
@@ -602,6 +792,16 @@
               padding: 12px 10px 18px;
           }
 
+          .chores-container {
+              display: block;
+              margin: 0;
+          }
+
+          .chore-card {
+              width: auto;
+              margin: 0 0 12px;
+          }
+
           .hero {
               border-radius: 22px;
               padding: 16px 16px 0;
@@ -624,6 +824,29 @@
 
           .course-title {
               font-size: 1.5rem;
+          }
+
+          .race-overlay {
+              padding: 18px 16px;
+          }
+
+          .race-overlay-header {
+              margin-bottom: 12px;
+          }
+
+          .race-overlay-badge {
+              font-size: 0.62rem;
+              padding: 6px 10px;
+          }
+
+          .runner-avatar {
+              width: 68px;
+              height: 68px;
+          }
+
+          .runner-name {
+              font-size: 1.35rem;
+              padding: 6px 10px;
           }
 
       }
@@ -676,6 +899,41 @@
   <div class="quote-section">
     <div class="quote">Every clean room is a finish line.</div>
     <div class="quote-author">Volunteer weekend rule: do your leg of the race and the whole team moves faster.</div>
+  </div>
+</div>
+
+<div class="race-overlay" id="raceOverlay" aria-hidden="true">
+  <div class="race-overlay-content">
+    <div class="race-overlay-header">
+      <div class="race-overlay-badge">
+        <span class="race-overlay-badge-mark">SL</span>
+        Random Family Sprint
+      </div>
+      <div class="race-overlay-badge">Automatic intermission every 5 minutes</div>
+    </div>
+    <div class="race-overlay-title">Mini Race</div>
+    <div class="race-overlay-subtitle" id="raceSubtitle">Two runners. One random finish.</div>
+    <div class="race-track">
+      <div class="lane">
+        <div class="lane-inner">
+          <div class="lane-label">Lane 1</div>
+          <div class="runner" id="runnerOne">
+            <img class="runner-avatar" id="runnerOneAvatar" alt="">
+            <div class="runner-name" id="runnerOneName"></div>
+          </div>
+        </div>
+      </div>
+      <div class="lane">
+        <div class="lane-inner">
+          <div class="lane-label">Lane 2</div>
+          <div class="runner" id="runnerTwo">
+            <img class="runner-avatar" id="runnerTwoAvatar" alt="">
+            <div class="runner-name" id="runnerTwoName"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="race-status" id="raceStatus">On your marks...</div>
   </div>
 </div>
 
@@ -764,6 +1022,113 @@
   }
 
   renderTable();
+
+  var RACE_INTERVAL_MS = 15 * 1000;
+  var RACE_COUNTDOWN_MS = 1400;
+  var RACE_FINISH_BUFFER_MS = 1800;
+  var raceTimerId = null;
+  var raceHideTimerId = null;
+  var raceRunning = false;
+  var raceOverlay = document.getElementById("raceOverlay");
+  var raceStatus = document.getElementById("raceStatus");
+  var raceSubtitle = document.getElementById("raceSubtitle");
+  var runnerOne = document.getElementById("runnerOne");
+  var runnerTwo = document.getElementById("runnerTwo");
+  var runnerOneAvatar = document.getElementById("runnerOneAvatar");
+  var runnerTwoAvatar = document.getElementById("runnerTwoAvatar");
+  var runnerOneName = document.getElementById("runnerOneName");
+  var runnerTwoName = document.getElementById("runnerTwoName");
+
+  function pickRacePair() {
+    var firstIndex = Math.floor(Math.random() * KIDS.length);
+    var secondIndex = firstIndex;
+
+    while (secondIndex === firstIndex) {
+      secondIndex = Math.floor(Math.random() * KIDS.length);
+    }
+
+    return [KIDS[firstIndex], KIDS[secondIndex]];
+  }
+
+  function resetRunnerPosition(runner) {
+    runner.style.transitionDuration = "0s";
+    runner.style.transform = "translate(-140px, -50%)";
+  }
+
+  function scheduleNextRace() {
+    if (raceTimerId) {
+      clearTimeout(raceTimerId);
+    }
+    raceTimerId = setTimeout(startRaceIntermission, RACE_INTERVAL_MS);
+  }
+
+  function endRaceIntermission() {
+    raceRunning = false;
+    raceOverlay.classList.remove("active");
+    raceOverlay.setAttribute("aria-hidden", "true");
+    scheduleNextRace();
+  }
+
+  function startRaceIntermission() {
+    if (raceRunning || document.hidden) {
+      scheduleNextRace();
+      return;
+    }
+
+    var pair = pickRacePair();
+    var winnerIndex = Math.random() < 0.5 ? 0 : 1;
+    var loserIndex = winnerIndex === 0 ? 1 : 0;
+    var winner = pair[winnerIndex];
+    var loser = pair[loserIndex];
+    var winnerRunner = winnerIndex === 0 ? runnerOne : runnerTwo;
+    var loserRunner = loserIndex === 0 ? runnerOne : runnerTwo;
+    var winnerDuration = 4.2 + Math.random() * 0.9;
+    var loserDuration = winnerDuration + 0.7 + Math.random() * 1.1;
+
+    raceRunning = true;
+    raceOverlay.classList.add("active");
+    raceOverlay.setAttribute("aria-hidden", "false");
+    raceStatus.classList.remove("flash");
+    raceStatus.textContent = "On your marks...";
+    raceSubtitle.textContent = pair[0].name + " vs " + pair[1].name;
+
+    runnerOneAvatar.setAttribute("src", pair[0].name + ".png");
+    runnerOneAvatar.setAttribute("alt", pair[0].name + " racing");
+    runnerOneName.textContent = pair[0].name;
+    runnerOneName.setAttribute("class", "runner-name " + pair[0].name);
+
+    runnerTwoAvatar.setAttribute("src", pair[1].name + ".png");
+    runnerTwoAvatar.setAttribute("alt", pair[1].name + " racing");
+    runnerTwoName.textContent = pair[1].name;
+    runnerTwoName.setAttribute("class", "runner-name " + pair[1].name);
+
+    resetRunnerPosition(runnerOne);
+    resetRunnerPosition(runnerTwo);
+
+    if (raceHideTimerId) {
+      clearTimeout(raceHideTimerId);
+    }
+
+    setTimeout(function() {
+      raceStatus.textContent = "Go!";
+
+      setTimeout(function() {
+        winnerRunner.style.transitionDuration = winnerDuration + "s";
+        loserRunner.style.transitionDuration = loserDuration + "s";
+        winnerRunner.style.transform = "translate(calc(100vw - 220px), -50%)";
+        loserRunner.style.transform = "translate(calc(100vw - 260px), -50%)";
+      }, 80);
+
+      setTimeout(function() {
+        raceStatus.classList.add("flash");
+        raceStatus.textContent = winner.name + " wins!";
+      }, winnerDuration * 1000 + 140);
+
+      raceHideTimerId = setTimeout(endRaceIntermission, loserDuration * 1000 + RACE_FINISH_BUFFER_MS);
+    }, RACE_COUNTDOWN_MS);
+  }
+
+  scheduleNextRace();
 
   // Create gentle drifting mile markers.
   try {
