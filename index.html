@@ -127,14 +127,14 @@
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          padding: 8px 14px;
+          padding: 7px 12px;
           border-radius: 999px;
           background: rgba(255,255,255,0.14);
           border: 1px solid rgba(255,255,255,0.28);
           color: #ffffff;
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           font-weight: 800;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           backdrop-filter: blur(10px);
       }
@@ -143,12 +143,12 @@
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 26px;
-          height: 26px;
+          width: 22px;
+          height: 22px;
           border-radius: 50%;
           background: var(--gold);
           color: var(--navy);
-          font-size: 0.9rem;
+          font-size: 0.74rem;
           font-weight: 800;
       }
 
@@ -479,6 +479,7 @@
           height: 100%;
           display: flex;
           flex-direction: column;
+          justify-content: flex-start;
       }
 
       .race-overlay-header {
@@ -486,7 +487,7 @@
           justify-content: space-between;
           align-items: center;
           gap: 16px;
-          margin-bottom: 18px;
+          margin-bottom: 10px;
       }
 
       .race-overlay-badge {
@@ -521,7 +522,7 @@
           font-size: clamp(2.8rem, 7vw, 5.8rem);
           line-height: 0.92;
           letter-spacing: 0.05em;
-          margin: 0 0 8px;
+          margin: 0 0 4px;
       }
 
       .race-overlay-subtitle {
@@ -534,8 +535,9 @@
 
       .race-track {
           position: relative;
-          flex: 1;
-          margin-top: 20px;
+          flex: 0 0 58vh;
+          min-height: 300px;
+          margin-top: 12px;
           border-radius: 32px;
           overflow: hidden;
           background:
@@ -589,13 +591,13 @@
 
       .runner {
           position: absolute;
-          left: 18px;
+          left: -120px;
           top: 50%;
-          transform: translate(-140px, -50%);
+          transform: translateY(-50%);
           display: flex;
           align-items: center;
           gap: 14px;
-          transition-property: transform;
+          transition-property: left;
           transition-timing-function: linear;
           z-index: 2;
       }
@@ -664,14 +666,14 @@
 
           .hero-badge {
               padding: 6px 10px;
-              font-size: 0.64rem;
-              letter-spacing: 0.11em;
+              font-size: 0.58rem;
+              letter-spacing: 0.08em;
           }
 
           .hero-badge-mark {
-              width: 20px;
-              height: 20px;
-              font-size: 0.72rem;
+              width: 18px;
+              height: 18px;
+              font-size: 0.62rem;
           }
 
           .hero-kicker {
@@ -798,6 +800,65 @@
 
           .quote-section {
               display: none;
+          }
+
+          .race-overlay {
+              padding: 16px 22px 14px;
+          }
+
+          .race-overlay-header {
+              margin-bottom: 6px;
+          }
+
+          .race-overlay-badge {
+              padding: 6px 10px;
+              font-size: 0.62rem;
+              letter-spacing: 0.08em;
+          }
+
+          .race-overlay-badge-mark {
+              width: 18px;
+              height: 18px;
+              font-size: 0.58rem;
+          }
+
+          .race-overlay-title {
+              font-size: 2.8rem;
+              margin-bottom: 2px;
+          }
+
+          .race-overlay-subtitle {
+              font-size: 0.76rem;
+          }
+
+          .race-track {
+              flex-basis: 48vh;
+              min-height: 240px;
+              margin-top: 8px;
+          }
+
+          .lane-label {
+              top: 10px;
+              left: 12px;
+              padding: 4px 8px;
+              font-size: 0.58rem;
+          }
+
+          .runner-avatar {
+              width: 64px;
+              height: 64px;
+              border-width: 4px;
+          }
+
+          .runner-name {
+              font-size: 1.3rem;
+              padding: 6px 10px;
+          }
+
+          .race-status {
+              margin-top: 8px;
+              min-height: 32px;
+              font-size: 1.8rem;
           }
       }
 
@@ -1042,7 +1103,7 @@
 
   renderTable();
 
-  var RACE_INTERVAL_MS = 120 * 1000;
+  var RACE_INTERVAL_MS = 60 * 1000;
   var RACE_COUNTDOWN_MS = 3000;
   var RACE_FINISH_BUFFER_MS = 1800;
   var raceTimerId = null;
@@ -1083,12 +1144,12 @@
 
   function resetRunnerPosition(runner) {
     runner.style.transitionDuration = "0s";
-    runner.style.transform = "translate(-140px, -50%)";
+    runner.style.left = "-120px";
   }
 
-  function moveRunnerTo(runner, targetX, durationSeconds) {
+  function moveRunnerTo(runner, targetLeft, durationSeconds) {
     runner.style.transitionDuration = durationSeconds + "s";
-    runner.style.transform = "translate(" + targetX + ", -50%)";
+    runner.style.left = targetLeft;
   }
 
   function scheduleNextRace() {
@@ -1125,8 +1186,8 @@
     var midDurationSlow = midDurationFast + 0.35 + Math.random() * 0.5;
     var secondHalfWinnerDuration = 1.45 + Math.random() * 0.45;
     var secondHalfLoserDuration = secondHalfWinnerDuration + 0.55 + Math.random() * 0.75;
-    var winnerFinishTarget = "calc(100vw - 220px)";
-    var loserFinishTarget = "calc(100vw - 260px)";
+    var winnerFinishTarget = "84%";
+    var loserFinishTarget = "78%";
     var finishAnnouncementDelay = Math.max(midDurationSlow, midDurationFast) * 1000 + secondHalfWinnerDuration * 1000 + 220;
     var raceEndDelay = Math.max(midDurationSlow, midDurationFast) * 1000 + secondHalfLoserDuration * 1000 + RACE_FINISH_BUFFER_MS;
 
@@ -1159,11 +1220,11 @@
 
       setTimeout(function() {
         if (earlyLeader.name === winner.name) {
-          moveRunnerTo(winnerRunner, "calc(100vw - 560px)", midDurationFast);
-          moveRunnerTo(loserRunner, "calc(100vw - 660px)", midDurationSlow);
+          moveRunnerTo(winnerRunner, "58%", midDurationFast);
+          moveRunnerTo(loserRunner, "48%", midDurationSlow);
         } else {
-          moveRunnerTo(winnerRunner, "calc(100vw - 640px)", midDurationSlow);
-          moveRunnerTo(loserRunner, "calc(100vw - 520px)", midDurationFast);
+          moveRunnerTo(winnerRunner, "50%", midDurationSlow);
+          moveRunnerTo(loserRunner, "60%", midDurationFast);
         }
       }, 80);
 
