@@ -1055,6 +1055,11 @@
     runner.style.transform = "translate(-140px, -50%)";
   }
 
+  function moveRunnerTo(runner, targetX, durationSeconds) {
+    runner.style.transitionDuration = durationSeconds + "s";
+    runner.style.transform = "translate(" + targetX + ", -50%)";
+  }
+
   function scheduleNextRace() {
     if (raceTimerId) {
       clearTimeout(raceTimerId);
@@ -1082,15 +1087,25 @@
     var loser = pair[loserIndex];
     var winnerRunner = winnerIndex === 0 ? runnerOne : runnerTwo;
     var loserRunner = loserIndex === 0 ? runnerOne : runnerTwo;
-    var winnerDuration = 4.2 + Math.random() * 0.9;
-    var loserDuration = winnerDuration + 0.7 + Math.random() * 1.1;
+    var finalSprintPass = Math.random() < 0.45;
+    var raceLeadName = finalSprintPass ? loser.name : winner.name;
+    var midDurationFast = 1.8 + Math.random() * 0.45;
+    var midDurationSlow = midDurationFast + 0.35 + Math.random() * 0.5;
+    var secondHalfWinnerDuration = 1.45 + Math.random() * 0.45;
+    var secondHalfLoserDuration = secondHalfWinnerDuration + 0.55 + Math.random() * 0.75;
+    var winnerMidTarget = finalSprintPass ? "calc(100vw - 640px)" : "calc(100vw - 560px)";
+    var loserMidTarget = finalSprintPass ? "calc(100vw - 520px)" : "calc(100vw - 660px)";
+    var winnerFinishTarget = "calc(100vw - 220px)";
+    var loserFinishTarget = "calc(100vw - 260px)";
+    var finishAnnouncementDelay = Math.max(midDurationSlow, midDurationFast) * 1000 + secondHalfWinnerDuration * 1000 + 220;
+    var raceEndDelay = Math.max(midDurationSlow, midDurationFast) * 1000 + secondHalfLoserDuration * 1000 + RACE_FINISH_BUFFER_MS;
 
     raceRunning = true;
     raceOverlay.classList.add("active");
     raceOverlay.setAttribute("aria-hidden", "false");
     raceStatus.classList.remove("flash");
     raceStatus.textContent = "On your marks...";
-    raceSubtitle.textContent = pair[0].name + " vs " + pair[1].name;
+    raceSubtitle.textContent = pair[0].name + " vs " + pair[1].name + " | " + raceLeadName + " leads early";
 
     runnerOneAvatar.setAttribute("src", pair[0].name + ".png");
     runnerOneAvatar.setAttribute("alt", pair[0].name + " racing");
@@ -1113,18 +1128,22 @@
       raceStatus.textContent = "Go!";
 
       setTimeout(function() {
-        winnerRunner.style.transitionDuration = winnerDuration + "s";
-        loserRunner.style.transitionDuration = loserDuration + "s";
-        winnerRunner.style.transform = "translate(calc(100vw - 220px), -50%)";
-        loserRunner.style.transform = "translate(calc(100vw - 260px), -50%)";
+        moveRunnerTo(winnerRunner, winnerMidTarget, midDurationSlow);
+        moveRunnerTo(loserRunner, loserMidTarget, midDurationFast);
       }, 80);
+
+      setTimeout(function() {
+        raceStatus.textContent = finalSprintPass ? "Late pass!" : "Final sprint!";
+        moveRunnerTo(winnerRunner, winnerFinishTarget, secondHalfWinnerDuration);
+        moveRunnerTo(loserRunner, loserFinishTarget, secondHalfLoserDuration);
+      }, Math.max(midDurationSlow, midDurationFast) * 1000 + 120);
 
       setTimeout(function() {
         raceStatus.classList.add("flash");
         raceStatus.textContent = winner.name + " wins!";
-      }, winnerDuration * 1000 + 140);
+      }, finishAnnouncementDelay);
 
-      raceHideTimerId = setTimeout(endRaceIntermission, loserDuration * 1000 + RACE_FINISH_BUFFER_MS);
+      raceHideTimerId = setTimeout(endRaceIntermission, raceEndDelay);
     }, RACE_COUNTDOWN_MS);
   }
 
