@@ -2,395 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Ross Family Chores - Salt Lake Marathon Edition</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ross Family Chores</title>
 
   <style>
       :root {
-          --sky: #0d90d1;
-          --sky-deep: #146fb1;
-          --navy: #212060;
-          --lime: #acd05f;
-          --gold: #ffd76a;
-          --snow: #eef7ff;
-          --ink: #12324a;
-          --card-border: rgba(255,255,255,0.42);
+          --page-bg: #eef2f6;
+          --panel-bg: #ffffff;
+          --panel-border: #d7dee7;
+          --text-strong: #18212b;
+          --text-muted: #556270;
+          --accent: #3f6ea3;
+          --accent-soft: #e7eef8;
+          --bullet-bg: #d8e5f5;
+          --shadow: rgba(18, 31, 45, 0.08);
       }
 
       * {
           box-sizing: border-box;
       }
 
+      html,
       body {
-          font-family: "Manrope", sans-serif;
-          background:
-              radial-gradient(circle at top, rgba(255,255,255,0.18), transparent 28%),
-              linear-gradient(180deg, #1795d4 0%, #1f80c2 38%, #25316d 100%);
-          padding: 18px 14px 26px;
           margin: 0;
-          min-height: 100vh;
-          position: relative;
-          overflow-x: hidden;
-          color: var(--ink);
+          min-height: 100%;
+          background: var(--page-bg);
+          color: var(--text-strong);
+          font-family: Arial, Helvetica, sans-serif;
       }
 
-      body::before,
-      body::after {
-          content: "";
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          pointer-events: none;
-      }
-
-      body::before {
-          background:
-              linear-gradient(135deg, rgba(255,255,255,0.12) 0 18%, transparent 18% 100%),
-              linear-gradient(225deg, rgba(255,255,255,0.08) 0 12%, transparent 12% 100%);
-          z-index: 0;
-      }
-
-      body::after {
-          background:
-              linear-gradient(to top, rgba(8,17,52,0.45), transparent 34%),
-              radial-gradient(circle at 18% 82%, rgba(255,255,255,0.09), transparent 22%),
-              radial-gradient(circle at 84% 14%, rgba(255,255,255,0.08), transparent 20%);
-          z-index: 0;
+      body {
+          padding: 16px 14px 22px;
       }
 
       .page-shell {
-          position: relative;
-          z-index: 1;
-          max-width: 1380px;
+          max-width: 1680px;
           margin: 0 auto;
       }
 
-      .floating-symbol {
-          position: fixed;
-          top: -10px;
-          color: rgba(255,255,255,0.85);
-          font-size: 1rem;
-          pointer-events: none;
-          animation: drift linear infinite;
-          opacity: 0.52;
-          z-index: 0;
-          text-shadow: 0 2px 6px rgba(0,0,0,0.18);
-      }
-
-      @keyframes drift {
-          0% {
-              transform: translateY(-10px);
-              opacity: 0.52;
-          }
-          100% {
-              transform: translateY(100vh);
-              opacity: 0.15;
-          }
-      }
-
-      .hero {
-          position: relative;
-          overflow: hidden;
-          margin-bottom: 24px;
-          border-radius: 28px;
-          background:
-              linear-gradient(135deg, rgba(31,37,100,0.94), rgba(15,145,206,0.92) 60%, rgba(172,208,95,0.95)),
-              linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
-          border: 1px solid rgba(255,255,255,0.22);
-          box-shadow: 0 28px 70px rgba(10, 16, 45, 0.32);
-          padding: 22px 22px 0;
-          overflow: hidden;
-      }
-
-      .hero::before {
-          content: "";
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          height: 132px;
-          background:
-              linear-gradient(135deg, transparent 0 16%, rgba(255,255,255,0.92) 16% 22%, transparent 22% 100%),
-              linear-gradient(225deg, transparent 0 18%, rgba(255,255,255,0.95) 18% 26%, transparent 26% 100%),
-              linear-gradient(160deg, transparent 0 34%, rgba(255,255,255,0.9) 34% 43%, transparent 43% 100%);
-          opacity: 0.96;
-      }
-
-      .hero-top {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: 20px;
-          position: relative;
-          z-index: 1;
-      }
-
-      .hero-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 7px 12px;
-          border-radius: 999px;
-          background: rgba(255,255,255,0.14);
-          border: 1px solid rgba(255,255,255,0.28);
-          color: #ffffff;
-          font-size: 0.72rem;
-          font-weight: 800;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          backdrop-filter: blur(10px);
-      }
-
-      .hero-badge-mark {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: var(--gold);
-          color: var(--navy);
-          font-size: 0.74rem;
-          font-weight: 800;
-      }
-
-      .hero-kicker {
-          color: rgba(255,255,255,0.88);
-          text-transform: uppercase;
-          letter-spacing: 0.22em;
-          font-size: 0.8rem;
-          font-weight: 800;
-          margin: 18px 0 10px;
-      }
-
-      h1 {
-          font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(3.4rem, 10vw, 7rem);
-          line-height: 0.9;
-          letter-spacing: 0.04em;
-          color: #ffffff;
-          margin: 14px 0 18px;
-          text-shadow: 0 8px 24px rgba(0,0,0,0.18);
-      }
-
-      .hero-subtitle {
-          max-width: 760px;
-          color: rgba(255,255,255,0.94);
-          font-size: 1.02rem;
-          line-height: 1.55;
-          margin: 14px 0 20px;
-          font-weight: 600;
-      }
-
-      .hero-stats {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-bottom: 22px;
-          position: relative;
-          z-index: 1;
-      }
-
-      .hero-stat {
-          min-width: 138px;
-          padding: 12px 14px;
-          border-radius: 18px;
-          background: rgba(255,255,255,0.16);
-          border: 1px solid rgba(255,255,255,0.22);
-          color: #ffffff;
-          backdrop-filter: blur(8px);
-      }
-
-      .hero-stat-label {
-          display: block;
-          font-size: 0.74rem;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          opacity: 0.82;
-          margin-bottom: 4px;
-          font-weight: 800;
-      }
-
-      .hero-stat-value {
-          display: block;
-          font-size: 1rem;
-          font-weight: 800;
-      }
-
-      .course-band {
-          position: relative;
-          z-index: 1;
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          padding: 14px 16px;
-          margin: 0 -22px;
-          background:
-              linear-gradient(90deg, var(--navy) 0 12%, #ffffff 12% 83%, var(--gold) 83% 100%);
-          color: #143149;
-      }
-
-      .course-mark {
-          width: 54px;
-          height: 54px;
-          flex: 0 0 auto;
+      .page-header {
+          background: var(--panel-bg);
+          border: 1px solid var(--panel-border);
           border-radius: 16px;
-          background: var(--lime);
-          color: #ffffff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-family: "Bebas Neue", sans-serif;
-          font-size: 1.8rem;
-          letter-spacing: 0.06em;
+          padding: 18px 22px;
+          box-shadow: 0 8px 22px var(--shadow);
+          margin-bottom: 14px;
       }
 
-      .course-copy {
-          min-width: 0;
-      }
-
-      .course-title {
-          font-family: "Bebas Neue", sans-serif;
-          font-size: 2rem;
-          line-height: 0.92;
-          letter-spacing: 0.06em;
-      }
-
-      .course-note {
-          margin-top: 4px;
-          font-size: 0.9rem;
-          font-weight: 800;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
+      .page-title {
+          margin: 0 0 8px;
+          font-size: 2.2rem;
+          line-height: 1.05;
+          font-weight: 700;
+          letter-spacing: 0;
       }
 
       .chores-container {
           display: flex;
           flex-wrap: wrap;
-          margin: 0 -9px;
+          margin: 0 -6px;
       }
 
       .chore-card {
-          background:
-              linear-gradient(180deg, rgba(255,255,255,0.98), rgba(239,248,255,0.96));
-          border-radius: 24px;
-          padding: 18px;
-          box-shadow: 0 16px 34px rgba(10, 18, 48, 0.18);
-          border: 1px solid var(--card-border);
-          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-          text-align: left;
-          position: relative;
-          overflow: hidden;
-          width: calc(25% - 18px);
-          margin: 0 9px 18px;
-      }
-
-      .chore-card::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          width: 9px;
-          background: linear-gradient(180deg, var(--lime), var(--sky));
-      }
-
-      .chore-card::after {
-          content: "";
-          position: absolute;
-          right: -38px;
-          top: -38px;
-          width: 120px;
-          height: 120px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(173,208,95,0.18), transparent 68%);
-      }
-
-      .chore-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 22px 42px rgba(10, 18, 48, 0.22);
-          border-color: rgba(255,255,255,0.65);
+          width: calc(25% - 12px);
+          margin: 0 6px 12px;
+          background: var(--panel-bg);
+          border: 1px solid var(--panel-border);
+          border-radius: 16px;
+          padding: 16px;
+          box-shadow: 0 8px 20px var(--shadow);
       }
 
       .kid-profile {
           display: flex;
           align-items: center;
-          gap: 14px;
-          margin-bottom: 16px;
-          position: relative;
-          z-index: 1;
+          gap: 12px;
+          margin-bottom: 14px;
+          min-width: 0;
       }
 
       .kid-avatar {
-          width: 74px;
-          height: 74px;
+          width: 68px;
+          height: 68px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #ffffff;
-          box-shadow: 0 10px 24px rgba(16, 39, 73, 0.18);
           flex: 0 0 auto;
+          border: 3px solid #ffffff;
+          box-shadow: 0 4px 12px rgba(18, 31, 45, 0.14);
       }
 
       .kid-text {
           min-width: 0;
       }
 
-      .race-wins {
-          margin-top: 8px;
-          font-size: 0.8rem;
-          font-weight: 800;
-          letter-spacing: 0.04em;
-          color: #2a587b;
-          text-transform: uppercase;
-      }
-
-      .race-bib {
-          display: inline-block;
-          padding: 5px 9px;
-          border-radius: 999px;
-          background: rgba(20,111,177,0.1);
-          color: var(--sky-deep);
-          font-size: 0.72rem;
-          font-weight: 800;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          margin-bottom: 8px;
-      }
-
       .kid-name {
-          font-family: "Bebas Neue", sans-serif;
-          font-size: 2rem;
-          letter-spacing: 0.05em;
-          color: #ffffff;
-          display: inline-flex;
-          align-items: center;
-          padding: 4px 12px;
-          border-radius: 14px;
-          box-shadow: 0 6px 18px rgba(16, 39, 73, 0.15);
-      }
-
-      .Ellie { background: #178fd0; }
-      .Brooklyn { background: #25316d; }
-      .Hazel { background: #acd05f; color: #183149; }
-      .Maverick { background: #1476b8; }
-      .Hinckley { background: #2d5a94; }
-      .Adaline { background: #4aa5d8; }
-      .Raleigh { background: #1d4b80; }
-
-      .rotation-label {
-          display: none;
-      }
-
-      .chore-list-title {
-          font-family: "Bebas Neue", sans-serif;
-          font-size: 1.2rem;
-          color: #30506f;
-          margin-bottom: 10px;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
+          margin: 0 0 4px;
+          font-size: 1.7rem;
+          line-height: 1;
+          font-weight: 700;
+          word-break: break-word;
       }
 
       ul {
@@ -400,263 +110,43 @@
       }
 
       li {
-          margin-bottom: 10px;
-          font-size: 0.95rem;
-          line-height: 1.25;
-          word-wrap: break-word;
-          font-weight: 700;
-          color: #15324b;
           display: flex;
           align-items: flex-start;
           gap: 10px;
+          margin-bottom: 9px;
+          font-size: 0.98rem;
+          line-height: 1.25;
+          font-weight: 700;
+          word-break: break-word;
+      }
+
+      li:last-child {
+          margin-bottom: 0;
       }
 
       .chore-bullet {
           width: 28px;
           height: 28px;
           border-radius: 50%;
-          background: linear-gradient(180deg, var(--lime), #95bd41);
-          color: #ffffff;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 0.78rem;
-          font-weight: 800;
           flex: 0 0 auto;
-          margin-top: -1px;
-      }
-
-      .quote-section {
-          position: relative;
-          z-index: 1;
-          margin-top: 22px;
-          padding: 18px 20px;
-          border-radius: 24px;
-          background: rgba(255,255,255,0.12);
-          border: 1px solid rgba(255,255,255,0.18);
-          text-align: center;
-          backdrop-filter: blur(8px);
-      }
-
-      .quote {
-          font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(1.8rem, 4vw, 2.7rem);
-          line-height: 0.98;
-          letter-spacing: 0.06em;
-          color: #ffffff;
-          margin-bottom: 8px;
-      }
-
-      .quote-author {
-          font-size: 0.95rem;
-          color: rgba(255,255,255,0.92);
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--bullet-bg);
+          color: var(--accent);
+          font-size: 0.8rem;
           font-weight: 700;
-          letter-spacing: 0.04em;
       }
 
-      .race-overlay {
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 2000;
-          display: none;
-          padding: 28px 34px;
-          background:
-              radial-gradient(circle at 50% 0%, rgba(255,255,255,0.16), transparent 26%),
-              linear-gradient(180deg, rgba(16,26,84,0.96), rgba(13,144,209,0.94) 54%, rgba(172,208,95,0.9));
-          color: #ffffff;
-      }
-
-      .race-overlay.active {
-          display: block;
-      }
-
-      .race-overlay::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background:
-              linear-gradient(135deg, rgba(255,255,255,0.08) 0 15%, transparent 15% 100%),
-              linear-gradient(225deg, rgba(255,255,255,0.06) 0 10%, transparent 10% 100%);
-          pointer-events: none;
-      }
-
-      .race-overlay-content {
-          position: relative;
-          z-index: 1;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-      }
-
-      .race-overlay-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 16px;
-          margin-bottom: 10px;
-      }
-
-      .race-overlay-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          padding: 8px 14px;
-          border-radius: 999px;
-          background: rgba(255,255,255,0.12);
-          border: 1px solid rgba(255,255,255,0.22);
-          font-size: 0.78rem;
-          font-weight: 800;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-      }
-
-      .race-overlay-badge-mark {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          background: var(--gold);
-          color: var(--navy);
-          font-size: 0.76rem;
-          font-weight: 800;
-      }
-
-      .race-overlay-title {
-          font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(2.8rem, 7vw, 5.8rem);
-          line-height: 0.92;
-          letter-spacing: 0.05em;
-          margin: 0 0 4px;
-      }
-
-      .race-overlay-subtitle {
+      .empty-state {
+          background: var(--panel-bg);
+          border: 1px solid var(--panel-border);
+          border-radius: 16px;
+          padding: 20px;
+          box-shadow: 0 8px 20px var(--shadow);
           font-size: 1rem;
-          font-weight: 700;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.92);
-      }
-
-      .race-track {
-          position: relative;
-          flex: 0 0 58vh;
-          min-height: 300px;
-          margin-top: 12px;
-          border-radius: 32px;
-          overflow: hidden;
-          background:
-              linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
-              linear-gradient(180deg, #39506c 0%, #2d435c 100%);
-          border: 1px solid rgba(255,255,255,0.18);
-          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
-      }
-
-      .race-track::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background:
-              repeating-linear-gradient(180deg,
-                  transparent 0 24%,
-                  rgba(255,255,255,0.18) 24% 25%,
-                  transparent 25% 49%,
-                  rgba(255,255,255,0.18) 49% 50%,
-                  transparent 50% 74%,
-                  rgba(255,255,255,0.18) 74% 75%,
-                  transparent 75% 100%),
-              linear-gradient(90deg, rgba(255,255,255,0.12) 0 3%, transparent 3% 97%, rgba(255,255,255,0.94) 97% 100%);
-          pointer-events: none;
-      }
-
-      .lane {
-          position: relative;
-          height: 50%;
-      }
-
-      .lane-inner {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-      }
-
-      .lane-label {
-          position: absolute;
-          left: 18px;
-          top: 16px;
-          z-index: 2;
-          padding: 6px 10px;
-          border-radius: 999px;
-          background: rgba(255,255,255,0.14);
-          border: 1px solid rgba(255,255,255,0.16);
-          font-size: 0.72rem;
-          font-weight: 800;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-      }
-
-      .runner {
-          position: absolute;
-          left: -120px;
-          top: 50%;
-          transform: translateY(-50%);
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          transition-property: left;
-          transition-timing-function: linear;
-          z-index: 2;
-      }
-
-      .runner-avatar {
-          width: 92px;
-          height: 92px;
-          border-radius: 50%;
-          object-fit: cover;
-          border: 5px solid #ffffff;
-          box-shadow: 0 12px 28px rgba(0,0,0,0.24);
-          background: rgba(255,255,255,0.18);
-      }
-
-      .runner-name {
-          display: inline-flex;
-          align-items: center;
-          padding: 8px 14px;
-          border-radius: 999px;
-          font-family: "Bebas Neue", sans-serif;
-          font-size: 1.9rem;
-          letter-spacing: 0.06em;
-          color: #ffffff;
-          box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-      }
-
-      .race-status {
-          margin-top: 16px;
-          min-height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          font-family: "Bebas Neue", sans-serif;
-          font-size: clamp(1.8rem, 4vw, 3rem);
-          letter-spacing: 0.06em;
-      }
-
-      .race-status.flash {
-          color: var(--gold);
+          font-weight: 600;
+          color: var(--text-muted);
       }
 
       @media (min-width: 1100px) and (orientation: landscape) {
@@ -664,111 +154,26 @@
               padding: 10px 10px 12px;
           }
 
-          .page-shell {
-              max-width: 1680px;
-          }
-
-          .hero {
-              margin-bottom: 12px;
-              border-radius: 22px;
-              padding: 12px 16px 0;
-          }
-
-          .hero::before {
-              height: 62px;
-          }
-
-          .hero-top {
-              gap: 12px;
-              align-items: center;
-          }
-
-          .hero-badge {
-              padding: 6px 10px;
-              font-size: 0.58rem;
-              letter-spacing: 0.08em;
-          }
-
-          .hero-badge-mark {
-              width: 18px;
-              height: 18px;
-              font-size: 0.62rem;
-          }
-
-          .hero-kicker {
-              font-size: 0.62rem;
-              letter-spacing: 0.14em;
-              margin: 8px 0 4px;
-          }
-
-          h1 {
-              font-size: clamp(2.4rem, 4.8vw, 4.4rem);
-              margin: 10px 0 12px;
-          }
-
-          .hero-subtitle {
-              display: none;
-          }
-
-          .hero-stats {
-              gap: 8px;
+          .page-header {
+              border-radius: 14px;
+              padding: 12px 16px;
               margin-bottom: 10px;
           }
 
-          .hero-stat {
-              min-width: 112px;
-              padding: 8px 10px;
-              border-radius: 14px;
+          .page-title {
+              font-size: 1.9rem;
+              margin-bottom: 4px;
           }
 
-          .hero-stat-label {
-              font-size: 0.6rem;
-              margin-bottom: 2px;
-          }
-
-          .hero-stat-value {
-              font-size: 0.82rem;
-          }
-
-          .course-band {
-              margin: 0 -16px;
-              padding: 8px 12px;
-              gap: 10px;
-          }
-
-          .course-mark {
-              width: 38px;
-              height: 38px;
-              border-radius: 12px;
-              font-size: 1.2rem;
-          }
-
-          .course-title {
-              font-size: 1.18rem;
-          }
-
-          .course-note {
-              font-size: 0.68rem;
-              margin-top: 2px;
+          .chores-container {
+              margin: 0 -5px;
           }
 
           .chore-card {
-              border-radius: 18px;
-              padding: 12px 12px 10px 14px;
-              box-shadow: 0 10px 24px rgba(10, 18, 48, 0.18);
               width: calc(25% - 10px);
               margin: 0 5px 10px;
-          }
-
-          .chore-card::before {
-              width: 7px;
-          }
-
-          .chore-card::after {
-              width: 78px;
-              height: 78px;
-              right: -20px;
-              top: -20px;
+              border-radius: 14px;
+              padding: 12px;
           }
 
           .kid-profile {
@@ -777,114 +182,45 @@
           }
 
           .kid-avatar {
-              width: 52px;
-              height: 52px;
-              border-width: 3px;
-          }
-
-          .race-bib {
-              padding: 3px 7px;
-              font-size: 0.58rem;
-              margin-bottom: 4px;
-          }
-
-          .race-wins {
-              margin-top: 5px;
-              font-size: 0.62rem;
+              width: 54px;
+              height: 54px;
           }
 
           .kid-name {
-              font-size: 1.42rem;
-              padding: 2px 8px;
-              border-radius: 10px;
-          }
-
-          .chore-list-title {
-              font-size: 0.94rem;
-              margin-bottom: 6px;
+              font-size: 1.38rem;
           }
 
           li {
-              margin-bottom: 6px;
-              font-size: 0.77rem;
-              line-height: 1.15;
               gap: 8px;
+              margin-bottom: 6px;
+              font-size: 0.79rem;
+              line-height: 1.18;
           }
 
           .chore-bullet {
-              width: 21px;
-              height: 21px;
+              width: 22px;
+              height: 22px;
               font-size: 0.64rem;
           }
+      }
 
-          .quote-section {
-              display: none;
-          }
-
-          .race-overlay {
-              padding: 16px 22px 14px;
-          }
-
-          .race-overlay-header {
-              margin-bottom: 6px;
-          }
-
-          .race-overlay-badge {
-              padding: 6px 10px;
-              font-size: 0.62rem;
-              letter-spacing: 0.08em;
-          }
-
-          .race-overlay-badge-mark {
-              width: 18px;
-              height: 18px;
-              font-size: 0.58rem;
-          }
-
-          .race-overlay-title {
-              font-size: 2.8rem;
-              margin-bottom: 2px;
-          }
-
-          .race-overlay-subtitle {
-              font-size: 0.76rem;
-          }
-
-          .race-track {
-              flex-basis: 52vh;
-              min-height: 220px;
-              max-height: 430px;
-              margin-top: 8px;
-          }
-
-          .lane-label {
-              top: 10px;
-              left: 12px;
-              padding: 4px 8px;
-              font-size: 0.58rem;
-          }
-
-          .runner-avatar {
-              width: 64px;
-              height: 64px;
-              border-width: 4px;
-          }
-
-          .runner-name {
-              font-size: 1.3rem;
-              padding: 6px 10px;
-          }
-
-          .race-status {
-              margin-top: 8px;
-              min-height: 32px;
-              font-size: 1.8rem;
+      @media (max-width: 1100px) {
+          .chore-card {
+              width: calc(50% - 12px);
           }
       }
 
       @media (max-width: 640px) {
           body {
               padding: 12px 10px 18px;
+          }
+
+          .page-header {
+              padding: 16px;
+          }
+
+          .page-title {
+              font-size: 1.8rem;
           }
 
           .chores-container {
@@ -896,174 +232,72 @@
               width: auto;
               margin: 0 0 12px;
           }
-
-          .hero {
-              border-radius: 22px;
-              padding: 16px 16px 0;
-          }
-
-          .hero-top {
-              flex-direction: column;
-              gap: 12px;
-          }
-
-          .hero-subtitle {
-              font-size: 0.92rem;
-          }
-
-          .course-band {
-              margin: 0 -16px;
-              padding: 12px;
-              align-items: flex-start;
-          }
-
-          .course-title {
-              font-size: 1.5rem;
-          }
-
-          .race-overlay {
-              padding: 18px 16px;
-          }
-
-          .race-overlay-header {
-              margin-bottom: 12px;
-          }
-
-          .race-overlay-badge {
-              font-size: 0.62rem;
-              padding: 6px 10px;
-          }
-
-          .runner-avatar {
-              width: 68px;
-              height: 68px;
-          }
-
-          .runner-name {
-              font-size: 1.35rem;
-              padding: 6px 10px;
-          }
-
       }
 
       @media (max-height: 700px) {
-          h1 {
-              font-size: 3.4rem;
+          .page-title {
+              font-size: 1.85rem;
           }
 
           .kid-avatar {
-              width: 52px;
-              height: 52px;
+              width: 56px;
+              height: 56px;
           }
 
           .kid-name {
-              font-size: 1.6rem;
-          }
-
-          .chore-list-title {
-              font-size: 1rem;
+              font-size: 1.45rem;
           }
 
           li {
-              font-size: 0.8rem;
-              line-height: 1.18;
+              font-size: 0.84rem;
           }
       }
   </style>
 </head>
 <body>
 <div class="page-shell">
-  <section class="hero">
-    <div class="hero-top">
-      <div class="hero-badge">
-        <span class="hero-badge-mark">26.2</span>
-        Salt Lake City Marathon Weekend
-      </div>
-    </div>
-
-    <h1>Ross Family Chores</h1>
-    <div class="course-band">
-      <div class="course-mark">SL</div>
-    </div>
+  <section class="page-header">
+    <h1 class="page-title">Ross Family Chores</h1>
   </section>
 
-  <div class="chores-container" id="choresContainer">
-    <!-- Cards will be generated by JavaScript -->
-  </div>
-
-  <div class="quote-section">
-    <div class="quote">Every clean room is a finish line.</div>
-    <div class="quote-author">Volunteer weekend rule: do your leg of the race and the whole team moves faster.</div>
-  </div>
-</div>
-
-<div class="race-overlay" id="raceOverlay" aria-hidden="true">
-  <div class="race-overlay-content">
-    <div class="race-overlay-header">
-      <div class="race-overlay-badge">
-        <span class="race-overlay-badge-mark">SL</span>
-        Random Family Sprint
-      </div>
-      <div class="race-overlay-badge" id="raceIntervalLabel"></div>
-    </div>
-    <div class="race-overlay-title">Mini Race</div>
-    <div class="race-overlay-subtitle" id="raceSubtitle">Two runners. One random finish.</div>
-    <div class="race-track">
-      <div class="lane">
-        <div class="lane-inner">
-          <div class="lane-label">Lane 1</div>
-          <div class="runner" id="runnerOne">
-            <img class="runner-avatar" id="runnerOneAvatar" alt="">
-            <div class="runner-name" id="runnerOneName"></div>
-          </div>
-        </div>
-      </div>
-      <div class="lane">
-        <div class="lane-inner">
-          <div class="lane-label">Lane 2</div>
-          <div class="runner" id="runnerTwo">
-            <img class="runner-avatar" id="runnerTwoAvatar" alt="">
-            <div class="runner-name" id="runnerTwoName"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="race-status" id="raceStatus">On your marks...</div>
-  </div>
+  <div class="chores-container" id="choresContainer"></div>
 </div>
 
 <script>
   var KIDS = [
-    { name: "Ellie", position: "Outside Hitter", zone: "Zone 4", intensity: "Match Point", chores: ["Kitchen bathroom", "Scoop poop"], raceWins: 0 },
-    { name: "Brooklyn", position: "Setter", zone: "Zone 2", intensity: "Quick Tempo", chores: ["Basement bathroom", "20 pairs of socks"], raceWins: 0 },
-    { name: "Hazel", position: "Libero", zone: "Zone 5", intensity: "All-Out Save", chores: ["Kids bathroom", "Garage"], raceWins: 0 },
-    { name: "Maverick", position: "Middle Blocker", zone: "Zone 3", intensity: "Big Block", chores: ["Garbages"], raceWins: 0 },
-    { name: "Hinckley", position: "Defensive Specialist", zone: "Zone 6", intensity: "Floor Burn", chores: ["Van"], raceWins: 0 },
-    { name: "Adaline", position: "Right Side", zone: "Zone 1", intensity: "Strong Finish", chores: ["Shoe basket", "Baseboards in all bathrooms"], raceWins: 0 },
-    { name: "Raleigh", position: "Serving Sub", zone: "Service Line", intensity: "Clutch Serve", chores: ["Shoe basket"], raceWins: 0 }
+    { name: "Ellie", chores: ["Kitchen bathroom", "Scoop poop"] },
+    { name: "Brooklyn", chores: ["Basement bathroom", "20 pairs of socks"] },
+    { name: "Hazel", chores: ["Kids bathroom", "Garage"] },
+    { name: "Maverick", chores: ["Garbages"] },
+    { name: "Hinckley", chores: ["Van"] },
+    { name: "Adaline", chores: ["Shoe basket", "Baseboards in all bathrooms"] },
+    { name: "Raleigh", chores: ["Shoe basket"] }
   ];
 
   function renderTable() {
     var container = document.getElementById("choresContainer");
     if (!container) return;
 
-    // Clear existing cards safely
     while (container.firstChild) {
       container.removeChild(container.firstChild);
     }
 
+    if (!KIDS.length) {
+      var emptyState = document.createElement("div");
+      emptyState.setAttribute("class", "empty-state");
+      emptyState.textContent = "No chores assigned.";
+      container.appendChild(emptyState);
+      return;
+    }
+
     for (var i = 0; i < KIDS.length; i++) {
       var kid = KIDS[i];
-
-      // Create card
-      var card = document.createElement("div");
+      var card = document.createElement("section");
       card.setAttribute("class", "chore-card");
 
-      // Create profile section
       var profileDiv = document.createElement("div");
       profileDiv.setAttribute("class", "kid-profile");
 
-      // Create avatar image
       var avatar = document.createElement("img");
       avatar.setAttribute("src", kid.name + ".png");
       avatar.setAttribute("alt", kid.name + " avatar");
@@ -1072,35 +306,19 @@
       var textWrap = document.createElement("div");
       textWrap.setAttribute("class", "kid-text");
 
-      var bibDiv = document.createElement("div");
-      bibDiv.setAttribute("class", "race-bib");
-      bibDiv.textContent = "Bib " + (100 + i + 1);
-
-      var nameDiv = document.createElement("div");
-      nameDiv.setAttribute("class", "kid-name " + kid.name);
+      var nameDiv = document.createElement("h2");
+      nameDiv.setAttribute("class", "kid-name");
       nameDiv.textContent = kid.name;
 
-      var winsDiv = document.createElement("div");
-      winsDiv.setAttribute("class", "race-wins");
-      winsDiv.textContent = "Races won: " + kid.raceWins;
-
-      textWrap.appendChild(bibDiv);
       textWrap.appendChild(nameDiv);
-      textWrap.appendChild(winsDiv);
-
       profileDiv.appendChild(avatar);
       profileDiv.appendChild(textWrap);
 
-      // Create chores section
       var choresDiv = document.createElement("div");
-      var choreTitle = document.createElement("div");
-      choreTitle.setAttribute("class", "chore-list-title");
-      choreTitle.textContent = "Course checkpoints";
-      choresDiv.appendChild(choreTitle);
-
       var ul = document.createElement("ul");
       for (var j = 0; j < kid.chores.length; j++) {
         var li = document.createElement("li");
+
         var bullet = document.createElement("span");
         bullet.setAttribute("class", "chore-bullet");
         bullet.textContent = j + 1;
@@ -1112,9 +330,8 @@
         li.appendChild(choreText);
         ul.appendChild(li);
       }
-      choresDiv.appendChild(ul);
 
-      // Assemble card
+      choresDiv.appendChild(ul);
       card.appendChild(profileDiv);
       card.appendChild(choresDiv);
       container.appendChild(card);
@@ -1122,195 +339,6 @@
   }
 
   renderTable();
-
-  var RACE_INTERVAL_MS = 60 * 1000;
-  var RACE_COUNTDOWN_MS = 3000;
-  var RACE_FINISH_BUFFER_MS = 1800;
-  var raceTimerId = null;
-  var raceHideTimerId = null;
-  var raceRunning = false;
-  var raceOverlay = document.getElementById("raceOverlay");
-  var raceStatus = document.getElementById("raceStatus");
-  var raceSubtitle = document.getElementById("raceSubtitle");
-  var raceIntervalLabel = document.getElementById("raceIntervalLabel");
-  var runnerOne = document.getElementById("runnerOne");
-  var runnerTwo = document.getElementById("runnerTwo");
-  var runnerOneAvatar = document.getElementById("runnerOneAvatar");
-  var runnerTwoAvatar = document.getElementById("runnerTwoAvatar");
-  var runnerOneName = document.getElementById("runnerOneName");
-  var runnerTwoName = document.getElementById("runnerTwoName");
-
-  function formatRaceInterval(intervalMs) {
-    var totalSeconds = Math.round(intervalMs / 1000);
-    if (totalSeconds % 60 === 0) {
-      var minutes = totalSeconds / 60;
-      return "Automatic intermission every " + minutes + " minute" + (minutes === 1 ? "" : "s");
-    }
-    return "Automatic intermission every " + totalSeconds + " seconds";
-  }
-
-  raceIntervalLabel.textContent = formatRaceInterval(RACE_INTERVAL_MS);
-
-  function pickRacePair() {
-    var firstIndex = Math.floor(Math.random() * KIDS.length);
-    var secondIndex = firstIndex;
-
-    while (secondIndex === firstIndex) {
-      secondIndex = Math.floor(Math.random() * KIDS.length);
-    }
-
-    return [KIDS[firstIndex], KIDS[secondIndex]];
-  }
-
-  function resetRunnerPosition(runner) {
-    runner.style.transitionDuration = "0s";
-    runner.style.left = "-120px";
-  }
-
-  function moveRunnerTo(runner, targetLeft, durationSeconds) {
-    runner.style.transitionDuration = durationSeconds + "s";
-    runner.style.left = targetLeft;
-  }
-
-  function scheduleNextRace() {
-    if (raceTimerId) {
-      clearTimeout(raceTimerId);
-    }
-    raceTimerId = setTimeout(startRaceIntermission, RACE_INTERVAL_MS);
-  }
-
-  function endRaceIntermission() {
-    raceRunning = false;
-    raceOverlay.classList.remove("active");
-    raceOverlay.setAttribute("aria-hidden", "true");
-    scheduleNextRace();
-  }
-
-  function startRaceIntermission() {
-    if (raceRunning || document.hidden) {
-      scheduleNextRace();
-      return;
-    }
-
-    var pair = pickRacePair();
-    var winnerIndex = Math.random() < 0.5 ? 0 : 1;
-    var loserIndex = winnerIndex === 0 ? 1 : 0;
-    var winner = pair[winnerIndex];
-    var loser = pair[loserIndex];
-    var winnerRunner = winnerIndex === 0 ? runnerOne : runnerTwo;
-    var loserRunner = loserIndex === 0 ? runnerOne : runnerTwo;
-    var earlyLeaderIndex = Math.random() < 0.5 ? 0 : 1;
-    var earlyLeader = pair[earlyLeaderIndex];
-    var finalSprintPass = earlyLeader.name !== winner.name;
-    var midDurationFast = 1.8 + Math.random() * 0.45;
-    var midDurationSlow = midDurationFast + 0.35 + Math.random() * 0.5;
-    var secondHalfWinnerDuration = 1.45 + Math.random() * 0.45;
-    var secondHalfLoserDuration = secondHalfWinnerDuration + 0.55 + Math.random() * 0.75;
-    var winnerFinishTarget = "84%";
-    var loserFinishTarget = "78%";
-    var finishAnnouncementDelay = Math.max(midDurationSlow, midDurationFast) * 1000 + secondHalfWinnerDuration * 1000 + 220;
-    var raceEndDelay = Math.max(midDurationSlow, midDurationFast) * 1000 + secondHalfLoserDuration * 1000 + RACE_FINISH_BUFFER_MS;
-
-    raceRunning = true;
-    raceOverlay.classList.add("active");
-    raceOverlay.setAttribute("aria-hidden", "false");
-    raceStatus.classList.remove("flash");
-    raceStatus.textContent = "On your marks...";
-    raceSubtitle.textContent = pair[0].name + " vs " + pair[1].name;
-
-    runnerOneAvatar.setAttribute("src", pair[0].name + ".png");
-    runnerOneAvatar.setAttribute("alt", pair[0].name + " racing");
-    runnerOneName.textContent = pair[0].name;
-    runnerOneName.setAttribute("class", "runner-name " + pair[0].name);
-
-    runnerTwoAvatar.setAttribute("src", pair[1].name + ".png");
-    runnerTwoAvatar.setAttribute("alt", pair[1].name + " racing");
-    runnerTwoName.textContent = pair[1].name;
-    runnerTwoName.setAttribute("class", "runner-name " + pair[1].name);
-
-    resetRunnerPosition(runnerOne);
-    resetRunnerPosition(runnerTwo);
-
-    if (raceHideTimerId) {
-      clearTimeout(raceHideTimerId);
-    }
-
-    setTimeout(function() {
-      raceStatus.textContent = "Go!";
-
-      setTimeout(function() {
-        if (earlyLeader.name === winner.name) {
-          moveRunnerTo(winnerRunner, "58%", midDurationFast);
-          moveRunnerTo(loserRunner, "48%", midDurationSlow);
-        } else {
-          moveRunnerTo(winnerRunner, "50%", midDurationSlow);
-          moveRunnerTo(loserRunner, "60%", midDurationFast);
-        }
-      }, 80);
-
-      setTimeout(function() {
-        raceStatus.textContent = finalSprintPass ? "Late pass!" : "Final sprint!";
-        moveRunnerTo(winnerRunner, winnerFinishTarget, secondHalfWinnerDuration);
-        moveRunnerTo(loserRunner, loserFinishTarget, secondHalfLoserDuration);
-      }, Math.max(midDurationSlow, midDurationFast) * 1000 + 120);
-
-      setTimeout(function() {
-        winner.raceWins = (winner.raceWins || 0) + 1;
-        renderTable();
-        raceStatus.classList.add("flash");
-        raceStatus.textContent = winner.name + " wins!";
-      }, finishAnnouncementDelay);
-
-      raceHideTimerId = setTimeout(endRaceIntermission, raceEndDelay);
-    }, RACE_COUNTDOWN_MS);
-  }
-
-  scheduleNextRace();
-
-  // Create gentle drifting mile markers.
-  try {
-    var MAX_SYMBOLS = 18;
-    var symbolCount = 0;
-    var MIN_SYMBOL_SIZE_REM = 0.85;
-    var MAX_SYMBOL_SIZE_REM = 2;
-    var symbols = ['26.2', '13.1', '10K', '5K'];
-
-    function createSymbol() {
-      try {
-        if (symbolCount >= MAX_SYMBOLS) {
-          return;
-        }
-        if (typeof document.hidden !== 'undefined' && document.hidden) {
-          return;
-        }
-
-        var symbol = document.createElement('div');
-        symbol.setAttribute('class', 'floating-symbol');
-        symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-        symbol.style.left = Math.random() * 100 + 'vw';
-        var duration = Math.random() * 4 + 6;
-        symbol.style.animationDuration = duration + 's';
-        symbol.style.fontSize = (Math.random() * (MAX_SYMBOL_SIZE_REM - MIN_SYMBOL_SIZE_REM) + MIN_SYMBOL_SIZE_REM) + 'rem';
-        document.body.appendChild(symbol);
-        symbolCount++;
-
-        setTimeout(function() {
-          if (symbol.parentNode) {
-            symbol.parentNode.removeChild(symbol);
-            symbolCount--;
-          }
-        }, (duration + 0.5) * 1000);
-      } catch (e) {
-        // Silently fail - animation is non-essential
-      }
-    }
-
-    setInterval(createSymbol, 700);
-  } catch (e) {
-    // Animation not supported - table will still work
-  }
-
 </script>
-
 </body>
 </html>
