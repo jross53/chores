@@ -7,15 +7,18 @@
 
   <style>
       :root {
-          --page-bg: #eef2f6;
+          --page-bg: #fff6f8;
           --panel-bg: #ffffff;
-          --panel-border: #d7dee7;
+          --panel-border: #ecd6de;
           --text-strong: #18212b;
-          --text-muted: #556270;
-          --accent: #3f6ea3;
-          --accent-soft: #e7eef8;
-          --bullet-bg: #d8e5f5;
-          --shadow: rgba(18, 31, 45, 0.08);
+          --text-muted: #6a5963;
+          --accent: #b6577c;
+          --accent-soft: #fff0f5;
+          --bullet-bg: #fde1ea;
+          --shadow: rgba(68, 30, 49, 0.10);
+          --banner-bg: #fff1f6;
+          --banner-border: #efc6d6;
+          --photo-bg: #fff8fb;
       }
 
       * {
@@ -33,6 +36,8 @@
 
       body {
           padding: 16px 14px 22px;
+          background:
+              linear-gradient(180deg, #fff8fa 0%, #fff1f5 100%);
       }
 
       .page-shell {
@@ -41,8 +46,8 @@
       }
 
       .page-header {
-          background: var(--panel-bg);
-          border: 1px solid var(--panel-border);
+          background: linear-gradient(180deg, #fff9fb 0%, #fff2f6 100%);
+          border: 1px solid var(--banner-border);
           border-radius: 16px;
           padding: 18px 22px;
           box-shadow: 0 8px 22px var(--shadow);
@@ -55,6 +60,87 @@
           line-height: 1.05;
           font-weight: 700;
           letter-spacing: 0;
+      }
+
+      .birthday-note {
+          margin: 0;
+          font-size: 1rem;
+          line-height: 1.35;
+          color: var(--text-muted);
+          font-weight: 600;
+      }
+
+      .birthday-collage {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 10px;
+      }
+
+      .photo-feature {
+          width: 128px;
+          height: 152px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 14px;
+          border: 1px solid var(--banner-border);
+          background: var(--photo-bg);
+          box-shadow: 0 8px 20px var(--shadow);
+      }
+
+      .photo-feature img,
+      .photo-bubble img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .photo-feature img {
+          object-position: center 14%;
+      }
+
+      .photo-feature-label {
+          position: absolute;
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          padding: 5px 8px;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.92);
+          color: var(--accent);
+          font-size: 0.72rem;
+          line-height: 1.2;
+          font-weight: 700;
+          text-align: center;
+      }
+
+      .photo-bubble {
+          width: 128px;
+          height: 152px;
+          overflow: hidden;
+          border-radius: 14px;
+          border: 1px solid var(--banner-border);
+          background: var(--photo-bg);
+          box-shadow: 0 8px 20px var(--shadow);
+      }
+
+      .photo-bubble-1 img {
+          object-position: center 26%;
+      }
+
+      .photo-bubble-2 img {
+          object-position: 50% 24%;
+      }
+
+      .photo-bubble-3 img {
+          object-position: center 16%;
+      }
+
+      .photo-bubble-4 img {
+          object-position: center 12%;
       }
 
       .chores-container {
@@ -165,6 +251,35 @@
               margin-bottom: 4px;
           }
 
+          .birthday-note {
+              font-size: 0.8rem;
+          }
+
+          .birthday-collage {
+              gap: 6px;
+              margin-top: 8px;
+          }
+
+          .photo-feature {
+              width: 92px;
+              height: 108px;
+              border-radius: 12px;
+          }
+
+          .photo-feature-label {
+              left: 6px;
+              right: 6px;
+              bottom: 6px;
+              padding: 4px 6px;
+              font-size: 0.56rem;
+          }
+
+          .photo-bubble {
+              width: 92px;
+              height: 108px;
+              border-radius: 12px;
+          }
+
           .chores-container {
               margin: 0 -5px;
           }
@@ -205,6 +320,16 @@
       }
 
       @media (max-width: 1100px) {
+          .photo-feature {
+              width: 112px;
+              height: 132px;
+          }
+
+          .photo-bubble {
+              width: 112px;
+              height: 132px;
+          }
+
           .chore-card {
               width: calc(50% - 12px);
           }
@@ -223,6 +348,25 @@
               font-size: 1.8rem;
           }
 
+          .birthday-note {
+              font-size: 0.92rem;
+          }
+
+          .birthday-collage {
+              gap: 8px;
+              margin-top: 8px;
+          }
+
+          .photo-feature {
+              width: 110px;
+              height: 128px;
+          }
+
+          .photo-bubble {
+              width: 110px;
+              height: 128px;
+          }
+
           .chores-container {
               display: block;
               margin: 0;
@@ -237,6 +381,16 @@
       @media (max-height: 700px) {
           .page-title {
               font-size: 1.85rem;
+          }
+
+          .photo-feature {
+              width: 84px;
+              height: 96px;
+          }
+
+          .photo-bubble {
+              width: 84px;
+              height: 96px;
           }
 
           .kid-avatar {
@@ -258,9 +412,20 @@
 <div class="page-shell">
   <section class="page-header">
     <h1 class="page-title">Ross Family Chores</h1>
+    <p class="birthday-note">Happy Birthday, Ellie!</p>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
+
+  <section class="birthday-collage" aria-label="Birthday photos for Ellie">
+    <div class="photo-bubble photo-bubble-2"><img src="ellie-bday-2.png" alt="Ellie birthday photo"></div>
+    <div class="photo-bubble photo-bubble-3"><img src="ellie-bday-3.png" alt="Ellie birthday photo"></div>
+    <div class="photo-feature">
+      <img src="ellie-bday-4.png" alt="Ellie wearing a birthday queen sash">
+      <div class="photo-feature-label">Birthday Queen</div>
+    </div>
+    <div class="photo-bubble photo-bubble-4"><img src="ellie-bday-5.png" alt="Ellie birthday photo"></div>
+  </section>
 </div>
 
 <script>
