@@ -453,15 +453,15 @@
   </section>
 </div>
 
-<script>
+  <script>
   var KIDS = [
-    { name: "Ellie", chores: ["Kitchen bathroom", "Scoop poop"] },
-    { name: "Brooklyn", chores: ["Basement bathroom", "20 pairs of socks"] },
-    { name: "Hazel", chores: ["Kids bathroom", "Garage"] },
-    { name: "Maverick", chores: ["Garbages"] },
-    { name: "Hinckley", chores: ["Van"] },
-    { name: "Adaline", chores: ["Shoe basket", "Baseboards in all bathrooms"] },
-    { name: "Raleigh", chores: ["Shoe basket"] }
+    { name: "Ellie", chores: ["Basement bathroom", "Garage"] },
+    { name: "Brooklyn", chores: ["Garbages", "Scoop poop"] },
+    { name: "Hazel", chores: ["Dress up room & bin"] },
+    { name: "Mav", avatarName: "Maverick", chores: ["Kids bathroom"] },
+    { name: "Hinckley", chores: ["Kitchen bathroom"] },
+    { name: "Adaline", chores: ["Shoe basket", "Pantry"] },
+    { name: "Raleigh", chores: ["Shoe basket", "Pencil on the wall"] }
   ];
 
   function renderTable() {
@@ -489,7 +489,7 @@
       profileDiv.setAttribute("class", "kid-profile");
 
       var avatar = document.createElement("img");
-      avatar.setAttribute("src", kid.name + ".png");
+      avatar.setAttribute("src", (kid.avatarName || kid.name) + ".png");
       avatar.setAttribute("alt", kid.name + " avatar");
       avatar.setAttribute("class", "kid-avatar");
 
