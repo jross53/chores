@@ -5,21 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ross Family Chores</title>
 
-  <style>
-      :root {
-          --page-bg: #eef3f9;
-          --panel-bg: #ffffff;
-          --panel-border: #d5e0ee;
-          --text-strong: #18212b;
-          --text-muted: #4a5f77;
-          --accent: #1f5f95;
-          --accent-soft: #edf4fc;
-          --bullet-bg: #dbe9f8;
-          --shadow: rgba(25, 55, 89, 0.12);
-          --banner-bg: #eef4fc;
-          --banner-border: #cadbed;
-      }
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
+  <style>
       * {
           box-sizing: border-box;
       }
@@ -28,15 +16,12 @@
       body {
           margin: 0;
           min-height: 100%;
-          background: var(--page-bg);
-          color: var(--text-strong);
-          font-family: Arial, Helvetica, sans-serif;
       }
 
       body {
-          padding: 16px 14px 22px;
-          background:
-              linear-gradient(180deg, #f5f9ff 0%, #eaf2fb 100%);
+          font-family: "Inter", sans-serif;
+          background: linear-gradient(135deg, #ffd6e8, #c8e7ff);
+          padding: 20px;
       }
 
       .page-shell {
@@ -45,28 +30,26 @@
       }
 
       .page-header {
-          background: linear-gradient(180deg, #f8fbff 0%, #edf4fc 100%);
-          border: 2px solid #cadbed;
-          border-radius: 18px;
-          padding: 20px 24px;
-          box-shadow: 0 10px 26px rgba(25, 55, 89, 0.14);
-          margin-bottom: 16px;
+          text-align: center;
+          margin-bottom: 22px;
       }
 
       .page-title {
-          margin: 0 0 8px;
+          font-family: "Fredoka", sans-serif;
           font-size: 2.5rem;
-          line-height: 1.05;
-          font-weight: 700;
-          letter-spacing: 0;
+          font-weight: 600;
+          color: #fff;
+          margin: 0 0 6px;
+          text-shadow: 0 4px 8px rgba(0,0,0,0.2);
       }
 
       .page-subtitle {
-          margin: 0;
-          font-size: 1.15rem;
-          line-height: 1.35;
-          color: var(--text-muted);
+          font-family: "Inter", sans-serif;
+          font-size: 1.1rem;
           font-weight: 600;
+          color: rgba(255,255,255,0.85);
+          margin: 0;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.15);
       }
 
       .chores-container {
@@ -78,11 +61,11 @@
       .chore-card {
           width: calc(25% - 12px);
           margin: 0 6px 12px;
-          background: linear-gradient(180deg, #ffffff 0%, #f4f8fe 100%);
-          border: 2px solid #d8e4f2;
-          border-radius: 18px;
+          background: #ffffff;
+          border: 3px solid #fff;
+          border-radius: 20px;
           padding: 18px;
-          box-shadow: 0 10px 24px rgba(25, 55, 89, 0.10);
+          box-shadow: 0 8px 18px rgba(0,0,0,0.18);
       }
 
       .kid-profile {
@@ -108,10 +91,15 @@
       }
 
       .kid-name {
-          margin: 0 0 4px;
-          font-size: 1.9rem;
-          line-height: 1;
-          font-weight: 700;
+          font-family: "Fredoka", sans-serif;
+          font-size: 1.7rem;
+          font-weight: 600;
+          padding: 6px 16px;
+          border-radius: 40px;
+          color: white;
+          display: inline-block;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+          margin: 0;
           word-break: break-word;
       }
 
@@ -126,10 +114,11 @@
           align-items: flex-start;
           gap: 10px;
           margin-bottom: 9px;
-          font-size: 1.08rem;
+          font-size: 1.15rem;
           line-height: 1.28;
-          font-weight: 700;
+          font-weight: 600;
           word-break: break-word;
+          color: #333;
       }
 
       li:last-child {
@@ -137,48 +126,36 @@
       }
 
       .chore-bullet {
-          width: 32px;
-          height: 32px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
           flex: 0 0 auto;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          background: var(--bullet-bg);
-          color: var(--accent);
+          color: white;
           font-size: 0.9rem;
           font-weight: 700;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.18);
       }
 
       .empty-state {
-          background: var(--panel-bg);
-          border: 1px solid var(--panel-border);
+          background: #fff;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 20px var(--shadow);
+          box-shadow: 0 8px 18px rgba(0,0,0,0.12);
           font-size: 1rem;
           font-weight: 600;
-          color: var(--text-muted);
+          color: #555;
       }
 
       @media (min-width: 1100px) and (orientation: landscape) {
           body {
-              padding: 10px 10px 14px;
-          }
-
-          .page-header {
-              border-radius: 16px;
-              padding: 16px 20px;
-              margin-bottom: 12px;
+              padding: 12px 12px 16px;
           }
 
           .page-title {
               font-size: 2.35rem;
-              margin-bottom: 6px;
-          }
-
-          .page-subtitle {
-              font-size: 1rem;
           }
 
           .chores-container {
@@ -188,13 +165,7 @@
           .chore-card {
               width: calc(25% - 10px);
               margin: 0 5px 10px;
-              border-radius: 16px;
               padding: 16px;
-          }
-
-          .kid-profile {
-              gap: 12px;
-              margin-bottom: 12px;
           }
 
           .kid-avatar {
@@ -203,19 +174,18 @@
           }
 
           .kid-name {
-              font-size: 1.8rem;
+              font-size: 1.55rem;
           }
 
           li {
               gap: 8px;
               margin-bottom: 8px;
-              font-size: 1rem;
-              line-height: 1.22;
+              font-size: 1.05rem;
           }
 
           .chore-bullet {
-              width: 28px;
-              height: 28px;
+              width: 26px;
+              height: 26px;
               font-size: 0.8rem;
           }
       }
@@ -231,16 +201,8 @@
               padding: 12px 10px 18px;
           }
 
-          .page-header {
-              padding: 16px;
-          }
-
           .page-title {
               font-size: 1.8rem;
-          }
-
-          .page-subtitle {
-              font-size: 0.92rem;
           }
 
           .chores-container {
@@ -265,11 +227,11 @@
           }
 
           .kid-name {
-              font-size: 1.45rem;
+              font-size: 1.3rem;
           }
 
           li {
-              font-size: 0.84rem;
+              font-size: 0.9rem;
           }
       }
   </style>
@@ -278,7 +240,6 @@
 <div class="page-shell">
   <section class="page-header">
     <h1 class="page-title">Ross Family Chores</h1>
-    <p class="page-subtitle">Family chore chart</p>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
@@ -286,13 +247,13 @@
 
   <script>
   var KIDS = [
-    { name: "Ellie", chores: ["Softball stuff", "Piano room by your backpack", "Makeup in basement bathroom"] },
-    { name: "Brooklyn", chores: ["Kids bathroom", "Stainless steel"] },
-    { name: "Hazel", chores: ["Kitchen bathroom", "Vacuum basement"] },
-    { name: "Mav", avatarName: "Maverick", chores: ["Garbages", "Bed wall"] },
-    { name: "Hinckley", chores: ["Garage"] },
-    { name: "Adaline", chores: ["Shoe basket", "Pantry", "Vacuum mom and dads bathroom"] },
-    { name: "Raleigh", chores: ["Shoe basket"] }
+    { name: "Ellie", color: "#ff6f91", chores: ["Softball stuff", "Piano room by your backpack", "Makeup in basement bathroom"] },
+    { name: "Brooklyn", color: "#ff9671", chores: ["Kids bathroom", "Stainless steel"] },
+    { name: "Hazel", color: "#ffc75f", textColor: "#333", chores: ["Kitchen bathroom", "Vacuum basement"] },
+    { name: "Mav", avatarName: "Maverick", color: "#f9a825", chores: ["Garbages", "Bed wall"] },
+    { name: "Hinckley", color: "#5fd490", chores: ["Garage"] },
+    { name: "Adaline", color: "#6ec6ff", chores: ["Shoe basket", "Pantry", "Vacuum mom and dads bathroom"] },
+    { name: "Raleigh", color: "#b57bee", chores: ["Shoe basket"] }
   ];
 
   function renderTable() {
@@ -329,6 +290,8 @@
 
       var nameDiv = document.createElement("h2");
       nameDiv.setAttribute("class", "kid-name");
+      nameDiv.style.background = kid.color;
+      nameDiv.style.color = kid.textColor || "white";
       nameDiv.textContent = kid.name;
 
       textWrap.appendChild(nameDiv);
@@ -342,6 +305,8 @@
 
         var bullet = document.createElement("span");
         bullet.setAttribute("class", "chore-bullet");
+        bullet.style.background = kid.color;
+        bullet.style.color = kid.textColor || "white";
         bullet.textContent = j + 1;
 
         var choreText = document.createElement("span");
