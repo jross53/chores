@@ -20,6 +20,7 @@
 
       body {
           font-family: "Inter", sans-serif;
+          background-color: #1f7fcd;
           background:
                   radial-gradient(circle at 10% 8%, rgba(255, 223, 103, 0.42), transparent 34%),
                   radial-gradient(circle at 92% 12%, rgba(245, 57, 61, 0.35), transparent 30%),
@@ -44,9 +45,7 @@
       }
 
       .logo-wrap {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
+          display: inline-block;
           border-radius: 10px;
           background: white;
           padding: 10px 14px;
@@ -71,6 +70,13 @@
           letter-spacing: 0;
       }
 
+      .title-icon {
+          display: inline-block;
+          margin: 0 6px;
+          font-size: 0.85em;
+          vertical-align: baseline;
+      }
+
       .page-subtitle {
           font-family: "Inter", sans-serif;
           font-size: 1.02rem;
@@ -81,16 +87,19 @@
       }
 
       .chores-container {
-          display: flex;
-          flex-wrap: wrap;
-          margin: 0 -6px;
+          text-align: center;
+          margin: 0;
       }
 
       .chore-card {
-          width: calc(25% - 12px);
-          margin: 0 6px 12px;
+          width: 24%;
+          margin: 0 0.5% 12px;
+          display: inline-block;
+          vertical-align: top;
+          text-align: left;
+          background-color: #ffffff;
           background:
-                  linear-gradient(#fffef6, #fffef6) padding-box,
+                  linear-gradient(#ffffff, #ffffff) padding-box,
                   repeating-linear-gradient(-45deg, #ef4f4f 0 10px, #ffffff 10px 20px) border-box;
           border: 3px solid transparent;
           border-radius: 16px;
@@ -99,11 +108,10 @@
       }
 
       .kid-profile {
-          display: flex;
-          align-items: center;
-          gap: 12px;
+          display: table;
+          width: 100%;
           margin-bottom: 14px;
-          min-width: 0;
+          table-layout: fixed;
       }
 
       .kid-avatar {
@@ -111,13 +119,16 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          flex: 0 0 auto;
           border: 4px solid #ffe16b;
           box-shadow: 0 6px 16px rgba(18, 31, 45, 0.24);
+          display: table-cell;
+          vertical-align: middle;
       }
 
       .kid-text {
-          min-width: 0;
+          display: table-cell;
+          vertical-align: middle;
+          padding-left: 12px;
       }
 
       .kid-name {
@@ -133,6 +144,12 @@
           word-break: break-word;
       }
 
+      .name-icon {
+          font-size: 0.9em;
+          margin-left: 8px;
+          vertical-align: baseline;
+      }
+
       ul {
           list-style: none;
           margin: 0;
@@ -140,9 +157,8 @@
       }
 
       li {
-          display: flex;
-          align-items: flex-start;
-          gap: 10px;
+          display: table;
+          width: 100%;
           margin-bottom: 9px;
           font-size: 1.15rem;
           line-height: 1.28;
@@ -159,14 +175,19 @@
           width: 30px;
           height: 30px;
           border-radius: 50%;
-          flex: 0 0 auto;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
+          display: table-cell;
+          text-align: center;
+          vertical-align: middle;
           color: white;
           font-size: 0.9rem;
           font-weight: 700;
           box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+      }
+
+      .chore-text {
+          display: table-cell;
+          vertical-align: middle;
+          padding-left: 10px;
       }
 
       .empty-state {
@@ -189,12 +210,12 @@
           }
 
           .chores-container {
-              margin: 0 -5px;
+              margin: 0;
           }
 
           .chore-card {
-              width: calc(25% - 10px);
-              margin: 0 5px 10px;
+              width: 24%;
+              margin: 0 0.5% 10px;
               padding: 16px;
           }
 
@@ -208,7 +229,6 @@
           }
 
           li {
-              gap: 8px;
               margin-bottom: 8px;
               font-size: 1.05rem;
           }
@@ -222,7 +242,8 @@
 
       @media (max-width: 1100px) {
           .chore-card {
-              width: calc(50% - 12px);
+              width: 49%;
+              margin: 0 0.5% 12px;
           }
       }
 
@@ -244,12 +265,13 @@
           }
 
           .chores-container {
-              display: block;
               margin: 0;
+              text-align: left;
           }
 
           .chore-card {
-              width: auto;
+              width: 100%;
+              display: block;
               margin: 0 0 12px;
           }
       }
@@ -280,7 +302,7 @@
     <div class="logo-wrap">
       <img src="lagoon-logo.png" alt="Lagoon logo" class="park-logo">
     </div>
-    <h1 class="page-title">Ross Family Chores</h1>
+    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎢</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎡</span></h1>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
@@ -288,13 +310,13 @@
 
   <script>
   var KIDS = [
-    { name: "Ellie", color: "#ff6f91", chores: ["Kids bathroom", "Stainless steel"] },
-    { name: "Brooklyn", color: "#ff9671", chores: ["Basement bathroom + tub and floor"] },
-    { name: "Hazel", color: "#ffc75f", textColor: "#333", chores: ["Garbages", "Computer area"] },
-    { name: "Mav", avatarName: "Maverick", color: "#f9a825", chores: ["Kitchen bathroom", "Piano room books"] },
-    { name: "Hinckley", color: "#5fd490", chores: ["Garage", "Van"] },
-    { name: "Adaline", color: "#6ec6ff", chores: ["Shoe basket", "Pantry"] },
-    { name: "Raleigh", color: "#b57bee", chores: ["Shoe basket"] }
+    { name: "Ellie", color: "#ff6f91", rideIcon: "🎠", chores: ["Kids bathroom", "Stainless steel"] },
+    { name: "Brooklyn", color: "#ff9671", rideIcon: "🎡", chores: ["Basement bathroom + tub and floor"] },
+    { name: "Hazel", color: "#ffc75f", textColor: "#333", rideIcon: "🎟️", chores: ["Garbages", "Computer area"] },
+    { name: "Mav", avatarName: "Maverick", color: "#f9a825", rideIcon: "🎢", chores: ["Kitchen bathroom", "Piano room books"] },
+    { name: "Hinckley", color: "#5fd490", rideIcon: "🏁", chores: ["Garage", "Van"] },
+    { name: "Adaline", color: "#6ec6ff", rideIcon: "🍿", chores: ["Shoe basket", "Pantry"] },
+    { name: "Raleigh", color: "#b57bee", rideIcon: "🎠", chores: ["Shoe basket"] }
   ];
 
   function renderTable() {
@@ -334,6 +356,13 @@
       nameDiv.style.background = kid.color;
       nameDiv.style.color = kid.textColor || "white";
       nameDiv.textContent = kid.name;
+      if (kid.rideIcon) {
+        var nameIcon = document.createElement("span");
+        nameIcon.setAttribute("class", "name-icon");
+        nameIcon.setAttribute("aria-hidden", "true");
+        nameIcon.textContent = kid.rideIcon;
+        nameDiv.appendChild(nameIcon);
+      }
 
       textWrap.appendChild(nameDiv);
       profileDiv.appendChild(avatar);
@@ -351,6 +380,7 @@
         bullet.textContent = j + 1;
 
         var choreText = document.createElement("span");
+        choreText.setAttribute("class", "chore-text");
         choreText.textContent = kid.chores[j];
 
         li.appendChild(bullet);
