@@ -20,11 +20,11 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #f7a844;
+          background-color: #00a8a8;
           background:
-                  radial-gradient(circle at 12% 10%, rgba(255, 241, 152, 0.95), transparent 35%),
-                  radial-gradient(circle at 88% 12%, rgba(255, 169, 77, 0.45), transparent 34%),
-                  linear-gradient(165deg, #6fd7ff 0%, #8ee8ff 28%, #ffd166 62%, #ff9f45 100%);
+                  radial-gradient(circle at 12% 10%, rgba(178, 255, 255, 0.95), transparent 35%),
+                  radial-gradient(circle at 88% 12%, rgba(0, 210, 210, 0.45), transparent 34%),
+                  linear-gradient(165deg, #b2f0f0 0%, #3dd4d4 28%, #00aaaa 62%, #006e6e 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,11 +37,20 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background: rgba(255, 132, 61, 0.26);
-          border: 2px solid rgba(255, 250, 227, 0.82);
+          background: rgba(0, 180, 180, 0.25);
+          border: 2px solid rgba(178, 255, 255, 0.85);
           border-radius: 14px;
           padding: 14px 14px 12px;
-          box-shadow: 0 10px 24px rgba(119, 53, 0, 0.22);
+          box-shadow: 0 10px 24px rgba(0, 80, 80, 0.22);
+      }
+
+      .birthday-note {
+          margin: 6px 0 0;
+          font-family: "Fredoka", sans-serif;
+          font-size: 1.35rem;
+          font-weight: 600;
+          color: #004d4d;
+          letter-spacing: 0.02em;
       }
 
       .season-badge {
@@ -89,7 +98,7 @@
           background-color: #fffef8;
           background:
                   linear-gradient(#fffef8, #fffef8) padding-box,
-                  repeating-linear-gradient(-45deg, #ffb347 0 10px, #fff4de 10px 20px) border-box;
+                  repeating-linear-gradient(-45deg, #00aaaa 0 10px, #e0f7f7 10px 20px) border-box;
           border: 3px solid transparent;
           border-radius: 16px;
           padding: 18px;
@@ -203,6 +212,67 @@
           color: #8a3d00;
       }
 
+      .birthday-collage {
+          text-align: center;
+          margin-top: 14px;
+      }
+
+      .photo-feature {
+          display: inline-block;
+          vertical-align: middle;
+          width: 138px;
+          height: 166px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 16px;
+          border: 2px solid #40c8c8;
+          background: #fffef8;
+          box-shadow: 0 10px 24px rgba(100, 70, 0, 0.18);
+          margin: 5px;
+      }
+
+      .photo-feature img,
+      .photo-bubble img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      .photo-feature img {
+          object-position: center 14%;
+      }
+
+      .photo-feature-label {
+          position: absolute;
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          padding: 6px 8px;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.92);
+          color: #004d4d;
+          font-size: 0.82rem;
+          line-height: 1.2;
+          font-weight: 700;
+          text-align: center;
+      }
+
+      .photo-bubble {
+          display: inline-block;
+          vertical-align: middle;
+          width: 138px;
+          height: 166px;
+          overflow: hidden;
+          border-radius: 16px;
+          border: 2px solid #40c8c8;
+          background: #fffef8;
+          box-shadow: 0 10px 24px rgba(100, 70, 0, 0.18);
+          margin: 5px;
+      }
+
+      .hazel-photo img { object-position: center 20%; }
+
       @media (min-width: 1100px) and (orientation: landscape) {
           body {
               padding: 12px 12px 16px;
@@ -241,12 +311,25 @@
               height: 26px;
               font-size: 0.8rem;
           }
+
+          .photo-feature,
+          .photo-bubble {
+              width: 116px;
+              height: 140px;
+              border-radius: 14px;
+          }
       }
 
       @media (max-width: 1100px) {
           .chore-card {
               width: 49%;
               margin: 0 0.5% 12px;
+          }
+
+          .photo-feature,
+          .photo-bubble {
+              width: 112px;
+              height: 132px;
           }
       }
 
@@ -277,6 +360,16 @@
               display: block;
               margin: 0 0 12px;
           }
+
+          .birthday-collage {
+              margin-top: 8px;
+          }
+
+          .photo-feature,
+          .photo-bubble {
+              width: 110px;
+              height: 128px;
+          }
       }
 
       @media (max-height: 700px) {
@@ -296,29 +389,54 @@
           li {
               font-size: 0.9rem;
           }
+
+          .photo-feature,
+          .photo-bubble {
+              width: 84px;
+              height: 96px;
+          }
       }
   </style>
 </head>
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🌴</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🍉</span></h1>
+    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎂</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎂</span></h1>
+    <p class="birthday-note">Happy Birthday, Hazel! 🎉</p>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
+
+  <section class="birthday-collage" aria-label="Birthday photos for Hazel">
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-1.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-2.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-3.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-4.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-feature hazel-photo">
+      <img src="hazel-bday-5.jpg" alt="Hazel birthday photo">
+      <div class="photo-feature-label">Birthday Queen</div>
+    </div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-6.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-7.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-8.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-9.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-10.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-11.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble hazel-photo"><img src="hazel-bday-12.jpg" alt="Hazel birthday photo"></div>
+  </section>
 </div>
 
   <script>
    var KIDS = [
-     { name: "Ellie", color: "#ff6f91", rideIcon: "🍓", chores: ["Garbages"] },
-     { name: "Brooklyn", color: "#ff9671", rideIcon: "🌺", chores: ["Kids bathroom"] },
-     { name: "Hazel", color: "#ffc75f", textColor: "#333", rideIcon: "🌻", chores: ["Kitchen bathroom walls"] },
-     { name: "Mav", avatarName: "Maverick", color: "#f9a825", rideIcon: "⛱️", chores: ["Baseboards on all stairs"] },
-     { name: "Hinckley", color: "#5fd490", rideIcon: "🌞", chores: ["Kitchen bathroom"] },
-     { name: "Adaline", color: "#6ec6ff", rideIcon: "🦋", chores: ["Pantry", "Basement cabinets"] },
-     { name: "Raleigh", color: "#b97fdb", rideIcon: "🌈", chores: ["Shoe basket"] }
+     { name: "Ellie", color: "#ff6f91", rideIcon: "🎈", chores: ["Garbages"] },
+     { name: "Brooklyn", color: "#ff9671", rideIcon: "🎉", chores: ["Kids bathroom"] },
+     { name: "Hazel", color: "#ffc75f", textColor: "#333", rideIcon: "🎂", chores: ["Kitchen bathroom walls"] },
+     { name: "Mav", avatarName: "Maverick", color: "#f9a825", rideIcon: "🎊", chores: ["Baseboards on all stairs"] },
+     { name: "Hinckley", color: "#5fd490", rideIcon: "🥳", chores: ["Kitchen bathroom"] },
+     { name: "Adaline", color: "#6ec6ff", rideIcon: "🎁", chores: ["Pantry", "Basement cabinets"] },
+     { name: "Raleigh", color: "#b97fdb", rideIcon: "🍭", chores: ["Shoe basket"] }
    ];
 
   function renderTable() {
