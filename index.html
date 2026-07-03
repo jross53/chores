@@ -20,11 +20,12 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #00a8a8;
+          background-color: #002868;
           background:
-                  radial-gradient(circle at 12% 10%, rgba(178, 255, 255, 0.95), transparent 35%),
-                  radial-gradient(circle at 88% 12%, rgba(0, 210, 210, 0.45), transparent 34%),
-                  linear-gradient(165deg, #b2f0f0 0%, #3dd4d4 28%, #00aaaa 62%, #006e6e 100%);
+                  radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.85), transparent 30%),
+                  radial-gradient(circle at 88% 12%, rgba(191, 10, 48, 0.55), transparent 34%),
+                  radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.5), transparent 28%),
+                  linear-gradient(165deg, #123a7a 0%, #002868 45%, #001842 75%, #bf0a30 130%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,11 +38,12 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background: rgba(0, 180, 180, 0.25);
-          border: 2px solid rgba(178, 255, 255, 0.85);
+          background-color: rgba(0, 40, 104, 0.35);
+          background: rgba(0, 40, 104, 0.35);
+          border: 2px solid rgba(255, 255, 255, 0.85);
           border-radius: 14px;
           padding: 14px 14px 12px;
-          box-shadow: 0 10px 24px rgba(0, 80, 80, 0.22);
+          box-shadow: 0 10px 24px rgba(0, 10, 40, 0.35);
       }
 
       .birthday-note {
@@ -49,17 +51,18 @@
           font-family: "Fredoka", sans-serif;
           font-size: 1.35rem;
           font-weight: 600;
-          color: #004d4d;
+          color: #ffffff;
           letter-spacing: 0.02em;
       }
 
       .season-badge {
           display: inline-block;
           border-radius: 999px;
-          background: linear-gradient(135deg, #ffe58a, #ffc44d);
-          color: #8a3d00;
-          border: 2px solid rgba(255, 250, 227, 0.95);
-          box-shadow: 0 6px 16px rgba(133, 57, 0, 0.25);
+          background-color: #bf0a30;
+          background: linear-gradient(135deg, #d81e3f, #bf0a30);
+          color: #fff8f0;
+          border: 2px solid rgba(255, 255, 255, 0.95);
+          box-shadow: 0 6px 16px rgba(0, 10, 40, 0.35);
           padding: 9px 18px;
           margin-bottom: 10px;
           font-family: "Fredoka", sans-serif;
@@ -71,9 +74,9 @@
           font-family: "Fredoka", sans-serif;
           font-size: 2.5rem;
           font-weight: 600;
-          color: #fff8e1;
+          color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(99, 44, 0, 0.25);
+          text-shadow: 0 4px 8px rgba(0, 10, 40, 0.4);
           letter-spacing: 0;
       }
 
@@ -96,13 +99,10 @@
           vertical-align: top;
           text-align: left;
           background-color: #fffef8;
-          background:
-                  linear-gradient(#fffef8, #fffef8) padding-box,
-                  repeating-linear-gradient(-45deg, #00aaaa 0 10px, #e0f7f7 10px 20px) border-box;
-          border: 3px solid transparent;
+          border: 4px solid #bf0a30;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(138, 65, 0, 0.22);
+          box-shadow: 0 8px 18px rgba(0, 10, 40, 0.28);
       }
 
       .kid-profile {
@@ -117,8 +117,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #ffd36e;
-          box-shadow: 0 6px 16px rgba(102, 50, 0, 0.2);
+          border: 4px solid #002868;
+          box-shadow: 0 6px 16px rgba(0, 10, 40, 0.25);
           display: table-cell;
           vertical-align: middle;
       }
@@ -142,12 +142,6 @@
           word-break: break-word;
       }
 
-      .name-icon {
-          font-size: 0.9em;
-          margin-left: 8px;
-          vertical-align: baseline;
-      }
-
       ul {
           list-style: none;
           margin: 0;
@@ -162,7 +156,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #5a3200;
+          color: #002868;
       }
 
       li:last-child {
@@ -192,27 +186,27 @@
           background: #fffef4;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(133, 63, 0, 0.16);
+          box-shadow: 0 8px 18px rgba(0, 10, 40, 0.2);
           font-size: 1rem;
           font-weight: 600;
-          color: #8a4a00;
+          color: #002868;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
-          background-color: rgba(255, 248, 225, 0.92);
-          border: 2px solid rgba(255, 250, 227, 0.95);
+          background-color: rgba(255, 255, 255, 0.92);
+          border: 2px solid rgba(0, 40, 104, 0.4);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(133, 63, 0, 0.16);
+          box-shadow: 0 8px 18px rgba(0, 10, 40, 0.2);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #8a3d00;
+          color: #002868;
       }
 
-      .birthday-collage {
+      .presidents-collage {
           text-align: center;
           margin-top: 14px;
       }
@@ -225,9 +219,9 @@
           position: relative;
           overflow: hidden;
           border-radius: 16px;
-          border: 2px solid #40c8c8;
+          border: 2px solid #bf0a30;
           background: #fffef8;
-          box-shadow: 0 10px 24px rgba(100, 70, 0, 0.18);
+          box-shadow: 0 10px 24px rgba(0, 10, 40, 0.28);
           margin: 5px;
       }
 
@@ -265,13 +259,13 @@
           height: 166px;
           overflow: hidden;
           border-radius: 16px;
-          border: 2px solid #40c8c8;
+          border: 2px solid #bf0a30;
           background: #fffef8;
-          box-shadow: 0 10px 24px rgba(100, 70, 0, 0.18);
+          box-shadow: 0 10px 24px rgba(0, 10, 40, 0.28);
           margin: 5px;
       }
 
-      .hazel-photo img { object-position: center 20%; }
+      .president-photo img { object-position: center 15%; }
 
       @media (min-width: 1100px) and (orientation: landscape) {
           body {
@@ -361,7 +355,7 @@
               margin: 0 0 12px;
           }
 
-          .birthday-collage {
+          .presidents-collage {
               margin-top: 8px;
           }
 
@@ -401,41 +395,35 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎂</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎂</span></h1>
-    <p class="birthday-note">Happy Birthday, Hazel! 🎉</p>
+    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎆</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎆</span></h1>
+    <p class="birthday-note">Happy 4th of July!</p>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
 
-  <section class="birthday-collage" aria-label="Birthday photos for Hazel">
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-1.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-2.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-3.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-4.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-feature hazel-photo">
-      <img src="hazel-bday-5.jpg" alt="Hazel birthday photo">
+  <section class="presidents-collage" aria-label="Photos of US presidents">
+    <div class="photo-feature president-photo">
+      <img src="president-washington.jpg" alt="George Washington">
     </div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-6.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-7.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-8.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-9.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-10.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-11.jpg" alt="Hazel birthday photo"></div>
-    <div class="photo-bubble hazel-photo"><img src="hazel-bday-12.jpg" alt="Hazel birthday photo"></div>
+    <div class="photo-bubble president-photo"><img src="president-jefferson.jpg" alt="Thomas Jefferson"></div>
+    <div class="photo-bubble president-photo"><img src="president-lincoln.jpg" alt="Abraham Lincoln"></div>
+    <div class="photo-bubble president-photo"><img src="president-teddy.jpg" alt="Theodore Roosevelt"></div>
+    <div class="photo-bubble president-photo"><img src="president-jfk.jpg" alt="John F. Kennedy"></div>
+    <div class="photo-bubble president-photo"><img src="president-reagan.jpg" alt="Ronald Reagan"></div>
   </section>
 </div>
 
   <script>
    var KIDS = [
-     { name: "Ellie", color: "#ff6f91", rideIcon: "🎈", chores: ["Garbages"] },
-     { name: "Brooklyn", color: "#ff9671", rideIcon: "🎉", chores: ["Kids bathroom"] },
-     { name: "Hazel", color: "#ffc75f", textColor: "#333", rideIcon: "🎂", chores: ["Kitchen bathroom walls"] },
-     { name: "Mav", avatarName: "Maverick", color: "#f9a825", rideIcon: "🎊", chores: ["Baseboards on all stairs"] },
-     { name: "Hinckley", color: "#5fd490", rideIcon: "🥳", chores: ["Kitchen bathroom"] },
-     { name: "Adaline", color: "#6ec6ff", rideIcon: "🎁", chores: ["Pantry", "Basement cabinets"] },
-     { name: "Raleigh", color: "#b97fdb", rideIcon: "🍭", chores: ["Shoe basket"] }
+     { name: "Ellie", color: "#ff6f91", chores: ["Room", "FSY stuff"] },
+     { name: "Brooklyn", color: "#ff9671", chores: ["Garbages", "Weed flower bed by porch"] },
+     { name: "Hazel", color: "#ffc75f", textColor: "#333", chores: ["Kids bathroom", "Basement tub"] },
+     { name: "Mav", avatarName: "Maverick", color: "#f9a825", chores: ["Kitchen bathroom", "Kitchen floor"] },
+     { name: "Hinckley", color: "#5fd490", chores: ["Help Brooklyn"] },
+     { name: "Adaline", color: "#6ec6ff", chores: ["Pantry", "Basement cabinets and walls"] },
+     { name: "Raleigh", color: "#b97fdb", chores: ["Shoe basket"] }
    ];
 
   function renderTable() {
@@ -475,13 +463,6 @@
       nameDiv.style.background = kid.color;
       nameDiv.style.color = kid.textColor || "white";
       nameDiv.textContent = kid.name;
-      if (kid.rideIcon) {
-        var nameIcon = document.createElement("span");
-        nameIcon.setAttribute("class", "name-icon");
-        nameIcon.setAttribute("aria-hidden", "true");
-        nameIcon.textContent = kid.rideIcon;
-        nameDiv.appendChild(nameIcon);
-      }
 
       textWrap.appendChild(nameDiv);
       profileDiv.appendChild(avatar);
