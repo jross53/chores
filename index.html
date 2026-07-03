@@ -390,9 +390,19 @@
               height: 96px;
           }
       }
+      #fireworksCanvas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 999;
+      }
   </style>
 </head>
 <body>
+<canvas id="fireworksCanvas"></canvas>
 <div class="page-shell">
   <section class="page-header">
     <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎆</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎆</span></h1>
@@ -496,6 +506,104 @@
   }
 
   renderTable();
+
+  // --- Firework effect ---
+  // TESTING: fires every 5 seconds. For production, change FIREWORK_INTERVAL_MS to 60000.
+  var FIREWORK_INTERVAL_MS = 5000;
+  var FIREWORK_COLORS = ["#ff4d4d", "#ffffff", "#4d7dff", "#ffd24d", "#5fd490"];
+
+  var canvas = document.getElementById("fireworksCanvas");
+  var ctx = canvas && canvas.getContext ? canvas.getContext("2d") : null;
+  var particles = [];
+  var animating = false;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function launchBurst(originX, originY, color) {
+    var particleCount = 90;
+
+    for (var i = 0; i < particleCount; i++) {
+      var angle = (Math.PI * 2 * i) / particleCount;
+      var speed = 3 + Math.random() * 4;
+      particles.push({
+        x: originX,
+        y: originY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        color: color,
+        size: 2.5 + Math.random() * 1.5,
+        life: 90
+      });
+    }
+  }
+
+  function launchFirework() {
+    if (!ctx) return;
+
+    var burstCount = 5 + Math.floor(Math.random() * 3);
+    for (var b = 0; b < burstCount; b++) {
+      var originX = canvas.width * (0.15 + Math.random() * 0.7);
+      var originY = canvas.height * (0.15 + Math.random() * 0.4);
+      var color = FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)];
+      launchBurst(originX, originY, color);
+    }
+
+    if (!animating) {
+      animating = true;
+      animateParticles();
+    }
+  }
+
+  function animateParticles() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.globalCompositeOperation = "source-over";
+
+    var stillAlive = [];
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.04;
+      p.life -= 1;
+
+      if (p.life > 0) {
+        ctx.globalAlpha = Math.max(p.life / 90, 0);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 12;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        stillAlive.push(p);
+      }
+    }
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+    particles = stillAlive;
+
+    if (particles.length > 0) {
+      if (window.requestAnimationFrame) {
+        requestAnimationFrame(animateParticles);
+      } else {
+        setTimeout(animateParticles, 33);
+      }
+    } else {
+      animating = false;
+    }
+  }
+
+  if (ctx) {
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+    setInterval(launchFirework, FIREWORK_INTERVAL_MS);
+    launchFirework();
+  }
 </script>
 </body>
 </html>
