@@ -508,8 +508,8 @@
   renderTable();
 
   // --- Firework effect ---
-  // TESTING: fires every 20 seconds. For production, change FIREWORK_INTERVAL_MS to 60000.
-  var FIREWORK_INTERVAL_MS = 20000;
+  // TESTING: fires every 10 seconds. For production, change FIREWORK_INTERVAL_MS to 60000.
+  var FIREWORK_INTERVAL_MS = 10000;
   var FIREWORK_COLORS = ["#ff4d4d", "#ffffff", "#4d7dff", "#ffd24d", "#5fd490"];
 
   var canvas = document.getElementById("fireworksCanvas");
@@ -543,7 +543,7 @@
   function launchFirework() {
     if (!ctx) return;
 
-    var burstCount = 5 + Math.floor(Math.random() * 3);
+    var burstCount = 10 + Math.floor(Math.random() * 4);
     for (var b = 0; b < burstCount; b++) {
       var originX = canvas.width * (0.15 + Math.random() * 0.7);
       var originY = canvas.height * (0.15 + Math.random() * 0.4);
@@ -598,10 +598,23 @@
     }
   }
 
+  // Some old TV browsers fire long-delay setInterval calls unreliably (too often/too fast).
+  // Checking elapsed wall-clock time on a short, frequent tick is more robust.
+  var lastLaunchTime = 0;
+
+  function checkFireworkSchedule() {
+    var now = new Date().getTime();
+    if (now - lastLaunchTime >= FIREWORK_INTERVAL_MS) {
+      lastLaunchTime = now;
+      launchFirework();
+    }
+  }
+
   if (ctx) {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-    setInterval(launchFirework, FIREWORK_INTERVAL_MS);
+    lastLaunchTime = new Date().getTime();
+    setInterval(checkFireworkSchedule, 1000);
     launchFirework();
   }
 </script>
