@@ -20,11 +20,11 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #e91e8c;
+          background-color: #ffb703;
           background:
-                  radial-gradient(circle at 12% 10%, rgba(255, 214, 240, 0.95), transparent 35%),
-                  radial-gradient(circle at 88% 12%, rgba(255, 105, 180, 0.45), transparent 34%),
-                  linear-gradient(165deg, #ffd6f0 0%, #ff9fd6 28%, #ff5cb3 62%, #d6187f 100%);
+                  radial-gradient(circle at 12% 10%, rgba(255, 236, 179, 0.95), transparent 35%),
+                  radial-gradient(circle at 88% 12%, rgba(110, 198, 255, 0.5), transparent 34%),
+                  linear-gradient(165deg, #ffe8a3 0%, #ffc85c 28%, #ffa62b 62%, #e8780e 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,31 +37,40 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: rgba(214, 24, 127, 0.25);
-          background: rgba(214, 24, 127, 0.25);
-          border: 2px solid rgba(255, 214, 240, 0.85);
+          background-color: rgba(30, 58, 95, 0.28);
+          background: rgba(30, 58, 95, 0.28);
+          border: 2px solid rgba(255, 232, 163, 0.85);
           border-radius: 14px;
           padding: 14px 14px 12px;
-          box-shadow: 0 10px 24px rgba(120, 10, 70, 0.28);
+          box-shadow: 0 10px 24px rgba(120, 60, 0, 0.28);
       }
 
-      .birthday-note {
+      .lyric-note {
           margin: 6px 0 0;
           font-family: "Fredoka", sans-serif;
-          font-size: 1.35rem;
+          font-style: italic;
+          font-size: 1.25rem;
           font-weight: 600;
           color: #ffffff;
           letter-spacing: 0.02em;
       }
 
+      .lyric-attribution {
+          margin: 2px 0 0;
+          font-family: "Inter", sans-serif;
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #ffe8a3;
+      }
+
       .season-badge {
           display: inline-block;
           border-radius: 999px;
-          background-color: #d6187f;
-          background: linear-gradient(135deg, #ff5cb3, #d6187f);
+          background-color: #e8780e;
+          background: linear-gradient(135deg, #6ec6ff, #e8780e);
           color: #fff8f0;
           border: 2px solid rgba(255, 255, 255, 0.95);
-          box-shadow: 0 6px 16px rgba(120, 10, 70, 0.35);
+          box-shadow: 0 6px 16px rgba(120, 60, 0, 0.35);
           padding: 9px 18px;
           margin-bottom: 10px;
           font-family: "Fredoka", sans-serif;
@@ -75,7 +84,7 @@
           font-weight: 600;
           color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(120, 10, 70, 0.4);
+          text-shadow: 0 4px 8px rgba(120, 60, 0, 0.4);
           letter-spacing: 0;
       }
 
@@ -98,10 +107,10 @@
           vertical-align: top;
           text-align: left;
           background-color: #fffef8;
-          border: 4px solid #d6187f;
+          border: 4px solid #e8780e;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(120, 10, 70, 0.28);
+          box-shadow: 0 8px 18px rgba(120, 60, 0, 0.28);
       }
 
       .kid-profile {
@@ -116,8 +125,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #8a0e52;
-          box-shadow: 0 6px 16px rgba(120, 10, 70, 0.25);
+          border: 4px solid #1e3a5f;
+          box-shadow: 0 6px 16px rgba(120, 60, 0, 0.25);
           display: table-cell;
           vertical-align: middle;
       }
@@ -155,7 +164,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #8a0e52;
+          color: #1e3a5f;
       }
 
       li:last-child {
@@ -185,27 +194,27 @@
           background: #fffef4;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(120, 10, 70, 0.2);
+          box-shadow: 0 8px 18px rgba(120, 60, 0, 0.2);
           font-size: 1rem;
           font-weight: 600;
-          color: #8a0e52;
+          color: #1e3a5f;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
           background-color: rgba(255, 255, 255, 0.92);
-          border: 2px solid rgba(120, 10, 70, 0.4);
+          border: 2px solid rgba(120, 60, 0, 0.4);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(120, 10, 70, 0.2);
+          box-shadow: 0 8px 18px rgba(120, 60, 0, 0.2);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #8a0e52;
+          color: #1e3a5f;
       }
 
-      .birthday-collage {
+      .concert-collage {
           text-align: center;
           margin-top: 14px;
       }
@@ -218,9 +227,9 @@
           position: relative;
           overflow: hidden;
           border-radius: 16px;
-          border: 2px solid #d6187f;
+          border: 2px solid #e8780e;
           background: #fffef8;
-          box-shadow: 0 10px 24px rgba(120, 10, 70, 0.28);
+          box-shadow: 0 10px 24px rgba(120, 60, 0, 0.28);
           margin: 5px;
       }
 
@@ -244,7 +253,7 @@
           padding: 6px 8px;
           border-radius: 10px;
           background: rgba(255, 255, 255, 0.92);
-          color: #8a0e52;
+          color: #1e3a5f;
           font-size: 0.82rem;
           line-height: 1.2;
           font-weight: 700;
@@ -258,9 +267,9 @@
           height: 166px;
           overflow: hidden;
           border-radius: 16px;
-          border: 2px solid #d6187f;
+          border: 2px solid #e8780e;
           background: #fffef8;
-          box-shadow: 0 10px 24px rgba(120, 10, 70, 0.28);
+          box-shadow: 0 10px 24px rgba(120, 60, 0, 0.28);
           margin: 5px;
       }
 
@@ -354,7 +363,7 @@
               margin: 0 0 12px;
           }
 
-          .birthday-collage {
+          .concert-collage {
               margin-top: 8px;
           }
 
@@ -394,21 +403,18 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎂</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎂</span></h1>
-    <p class="birthday-note">Happy Birthday, Adaline! 🎉</p>
+    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎤</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎤</span></h1>
+    <p class="lyric-note">"Jesus, Your way's better."</p>
+    <p class="lyric-attribution">— Forrest Frank, "YOUR WAY'S BETTER"</p>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
 
-  <section class="birthday-collage" aria-label="Birthday photos for Adaline">
-    <div class="photo-bubble adaline-photo"><img src="adaline-bday-1.jpg" alt="Adaline birthday photo"></div>
-    <div class="photo-bubble adaline-photo"><img src="adaline-bday-2.jpg" alt="Adaline birthday photo"></div>
-    <div class="photo-bubble adaline-photo"><img src="adaline-bday-3.jpg" alt="Adaline birthday photo"></div>
-    <div class="photo-bubble adaline-photo"><img src="adaline-bday-4.jpg" alt="Adaline birthday photo"></div>
-    <div class="photo-bubble adaline-photo"><img src="adaline-bday-5.jpg" alt="Adaline birthday photo"></div>
-    <div class="photo-bubble adaline-photo"><img src="adaline-bday-6.jpg" alt="Adaline birthday photo"></div>
+  <section class="concert-collage" aria-label="Photos of Tori Kelly and Forrest Frank">
+    <div class="photo-feature"><img src="tori-kelly.jpg" alt="Tori Kelly"><span class="photo-feature-label">Tori Kelly</span></div>
+    <div class="photo-feature"><img src="forrest-frank.jpg" alt="Forrest Frank"><span class="photo-feature-label">Forrest Frank</span></div>
   </section>
 </div>
 
