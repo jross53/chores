@@ -18,3 +18,4 @@
   ```
   Verify with `python3 -c "from PIL import Image; img = Image.open('photo.jpg'); print(img.size, img.getexif().get(274))"` — orientation should print `None`. Do this for every photo added to the repo, not just ones that look sideways in a normal browser preview.
 - When the user gives you text to put on the page (chore names, notes, lyrics, labels, etc.), spell check it first and point out anything that looks misspelled before adding it. Don't silently auto-correct — flag it and let the user confirm the fix or say it's intentional.
+- Do not add caption labels (e.g. `.photo-feature-label`) on top of photos in theme collages, such as a name or "Birthday Boy/Girl" label. Photos should be shown without overlay text unless the user explicitly asks for a label.
