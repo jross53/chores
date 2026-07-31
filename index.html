@@ -20,11 +20,11 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #5fd490;
+          background-color: #d4bf9e;
           background:
-                  radial-gradient(circle at 12% 10%, rgba(214, 255, 230, 0.95), transparent 35%),
-                  radial-gradient(circle at 88% 12%, rgba(95, 212, 144, 0.45), transparent 34%),
-                  linear-gradient(165deg, #d6ffe6 0%, #a3f0c0 28%, #5fd490 62%, #1f8f52 100%);
+                  radial-gradient(circle at 12% 10%, rgba(247, 240, 227, 0.95), transparent 35%),
+                  radial-gradient(circle at 88% 12%, rgba(138, 107, 71, 0.45), transparent 34%),
+                  linear-gradient(165deg, #f7f0e3 0%, #ece0c8 28%, #d4bf9e 62%, #8a6b47 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,17 +37,18 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: rgba(31, 143, 82, 0.28);
-          background: rgba(31, 143, 82, 0.28);
-          border: 2px solid rgba(214, 255, 230, 0.85);
+          background-color: rgba(61, 42, 26, 0.28);
+          background: rgba(61, 42, 26, 0.28);
+          border: 2px solid rgba(247, 240, 227, 0.85);
           border-radius: 14px;
           padding: 14px 14px 12px;
-          box-shadow: 0 10px 24px rgba(10, 80, 40, 0.28);
+          box-shadow: 0 10px 24px rgba(60, 40, 20, 0.28);
       }
 
-      .birthday-note {
+      .headline-note {
           margin: 6px 0 0;
           font-family: "Fredoka", sans-serif;
+          font-style: italic;
           font-size: 1.35rem;
           font-weight: 600;
           color: #ffffff;
@@ -57,11 +58,11 @@
       .season-badge {
           display: inline-block;
           border-radius: 999px;
-          background-color: #1f8f52;
-          background: linear-gradient(135deg, #7fe3a8, #1f8f52);
+          background-color: #6b4a2f;
+          background: linear-gradient(135deg, #4a6b8a, #6b4a2f);
           color: #fff8f0;
           border: 2px solid rgba(255, 255, 255, 0.95);
-          box-shadow: 0 6px 16px rgba(10, 80, 40, 0.35);
+          box-shadow: 0 6px 16px rgba(60, 40, 20, 0.35);
           padding: 9px 18px;
           margin-bottom: 10px;
           font-family: "Fredoka", sans-serif;
@@ -75,7 +76,7 @@
           font-weight: 600;
           color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(10, 80, 40, 0.4);
+          text-shadow: 0 4px 8px rgba(60, 40, 20, 0.4);
           letter-spacing: 0;
       }
 
@@ -84,6 +85,15 @@
           margin: 0 6px;
           font-size: 0.85em;
           vertical-align: baseline;
+      }
+
+      .title-logo {
+          display: block;
+          height: 90px;
+          width: auto;
+          margin: 0 auto 6px;
+          border-radius: 8px;
+          box-shadow: 0 4px 10px rgba(60, 40, 20, 0.35);
       }
 
       .chores-container {
@@ -98,10 +108,10 @@
           vertical-align: top;
           text-align: left;
           background-color: #fffef8;
-          border: 4px solid #1f8f52;
+          border: 4px solid #6b4a2f;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(10, 80, 40, 0.28);
+          box-shadow: 0 8px 18px rgba(60, 40, 20, 0.28);
       }
 
       .kid-profile {
@@ -116,8 +126,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #0d5c33;
-          box-shadow: 0 6px 16px rgba(10, 80, 40, 0.25);
+          border: 4px solid #3d2a1a;
+          box-shadow: 0 6px 16px rgba(60, 40, 20, 0.25);
           display: table-cell;
           vertical-align: middle;
       }
@@ -155,7 +165,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #0d5c33;
+          color: #3d2a1a;
       }
 
       li:last-child {
@@ -185,86 +195,25 @@
           background: #fffef4;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(10, 80, 40, 0.2);
+          box-shadow: 0 8px 18px rgba(60, 40, 20, 0.2);
           font-size: 1rem;
           font-weight: 600;
-          color: #0d5c33;
+          color: #3d2a1a;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
           background-color: rgba(255, 255, 255, 0.92);
-          border: 2px solid rgba(10, 80, 40, 0.4);
+          border: 2px solid rgba(60, 40, 20, 0.4);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(10, 80, 40, 0.2);
+          box-shadow: 0 8px 18px rgba(60, 40, 20, 0.2);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #0d5c33;
+          color: #3d2a1a;
       }
-
-      .birthday-collage {
-          text-align: center;
-          margin-top: 14px;
-      }
-
-      .photo-feature {
-          display: inline-block;
-          vertical-align: middle;
-          width: 220px;
-          height: 260px;
-          position: relative;
-          overflow: hidden;
-          border-radius: 16px;
-          border: 2px solid #1f8f52;
-          background: #fffef8;
-          box-shadow: 0 10px 24px rgba(10, 80, 40, 0.28);
-          margin: 5px;
-      }
-
-      .photo-feature img,
-      .photo-bubble img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-      }
-
-      .photo-feature img {
-          object-position: center 14%;
-      }
-
-      .photo-feature-label {
-          position: absolute;
-          left: 8px;
-          right: 8px;
-          bottom: 8px;
-          padding: 6px 8px;
-          border-radius: 10px;
-          background: rgba(255, 255, 255, 0.92);
-          color: #0d5c33;
-          font-size: 0.82rem;
-          line-height: 1.2;
-          font-weight: 700;
-          text-align: center;
-      }
-
-      .photo-bubble {
-          display: inline-block;
-          vertical-align: middle;
-          width: 220px;
-          height: 260px;
-          overflow: hidden;
-          border-radius: 16px;
-          border: 2px solid #1f8f52;
-          background: #fffef8;
-          box-shadow: 0 10px 24px rgba(10, 80, 40, 0.28);
-          margin: 5px;
-      }
-
-      .hinckley-photo img { object-position: center 15%; }
 
       @media (min-width: 1100px) and (orientation: landscape) {
           body {
@@ -305,32 +254,12 @@
               font-size: 0.8rem;
           }
 
-          .photo-feature,
-          .photo-bubble {
-              width: 130px;
-              height: 140px;
-              border-radius: 14px;
-          }
-      }
-
-      @media (min-width: 1100px) and (orientation: landscape) and (min-height: 850px) {
-          .photo-feature,
-          .photo-bubble {
-              width: 210px;
-              height: 250px;
-          }
       }
 
       @media (max-width: 1100px) {
           .chore-card {
               width: 49%;
               margin: 0 0.5% 12px;
-          }
-
-          .photo-feature,
-          .photo-bubble {
-              width: 170px;
-              height: 200px;
           }
       }
 
@@ -362,15 +291,6 @@
               margin: 0 0 12px;
           }
 
-          .birthday-collage {
-              margin-top: 8px;
-          }
-
-          .photo-feature,
-          .photo-bubble {
-              width: 150px;
-              height: 175px;
-          }
       }
 
       @media (max-height: 700px) {
@@ -390,36 +310,20 @@
           li {
               font-size: 0.9rem;
           }
-
-          .photo-feature,
-          .photo-bubble {
-              width: 130px;
-              height: 150px;
-          }
       }
   </style>
 </head>
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎂</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎂</span></h1>
-    <p class="birthday-note">Happy Birthday, Hinckley! 🎉</p>
+    <img src="newsies-logo.jpg" alt="Newsies logo" class="title-logo">
+    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🗞️</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🗞️</span></h1>
+    <p class="headline-note">Extra! Extra! Brooklyn's in Newsies! 🗞️</p>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-
-  <section class="birthday-collage" aria-label="Birthday photos for Hinckley">
-    <div class="photo-bubble hinckley-photo"><img src="hinckley-bday-1.jpg" alt="Hinckley birthday photo"></div>
-    <div class="photo-bubble hinckley-photo"><img src="hinckley-bday-2.jpg" alt="Hinckley birthday photo"></div>
-    <div class="photo-feature hinckley-photo">
-      <img src="hinckley-bday-3.jpg" alt="Hinckley birthday photo">
-    </div>
-    <div class="photo-bubble hinckley-photo"><img src="hinckley-bday-4.jpg" alt="Hinckley birthday photo"></div>
-    <div class="photo-bubble hinckley-photo"><img src="hinckley-bday-5.jpg" alt="Hinckley birthday photo"></div>
-    <div class="photo-bubble hinckley-photo"><img src="hinckley-bday-6.jpg" alt="Hinckley birthday photo"></div>
-  </section>
 </div>
 
   <script>
