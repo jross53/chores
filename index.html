@@ -20,11 +20,11 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #a9c4d9;
+          background-color: #b97fdb;
           background:
-                  radial-gradient(circle at 12% 10%, rgba(240, 246, 250, 0.95), transparent 35%),
-                  radial-gradient(circle at 88% 12%, rgba(122, 106, 78, 0.45), transparent 34%),
-                  linear-gradient(165deg, #eaf2f7 0%, #bcd6e6 28%, #a9c4d9 62%, #8a7454 100%);
+                  radial-gradient(circle at 12% 10%, rgba(245, 232, 255, 0.95), transparent 35%),
+                  radial-gradient(circle at 88% 12%, rgba(185, 127, 219, 0.45), transparent 34%),
+                  linear-gradient(165deg, #f5e8ff 0%, #ddbdf2 28%, #b97fdb 62%, #6a3f9e 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,22 +37,31 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: rgba(35, 52, 68, 0.28);
-          background: rgba(35, 52, 68, 0.28);
-          border: 2px solid rgba(240, 246, 250, 0.85);
+          background-color: rgba(74, 38, 115, 0.28);
+          background: rgba(74, 38, 115, 0.28);
+          border: 2px solid rgba(245, 232, 255, 0.85);
           border-radius: 14px;
           padding: 14px 14px 12px;
-          box-shadow: 0 10px 24px rgba(30, 40, 50, 0.28);
+          box-shadow: 0 10px 24px rgba(70, 30, 110, 0.28);
+      }
+
+      .birthday-note {
+          margin: 6px 0 0;
+          font-family: "Fredoka", sans-serif;
+          font-size: 1.35rem;
+          font-weight: 600;
+          color: #ffffff;
+          letter-spacing: 0.02em;
       }
 
       .season-badge {
           display: inline-block;
           border-radius: 999px;
-          background-color: #6b4a2f;
-          background: linear-gradient(135deg, #4a6b8a, #6b4a2f);
+          background-color: #6a3f9e;
+          background: linear-gradient(135deg, #d3a8ee, #6a3f9e);
           color: #fff8f0;
           border: 2px solid rgba(255, 255, 255, 0.95);
-          box-shadow: 0 6px 16px rgba(30, 40, 50, 0.35);
+          box-shadow: 0 6px 16px rgba(70, 30, 110, 0.35);
           padding: 9px 18px;
           margin-bottom: 10px;
           font-family: "Fredoka", sans-serif;
@@ -66,7 +75,7 @@
           font-weight: 600;
           color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(30, 40, 50, 0.4);
+          text-shadow: 0 4px 8px rgba(70, 30, 110, 0.4);
           letter-spacing: 0;
       }
 
@@ -89,10 +98,10 @@
           vertical-align: top;
           text-align: left;
           background-color: #fffef8;
-          border: 4px solid #4a7a9c;
+          border: 4px solid #8e5cbe;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(30, 40, 50, 0.28);
+          box-shadow: 0 8px 18px rgba(70, 30, 110, 0.28);
       }
 
       .kid-profile {
@@ -107,8 +116,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #233444;
-          box-shadow: 0 6px 16px rgba(30, 40, 50, 0.25);
+          border: 4px solid #4a2673;
+          box-shadow: 0 6px 16px rgba(70, 30, 110, 0.25);
           display: table-cell;
           vertical-align: middle;
       }
@@ -146,7 +155,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #233444;
+          color: #4a2673;
       }
 
       li:last-child {
@@ -176,37 +185,50 @@
           background: #fffef4;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(30, 40, 50, 0.2);
+          box-shadow: 0 8px 18px rgba(70, 30, 110, 0.2);
           font-size: 1rem;
           font-weight: 600;
-          color: #233444;
+          color: #4a2673;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
           background-color: rgba(255, 255, 255, 0.92);
-          border: 2px solid rgba(30, 40, 50, 0.4);
+          border: 2px solid rgba(70, 30, 110, 0.4);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(30, 40, 50, 0.2);
+          box-shadow: 0 8px 18px rgba(70, 30, 110, 0.2);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #233444;
+          color: #4a2673;
       }
 
-      .bottom-photo {
-          margin-top: 14px;
+      .birthday-collage {
           text-align: center;
+          margin-top: 14px;
       }
 
-      .bottom-photo img {
-          max-width: 480px;
-          width: 100%;
+      .photo-bubble {
+          display: inline-block;
+          vertical-align: middle;
+          width: 220px;
+          height: 260px;
+          overflow: hidden;
           border-radius: 16px;
-          border: 4px solid #4a7a9c;
-          box-shadow: 0 8px 18px rgba(30, 40, 50, 0.28);
+          border: 2px solid #8e5cbe;
+          background: #fffef8;
+          box-shadow: 0 10px 24px rgba(70, 30, 110, 0.28);
+          margin: 5px;
+      }
+
+      .photo-bubble img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 15%;
       }
 
       @media (min-width: 1100px) and (orientation: landscape) {
@@ -248,12 +270,29 @@
               font-size: 0.8rem;
           }
 
+          .photo-bubble {
+              width: 130px;
+              height: 140px;
+              border-radius: 14px;
+          }
+      }
+
+      @media (min-width: 1100px) and (orientation: landscape) and (min-height: 850px) {
+          .photo-bubble {
+              width: 210px;
+              height: 250px;
+          }
       }
 
       @media (max-width: 1100px) {
           .chore-card {
               width: 49%;
               margin: 0 0.5% 12px;
+          }
+
+          .photo-bubble {
+              width: 170px;
+              height: 200px;
           }
       }
 
@@ -285,6 +324,14 @@
               margin: 0 0 12px;
           }
 
+          .birthday-collage {
+              margin-top: 8px;
+          }
+
+          .photo-bubble {
+              width: 150px;
+              height: 175px;
+          }
       }
 
       @media (max-height: 700px) {
@@ -304,21 +351,32 @@
           li {
               font-size: 0.9rem;
           }
+
+          .photo-bubble {
+              width: 130px;
+              height: 150px;
+          }
       }
   </style>
 </head>
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🚂</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🚂</span></h1>
+    <h1 class="page-title"><span class="title-icon" aria-hidden="true">🎂</span>Ross Family Chores<span class="title-icon" aria-hidden="true">🎂</span></h1>
+    <p class="birthday-note">Happy Birthday, Raleigh! 🎉</p>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-  <div class="bottom-photo">
-    <img src="california-zephyr.jpg" alt="California Zephyr train car at Big Candy Mountain resort">
-  </div>
+  <section class="birthday-collage" aria-label="Birthday photos for Raleigh">
+    <div class="photo-bubble"><img src="raleigh-bday-1.jpg" alt="Raleigh birthday photo"></div>
+    <div class="photo-bubble"><img src="raleigh-bday-2.jpg" alt="Raleigh birthday photo"></div>
+    <div class="photo-bubble"><img src="raleigh-bday-3.jpg" alt="Raleigh birthday photo"></div>
+    <div class="photo-bubble"><img src="raleigh-bday-4.jpg" alt="Raleigh birthday photo"></div>
+    <div class="photo-bubble"><img src="raleigh-bday-5.jpg" alt="Raleigh birthday photo"></div>
+    <div class="photo-bubble"><img src="raleigh-bday-6.jpg" alt="Raleigh birthday photo"></div>
+  </section>
 </div>
 
   <script>
