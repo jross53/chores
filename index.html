@@ -20,11 +20,11 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #123a7a;
+          background-color: #8a4214;
           background:
-                  radial-gradient(circle at 14% 12%, rgba(255, 255, 255, 0.7), transparent 32%),
-                  radial-gradient(circle at 88% 86%, rgba(178, 34, 52, 0.55), transparent 38%),
-                  linear-gradient(165deg, #dfe8ff 0%, #8ea9e2 26%, #1b4a9c 60%, #04163d 100%);
+                  radial-gradient(circle at 14% 12%, rgba(255, 244, 214, 0.75), transparent 32%),
+                  radial-gradient(circle at 88% 86%, rgba(140, 31, 18, 0.5), transparent 38%),
+                  linear-gradient(165deg, #ffeccb 0%, #f0a244 26%, #b3521a 60%, #4a2008 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,8 +37,8 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: rgba(4, 26, 69, 0.55);
-          background: rgba(4, 26, 69, 0.55);
+          background-color: rgba(74, 32, 8, 0.55);
+          background: rgba(74, 32, 8, 0.55);
           border: 2px solid rgba(255, 255, 255, 0.9);
           border-radius: 14px;
           padding: 14px 14px 12px;
@@ -48,11 +48,11 @@
       .season-badge {
           display: inline-block;
           border-radius: 999px;
-          background-color: #b22234;
-          background: linear-gradient(135deg, #d0384a, #8d1a28);
-          color: #fffef8;
+          background-color: #a83f0e;
+          background: linear-gradient(135deg, #e07a1f, #8c3208);
+          color: #fffaf0;
           border: 2px solid rgba(255, 255, 255, 0.95);
-          box-shadow: 0 6px 16px rgba(4, 20, 50, 0.4);
+          box-shadow: 0 6px 16px rgba(60, 26, 6, 0.4);
           padding: 9px 18px;
           margin-bottom: 10px;
           font-family: "Fredoka", sans-serif;
@@ -66,15 +66,19 @@
           font-weight: 600;
           color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(4, 20, 50, 0.45);
+          text-shadow: 0 4px 8px rgba(60, 26, 6, 0.5);
           letter-spacing: 0;
       }
 
       .title-icon {
           display: inline-block;
-          margin: 0 6px;
-          font-size: 0.85em;
-          vertical-align: baseline;
+          margin: 0 10px;
+          width: 0.6em;
+          height: 0.6em;
+          vertical-align: middle;
+          background-color: #f0a244;
+          background: linear-gradient(135deg, #ffd166, #c2530e);
+          border-radius: 0 70% 0 70%;
       }
 
       .chores-container {
@@ -88,11 +92,11 @@
           display: inline-block;
           vertical-align: top;
           text-align: left;
-          background-color: #fffef8;
-          border: 4px solid #b22234;
+          background-color: #fffdf5;
+          border: 4px solid #c2530e;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.32);
+          box-shadow: 0 8px 18px rgba(60, 26, 6, 0.32);
       }
 
       .kid-profile {
@@ -107,8 +111,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #002868;
-          box-shadow: 0 6px 16px rgba(4, 20, 50, 0.3);
+          border: 4px solid #7a3b12;
+          box-shadow: 0 6px 16px rgba(60, 26, 6, 0.3);
           display: table-cell;
           vertical-align: middle;
       }
@@ -146,7 +150,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #0a2351;
+          color: #4a2410;
       }
 
       li:last-child {
@@ -173,76 +177,73 @@
       }
 
       .empty-state {
-          background: #fffef4;
+          background: #fffdf5;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.25);
+          box-shadow: 0 8px 18px rgba(60, 26, 6, 0.25);
           font-size: 1rem;
           font-weight: 600;
-          color: #0a2351;
+          color: #4a2410;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
           background-color: rgba(255, 255, 255, 0.92);
-          border: 2px solid rgba(0, 40, 104, 0.4);
+          border: 2px solid rgba(122, 59, 18, 0.45);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.25);
+          box-shadow: 0 8px 18px rgba(60, 26, 6, 0.25);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #0a2351;
+          color: #4a2410;
       }
 
-      .flag-banner {
+      .leaf-garland {
           text-align: center;
-          margin-top: 14px;
+          margin-top: 16px;
+          font-size: 26px;
+          line-height: 1;
       }
 
-      .flag {
-          position: relative;
+      .leaf {
           display: inline-block;
-          width: 480px;
-          height: 253px;
-          font-size: 12px;
-          overflow: hidden;
-          border: 3px solid #fffef8;
-          border-radius: 6px;
-          background-color: #fffef8;
-          box-shadow: 0 10px 24px rgba(4, 20, 50, 0.45);
+          vertical-align: middle;
+          margin: 0 0.3em;
+          width: 2.2em;
+          height: 2.2em;
+          background-color: #c2530e;
+          background: linear-gradient(135deg, #ffb85c, #a83f0e);
+          border-radius: 0 70% 0 70%;
+          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
       }
 
-      .flag-stripe {
-          height: 7.6923%;
+      .leaf-red {
+          background-color: #98291a;
+          background: linear-gradient(135deg, #e4643f, #8c1f12);
       }
 
-      .flag-stripe-red {
-          background-color: #b22234;
+      .leaf-gold {
+          background-color: #d9a01a;
+          background: linear-gradient(135deg, #ffdf8a, #c07d0a);
       }
 
-      .flag-canton {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 40%;
-          height: 53.846%;
-          overflow: hidden;
-          background-color: #002868;
-          padding-top: 0.3em;
+      .leaf-small {
+          width: 1.5em;
+          height: 1.5em;
       }
 
-      .flag-star-row {
-          height: 1.16em;
-          line-height: 1.16em;
-          color: #fffef8;
-          letter-spacing: 1.667em;
-          padding-left: 0.833em;
-      }
-
-      .flag-star-row-short {
-          padding-left: 2.167em;
+      .acorn {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 0 0.3em;
+          width: 1.5em;
+          height: 1.8em;
+          background-color: #8a5a2b;
+          background: linear-gradient(180deg, #5c3a17 0%, #5c3a17 38%, #c08a4a 38%, #8a5a2b 100%);
+          border-radius: 30% 30% 50% 50%;
+          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
       }
 
       @media (min-width: 1100px) and (orientation: landscape) {
@@ -284,18 +285,14 @@
               font-size: 0.8rem;
           }
 
-          .flag {
-              width: 380px;
-              height: 200px;
-              font-size: 9.5px;
+          .leaf-garland {
+              font-size: 20px;
           }
       }
 
       @media (min-width: 1100px) and (orientation: landscape) and (min-height: 850px) {
-          .flag {
-              width: 760px;
-              height: 400px;
-              font-size: 19px;
+          .leaf-garland {
+              font-size: 34px;
           }
       }
 
@@ -305,10 +302,8 @@
               margin: 0 0.5% 12px;
           }
 
-          .flag {
-              width: 420px;
-              height: 221px;
-              font-size: 10.5px;
+          .leaf-garland {
+              font-size: 22px;
           }
       }
 
@@ -340,14 +335,9 @@
               margin: 0 0 12px;
           }
 
-          .flag-banner {
-              margin-top: 8px;
-          }
-
-          .flag {
-              width: 300px;
-              height: 158px;
-              font-size: 7.5px;
+          .leaf-garland {
+              margin-top: 10px;
+              font-size: 15px;
           }
       }
 
@@ -369,10 +359,8 @@
               font-size: 0.9rem;
           }
 
-          .flag {
-              width: 320px;
-              height: 168px;
-              font-size: 8px;
+          .leaf-garland {
+              font-size: 16px;
           }
       }
   </style>
@@ -380,39 +368,25 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon" aria-hidden="true">★</span>Ross Family Chores<span class="title-icon" aria-hidden="true">★</span></h1>
+    <div class="season-badge">First Day of Fall &middot; September 22</div>
+    <h1 class="page-title"><span class="title-icon" aria-hidden="true"></span>Ross Family Chores<span class="title-icon" aria-hidden="true"></span></h1>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-  <section class="flag-banner" aria-label="American flag">
-    <div class="flag">
-      <div class="flag-stripe flag-stripe-red"></div>
-      <div class="flag-stripe"></div>
-      <div class="flag-stripe flag-stripe-red"></div>
-      <div class="flag-stripe"></div>
-      <div class="flag-stripe flag-stripe-red"></div>
-      <div class="flag-stripe"></div>
-      <div class="flag-stripe flag-stripe-red"></div>
-      <div class="flag-stripe"></div>
-      <div class="flag-stripe flag-stripe-red"></div>
-      <div class="flag-stripe"></div>
-      <div class="flag-stripe flag-stripe-red"></div>
-      <div class="flag-stripe"></div>
-      <div class="flag-stripe flag-stripe-red"></div>
-      <div class="flag-canton">
-      <div class="flag-star-row">★★★★★★</div>
-      <div class="flag-star-row flag-star-row-short">★★★★★</div>
-      <div class="flag-star-row">★★★★★★</div>
-      <div class="flag-star-row flag-star-row-short">★★★★★</div>
-      <div class="flag-star-row">★★★★★★</div>
-      <div class="flag-star-row flag-star-row-short">★★★★★</div>
-      <div class="flag-star-row">★★★★★★</div>
-      <div class="flag-star-row flag-star-row-short">★★★★★</div>
-      <div class="flag-star-row">★★★★★★</div>
-      </div>
-    </div>
+  <section class="leaf-garland" aria-label="Autumn leaves">
+    <span class="leaf leaf-small leaf-gold"></span>
+    <span class="leaf leaf-red"></span>
+    <span class="acorn"></span>
+    <span class="leaf leaf-gold"></span>
+    <span class="leaf"></span>
+    <span class="leaf leaf-small leaf-red"></span>
+    <span class="leaf"></span>
+    <span class="leaf leaf-gold"></span>
+    <span class="acorn"></span>
+    <span class="leaf leaf-red"></span>
+    <span class="leaf leaf-small leaf-gold"></span>
   </section>
 </div>
 
