@@ -72,13 +72,74 @@
 
       .title-icon {
           display: inline-block;
-          margin: 0 10px;
-          width: 0.6em;
-          height: 0.6em;
+          margin: 0 12px;
           vertical-align: middle;
-          background-color: #f0a244;
-          background: linear-gradient(135deg, #ffd166, #c2530e);
-          border-radius: 0 70% 0 70%;
+      }
+
+      .football {
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          width: 2.4em;
+          height: 1.4em;
+          background-color: #7a3b12;
+          background: linear-gradient(180deg, #a0522d 0%, #7a3b12 55%, #5a2a0c 100%);
+          border-radius: 50%;
+          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
+          -webkit-transform: rotate(-25deg);
+          transform: rotate(-25deg);
+      }
+
+      .football:before {
+          content: "";
+          position: absolute;
+          left: 28%;
+          top: 47%;
+          width: 44%;
+          height: 0.08em;
+          background-color: #ffffff;
+          border-radius: 1px;
+      }
+
+      .football:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 34%;
+          width: 0.1em;
+          height: 32%;
+          margin-left: -0.05em;
+          background-color: #ffffff;
+          border-radius: 1px;
+          box-shadow: -0.28em 0 0 #ffffff, 0.28em 0 0 #ffffff;
+      }
+
+      .title-icon.football {
+          font-size: 0.45em;
+      }
+
+      .flag-tag {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 0 0.3em;
+          width: 0.7em;
+          height: 2.4em;
+          background-color: #d9a01a;
+          border-radius: 3px 3px 0 0;
+          border-top: 0.35em solid #5a2a0c;
+          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
+          -webkit-transform: rotate(12deg);
+          transform: rotate(12deg);
+      }
+
+      .flag-red {
+          background-color: #b3261e;
+          -webkit-transform: rotate(-12deg);
+          transform: rotate(-12deg);
+      }
+
+      .leaf-garland .football {
+          margin: 0 0.4em;
       }
 
       .chores-container {
@@ -368,22 +429,25 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon" aria-hidden="true"></span>Ross Family Chores<span class="title-icon" aria-hidden="true"></span></h1>
+    <h1 class="page-title"><span class="title-icon football" aria-hidden="true"></span>Ross Family Chores<span class="title-icon football" aria-hidden="true"></span></h1>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-  <section class="leaf-garland" aria-label="Autumn leaves">
+  <section class="leaf-garland" aria-label="Autumn leaves and footballs">
     <span class="leaf leaf-small leaf-gold"></span>
+    <span class="football"></span>
     <span class="leaf leaf-red"></span>
+    <span class="flag-tag"></span>
     <span class="acorn"></span>
     <span class="leaf leaf-gold"></span>
+    <span class="football"></span>
     <span class="leaf"></span>
-    <span class="leaf leaf-small leaf-red"></span>
-    <span class="leaf"></span>
+    <span class="flag-tag flag-red"></span>
     <span class="leaf leaf-gold"></span>
     <span class="acorn"></span>
+    <span class="football"></span>
     <span class="leaf leaf-red"></span>
     <span class="leaf leaf-small leaf-gold"></span>
   </section>
