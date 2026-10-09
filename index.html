@@ -20,11 +20,11 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #8a4214;
+          background-color: #1e5a9c;
           background:
-                  radial-gradient(circle at 14% 12%, rgba(255, 244, 214, 0.75), transparent 32%),
-                  radial-gradient(circle at 88% 86%, rgba(140, 31, 18, 0.5), transparent 38%),
-                  linear-gradient(165deg, #ffeccb 0%, #f0a244 26%, #b3521a 60%, #4a2008 100%);
+                  radial-gradient(circle at 14% 12%, rgba(232, 244, 255, 0.8), transparent 32%),
+                  radial-gradient(circle at 88% 86%, rgba(232, 113, 10, 0.45), transparent 38%),
+                  linear-gradient(165deg, #e8f4ff 0%, #6bb3ea 26%, #1e5a9c 60%, #0d2a52 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,8 +37,8 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: rgba(74, 32, 8, 0.55);
-          background: rgba(74, 32, 8, 0.55);
+          background-color: rgba(13, 42, 82, 0.6);
+          background: rgba(13, 42, 82, 0.6);
           border: 2px solid rgba(255, 255, 255, 0.9);
           border-radius: 14px;
           padding: 14px 14px 12px;
@@ -51,7 +51,7 @@
           font-weight: 600;
           color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(60, 26, 6, 0.5);
+          text-shadow: 0 4px 8px rgba(4, 20, 50, 0.5);
           letter-spacing: 0;
       }
 
@@ -61,70 +61,102 @@
           vertical-align: middle;
       }
 
-      .football {
+      .basketball {
           display: inline-block;
           vertical-align: middle;
           position: relative;
-          width: 2.4em;
-          height: 1.4em;
-          background-color: #7a3b12;
-          background: linear-gradient(180deg, #a0522d 0%, #7a3b12 55%, #5a2a0c 100%);
+          width: 2em;
+          height: 2em;
+          background-color: #e8710a;
+          background: linear-gradient(#2b1203, #2b1203) center / 0.07em 100% no-repeat,
+                      radial-gradient(circle at 35% 30%, #ffa04d 0%, #e8710a 58%, #b34f05 100%);
           border-radius: 50%;
-          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
-          -webkit-transform: rotate(-25deg);
-          transform: rotate(-25deg);
+          box-shadow: 0 8px 16px rgba(4, 20, 50, 0.4);
       }
 
-      .football:before {
+      .basketball:before {
           content: "";
           position: absolute;
-          left: 28%;
-          top: 47%;
-          width: 44%;
-          height: 0.08em;
-          background-color: #ffffff;
-          border-radius: 1px;
+          left: 0;
+          top: 50%;
+          width: 100%;
+          height: 0.07em;
+          margin-top: -0.035em;
+          background-color: #2b1203;
       }
 
-      .football:after {
+      .basketball:after {
+          content: "";
+          position: absolute;
+          left: 16%;
+          top: 0;
+          width: 68%;
+          height: 100%;
+          border-left: 0.07em solid #2b1203;
+          border-right: 0.07em solid #2b1203;
+          border-radius: 50%;
+      }
+
+      .title-icon.basketball {
+          font-size: 0.55em;
+      }
+
+      .paddle {
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          width: 1.9em;
+          height: 1.9em;
+          margin-bottom: 0.9em;
+          background-color: #c8281e;
+          background: radial-gradient(circle at 35% 30%, #ff6a5c 0%, #c8281e 60%, #8c150e 100%);
+          border: 0.1em solid #5a2a0c;
+          border-radius: 50%;
+          box-shadow: 0 8px 16px rgba(4, 20, 50, 0.4);
+          -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
+      }
+
+      .paddle:after {
           content: "";
           position: absolute;
           left: 50%;
-          top: 34%;
-          width: 0.1em;
-          height: 32%;
-          margin-left: -0.05em;
+          top: 88%;
+          width: 0.45em;
+          height: 1.05em;
+          margin-left: -0.225em;
+          background-color: #c98a45;
+          border-radius: 0 0 0.22em 0.22em;
+          z-index: -1;
+      }
+
+      .pp-ball {
+          display: inline-block;
+          vertical-align: middle;
+          width: 0.8em;
+          height: 0.8em;
           background-color: #ffffff;
-          border-radius: 1px;
-          box-shadow: -0.28em 0 0 #ffffff, 0.28em 0 0 #ffffff;
+          background: radial-gradient(circle at 35% 30%, #ffffff 0%, #f3f3f3 60%, #cfcfcf 100%);
+          border-radius: 50%;
+          box-shadow: 0 6px 12px rgba(4, 20, 50, 0.4);
       }
 
-      .title-icon.football {
-          font-size: 0.45em;
-      }
-
-      .flag-tag {
+      .runner {
           display: inline-block;
           vertical-align: middle;
           margin: 0 0.3em;
-          width: 0.7em;
-          height: 2.4em;
-          background-color: #d9a01a;
-          border-radius: 3px 3px 0 0;
-          border-top: 0.35em solid #5a2a0c;
-          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
-          -webkit-transform: rotate(12deg);
-          transform: rotate(12deg);
+          font-size: 1.8em;
+          line-height: 1;
       }
 
-      .flag-red {
-          background-color: #b3261e;
-          -webkit-transform: rotate(-12deg);
-          transform: rotate(-12deg);
+      .sports-garland .basketball,
+      .sports-garland .paddle {
+          margin-left: 0.4em;
+          margin-right: 0.4em;
       }
 
-      .leaf-garland .football {
-          margin: 0 0.4em;
+      .sports-garland .pp-ball {
+          margin: 0 0.3em;
       }
 
       .chores-container {
@@ -139,10 +171,10 @@
           vertical-align: top;
           text-align: left;
           background-color: #fffdf5;
-          border: 4px solid #c2530e;
+          border: 4px solid #e8710a;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(60, 26, 6, 0.32);
+          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.32);
       }
 
       .kid-profile {
@@ -157,8 +189,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #7a3b12;
-          box-shadow: 0 6px 16px rgba(60, 26, 6, 0.3);
+          border: 4px solid #0d2a52;
+          box-shadow: 0 6px 16px rgba(4, 20, 50, 0.3);
           display: table-cell;
           vertical-align: middle;
       }
@@ -196,7 +228,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #4a2410;
+          color: #12304f;
       }
 
       li:last-child {
@@ -226,70 +258,57 @@
           background: #fffdf5;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(60, 26, 6, 0.25);
+          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.25);
           font-size: 1rem;
           font-weight: 600;
-          color: #4a2410;
+          color: #12304f;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
           background-color: rgba(255, 255, 255, 0.92);
-          border: 2px solid rgba(122, 59, 18, 0.45);
+          border: 2px solid rgba(13, 42, 82, 0.45);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(60, 26, 6, 0.25);
+          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.25);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #4a2410;
+          color: #12304f;
       }
 
-      .leaf-garland {
+      .sports-garland {
           text-align: center;
           margin-top: 16px;
           font-size: 26px;
           line-height: 1;
       }
 
-      .leaf {
+      .birthday-collage {
+          text-align: center;
+          margin-top: 14px;
+      }
+
+      .photo-bubble {
           display: inline-block;
           vertical-align: middle;
-          margin: 0 0.3em;
-          width: 2.2em;
-          height: 2.2em;
-          background-color: #c2530e;
-          background: linear-gradient(135deg, #ffb85c, #a83f0e);
-          border-radius: 0 70% 0 70%;
-          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
+          width: 220px;
+          height: 260px;
+          overflow: hidden;
+          border-radius: 16px;
+          border: 2px solid #e8710a;
+          background: #fffef8;
+          box-shadow: 0 10px 24px rgba(4, 20, 50, 0.28);
+          margin: 5px;
       }
 
-      .leaf-red {
-          background-color: #98291a;
-          background: linear-gradient(135deg, #e4643f, #8c1f12);
-      }
-
-      .leaf-gold {
-          background-color: #d9a01a;
-          background: linear-gradient(135deg, #ffdf8a, #c07d0a);
-      }
-
-      .leaf-small {
-          width: 1.5em;
-          height: 1.5em;
-      }
-
-      .acorn {
-          display: inline-block;
-          vertical-align: middle;
-          margin: 0 0.3em;
-          width: 1.5em;
-          height: 1.8em;
-          background-color: #8a5a2b;
-          background: linear-gradient(180deg, #5c3a17 0%, #5c3a17 38%, #c08a4a 38%, #8a5a2b 100%);
-          border-radius: 30% 30% 50% 50%;
-          box-shadow: 0 8px 16px rgba(60, 26, 6, 0.4);
+      .photo-bubble img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 15%;
       }
 
       @media (min-width: 1100px) and (orientation: landscape) {
@@ -331,14 +350,24 @@
               font-size: 0.8rem;
           }
 
-          .leaf-garland {
+          .sports-garland {
               font-size: 20px;
+          }
+
+          .photo-bubble {
+              width: 130px;
+              height: 160px;
+              border-radius: 14px;
           }
       }
 
       @media (min-width: 1100px) and (orientation: landscape) and (min-height: 850px) {
-          .leaf-garland {
+          .sports-garland {
               font-size: 34px;
+          }
+          .photo-bubble {
+              width: 190px;
+              height: 235px;
           }
       }
 
@@ -348,8 +377,13 @@
               margin: 0 0.5% 12px;
           }
 
-          .leaf-garland {
+          .sports-garland {
               font-size: 22px;
+          }
+
+          .photo-bubble {
+              width: 170px;
+              height: 200px;
           }
       }
 
@@ -377,9 +411,18 @@
               margin: 0 0 12px;
           }
 
-          .leaf-garland {
+          .sports-garland {
               margin-top: 10px;
               font-size: 15px;
+          }
+
+          .birthday-collage {
+              margin-top: 8px;
+          }
+
+          .photo-bubble {
+              width: 150px;
+              height: 175px;
           }
       }
 
@@ -401,8 +444,13 @@
               font-size: 0.9rem;
           }
 
-          .leaf-garland {
+          .sports-garland {
               font-size: 16px;
+          }
+
+          .photo-bubble {
+              width: 110px;
+              height: 135px;
           }
       }
   </style>
@@ -410,39 +458,47 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon football" aria-hidden="true"></span>Ross Family Chores<span class="title-icon football" aria-hidden="true"></span></h1>
+    <h1 class="page-title"><span class="title-icon basketball" aria-hidden="true"></span>Ross Family Chores<span class="title-icon basketball" aria-hidden="true"></span></h1>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-  <section class="leaf-garland" aria-label="Autumn leaves and footballs">
-    <span class="leaf leaf-small leaf-gold"></span>
-    <span class="football"></span>
-    <span class="leaf leaf-red"></span>
-    <span class="flag-tag"></span>
-    <span class="acorn"></span>
-    <span class="leaf leaf-gold"></span>
-    <span class="football"></span>
-    <span class="leaf"></span>
-    <span class="flag-tag flag-red"></span>
-    <span class="leaf leaf-gold"></span>
-    <span class="acorn"></span>
-    <span class="football"></span>
-    <span class="leaf leaf-red"></span>
-    <span class="leaf leaf-small leaf-gold"></span>
+  <section class="birthday-collage" aria-label="Birthday photos for Jordan">
+    <div class="photo-bubble"><img src="jordan-bday-1.jpg" alt="Jordan with Marrie"></div>
+    <div class="photo-bubble"><img src="jordan-bday-2.jpg" alt="Jordan with Ellie"></div>
+    <div class="photo-bubble"><img src="jordan-bday-3.jpg" alt="Jordan with Brooklyn"></div>
+    <div class="photo-bubble"><img src="jordan-bday-4.jpg" alt="Jordan with Hazel"></div>
+    <div class="photo-bubble"><img src="jordan-bday-5.jpg" alt="Jordan with Maverick"></div>
+    <div class="photo-bubble"><img src="jordan-bday-6.jpg" alt="Jordan with Hinckley"></div>
+    <div class="photo-bubble"><img src="jordan-bday-7.jpg" alt="Jordan with Adaline"></div>
+    <div class="photo-bubble"><img src="jordan-bday-8.jpg" alt="Jordan with Raleigh"></div>
+  </section>
+  <section class="sports-garland" aria-label="Basketballs, runners and ping pong">
+    <span class="basketball"></span>
+    <span class="runner" aria-hidden="true">🏃</span>
+    <span class="paddle"></span>
+    <span class="pp-ball"></span>
+    <span class="basketball"></span>
+    <span class="runner" aria-hidden="true">🏃</span>
+    <span class="paddle"></span>
+    <span class="pp-ball"></span>
+    <span class="basketball"></span>
+    <span class="runner" aria-hidden="true">🏃</span>
+    <span class="paddle"></span>
+    <span class="pp-ball"></span>
   </section>
 </div>
 
   <script>
    var KIDS = [
-     { name: "Ellie", color: "#ff6f91", chores: ["Softball"] },
-     { name: "Brooklyn", color: "#ff9671", chores: ["Kids bathroom", "Basement bathroom floor"] },
-     { name: "Hazel", color: "#ffc75f", textColor: "#333", chores: ["Stainless steel"] },
-     { name: "Mav", avatarName: "Maverick", color: "#f9a825", chores: ["Garbages"] },
-     { name: "Hinckley", color: "#5fd490", chores: ["Kitchen bathroom", "Backpack and shoes x7"] },
-     { name: "Adaline", color: "#6ec6ff", chores: ["Barbie house", "Socks and shoes x5"] },
-     { name: "Raleigh", color: "#b97fdb", chores: ["Shoe basket", "Barbie house"] }
+     { name: "Ellie", color: "#ff6f91", chores: ["Kids bathroom", "Stainless steel"] },
+     { name: "Brooklyn", color: "#ff9671", chores: ["Garbages", "Match 15 pairs of socks"] },
+     { name: "Hazel", color: "#ffc75f", textColor: "#333", chores: ["Basement bathroom", "Dress up room"] },
+     { name: "Mav", avatarName: "Maverick", color: "#f9a825", chores: ["Kitchen bathroom", "Garage"] },
+     { name: "Hinckley", color: "#5fd490", chores: ["Wipe down bathroom walls (kitchen, kids and basement)", "Vacuum basement"] },
+     { name: "Adaline", color: "#6ec6ff", chores: ["Pantry", "Middle toy shelf in basement"] },
+     { name: "Raleigh", color: "#b97fdb", chores: ["Shoe basket", "Garage"] }
    ];
 
   function renderTable() {
