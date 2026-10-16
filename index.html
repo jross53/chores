@@ -20,11 +20,11 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #1e5a9c;
+          background-color: #6b2c3e;
           background:
-                  radial-gradient(circle at 14% 12%, rgba(232, 244, 255, 0.8), transparent 32%),
-                  radial-gradient(circle at 88% 86%, rgba(232, 113, 10, 0.45), transparent 38%),
-                  linear-gradient(165deg, #e8f4ff 0%, #6bb3ea 26%, #1e5a9c 60%, #0d2a52 100%);
+                  radial-gradient(circle at 86% 10%, rgba(255, 236, 190, 0.55), transparent 22%),
+                  radial-gradient(circle at 12% 92%, rgba(242, 177, 66, 0.55), transparent 40%),
+                  linear-gradient(180deg, #2b1a3d 0%, #5a2647 30%, #9c3a35 62%, #d9822b 86%, #f2b142 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -37,12 +37,12 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: rgba(13, 42, 82, 0.6);
-          background: rgba(13, 42, 82, 0.6);
-          border: 2px solid rgba(255, 255, 255, 0.9);
+          background-color: rgba(43, 26, 61, 0.6);
+          background: rgba(43, 26, 61, 0.6);
+          border: 2px solid rgba(255, 240, 210, 0.9);
           border-radius: 14px;
           padding: 14px 14px 12px;
-          box-shadow: 0 10px 24px rgba(4, 20, 50, 0.32);
+          box-shadow: 0 10px 24px rgba(30, 10, 20, 0.32);
       }
 
       .page-title {
@@ -51,7 +51,7 @@
           font-weight: 600;
           color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(4, 20, 50, 0.5);
+          text-shadow: 0 4px 8px rgba(30, 10, 20, 0.5);
           letter-spacing: 0;
       }
 
@@ -61,102 +61,133 @@
           vertical-align: middle;
       }
 
-      .basketball {
+      .pumpkin {
           display: inline-block;
           vertical-align: middle;
           position: relative;
-          width: 2em;
-          height: 2em;
-          background-color: #e8710a;
-          background: linear-gradient(#2b1203, #2b1203) center / 0.07em 100% no-repeat,
-                      radial-gradient(circle at 35% 30%, #ffa04d 0%, #e8710a 58%, #b34f05 100%);
+          width: 2.3em;
+          height: 1.8em;
+          margin-top: 0.4em;
+          background-color: #e8740c;
+          background: radial-gradient(circle at 35% 30%, #ffa548 0%, #e8740c 55%, #a84a06 100%);
           border-radius: 50%;
-          box-shadow: 0 8px 16px rgba(4, 20, 50, 0.4);
+          box-shadow: 0 8px 16px rgba(30, 10, 20, 0.4);
       }
 
-      .basketball:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 50%;
-          width: 100%;
-          height: 0.07em;
-          margin-top: -0.035em;
-          background-color: #2b1203;
-      }
-
-      .basketball:after {
-          content: "";
-          position: absolute;
-          left: 16%;
-          top: 0;
-          width: 68%;
-          height: 100%;
-          border-left: 0.07em solid #2b1203;
-          border-right: 0.07em solid #2b1203;
-          border-radius: 50%;
-      }
-
-      .title-icon.basketball {
-          font-size: 0.55em;
-      }
-
-      .paddle {
-          display: inline-block;
-          vertical-align: middle;
-          position: relative;
-          width: 1.9em;
-          height: 1.9em;
-          margin-bottom: 0.9em;
-          background-color: #c8281e;
-          background: radial-gradient(circle at 35% 30%, #ff6a5c 0%, #c8281e 60%, #8c150e 100%);
-          border: 0.1em solid #5a2a0c;
-          border-radius: 50%;
-          box-shadow: 0 8px 16px rgba(4, 20, 50, 0.4);
-          -webkit-transform: rotate(25deg);
-          transform: rotate(25deg);
-      }
-
-      .paddle:after {
+      .pumpkin:before {
           content: "";
           position: absolute;
           left: 50%;
-          top: 88%;
-          width: 0.45em;
-          height: 1.05em;
-          margin-left: -0.225em;
-          background-color: #c98a45;
-          border-radius: 0 0 0.22em 0.22em;
-          z-index: -1;
+          top: -0.35em;
+          width: 0.28em;
+          height: 0.5em;
+          margin-left: -0.14em;
+          background-color: #4f6b2a;
+          border-radius: 0.08em 0.08em 0 0;
+          -webkit-transform: rotate(12deg);
+          transform: rotate(12deg);
       }
 
-      .pp-ball {
-          display: inline-block;
-          vertical-align: middle;
-          width: 0.8em;
-          height: 0.8em;
-          background-color: #ffffff;
-          background: radial-gradient(circle at 35% 30%, #ffffff 0%, #f3f3f3 60%, #cfcfcf 100%);
+      .pumpkin:after {
+          content: "";
+          position: absolute;
+          left: 28%;
+          top: 2%;
+          width: 44%;
+          height: 96%;
+          border-left: 0.08em solid rgba(122, 52, 4, 0.55);
+          border-right: 0.08em solid rgba(122, 52, 4, 0.55);
           border-radius: 50%;
-          box-shadow: 0 6px 12px rgba(4, 20, 50, 0.4);
       }
 
-      .runner {
+      .pumpkin-white {
+          background-color: #f3ead6;
+          background: radial-gradient(circle at 35% 30%, #fffaf0 0%, #e6d8b8 60%, #bfae88 100%);
+      }
+
+      .pumpkin-white:after {
+          border-left-color: rgba(140, 120, 80, 0.5);
+          border-right-color: rgba(140, 120, 80, 0.5);
+      }
+
+      .pumpkin-small {
+          font-size: 0.75em;
+      }
+
+      .title-icon.pumpkin {
+          font-size: 0.5em;
+      }
+
+      .apple {
           display: inline-block;
           vertical-align: middle;
-          margin: 0 0.3em;
-          font-size: 1.8em;
-          line-height: 1;
+          position: relative;
+          width: 1.5em;
+          height: 1.4em;
+          margin-top: 0.3em;
+          background-color: #c0262d;
+          background: radial-gradient(circle at 35% 30%, #ff6b5e 0%, #c0262d 60%, #7d1218 100%);
+          border-radius: 50% 50% 46% 46%;
+          box-shadow: 0 8px 16px rgba(30, 10, 20, 0.4);
       }
 
-      .sports-garland .basketball,
-      .sports-garland .paddle {
-          margin-left: 0.4em;
-          margin-right: 0.4em;
+      .apple:before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: -0.3em;
+          width: 0.1em;
+          height: 0.4em;
+          margin-left: -0.05em;
+          background-color: #5a3418;
       }
 
-      .sports-garland .pp-ball {
-          margin: 0 0.3em;
+      .apple:after {
+          content: "";
+          position: absolute;
+          left: 54%;
+          top: -0.32em;
+          width: 0.45em;
+          height: 0.25em;
+          background-color: #5f8a2e;
+          border-radius: 0 100% 0 100%;
+      }
+
+      .hay {
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          width: 2.4em;
+          height: 1.5em;
+          background-color: #d9a93f;
+          background: repeating-linear-gradient(0deg, #e3b752 0, #e3b752 0.18em, #c9963a 0.18em, #c9963a 0.24em);
+          border-radius: 0.3em;
+          box-shadow: 0 8px 16px rgba(30, 10, 20, 0.4);
+      }
+
+      .hay:before,
+      .hay:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          width: 0.1em;
+          height: 100%;
+          background-color: #7a4a1c;
+      }
+
+      .hay:before {
+          left: 26%;
+      }
+
+      .hay:after {
+          right: 26%;
+      }
+
+      .harvest-row .pumpkin,
+      .harvest-row .apple,
+      .harvest-row .hay {
+          margin-left: 0.35em;
+          margin-right: 0.35em;
       }
 
       .chores-container {
@@ -171,10 +202,10 @@
           vertical-align: top;
           text-align: left;
           background-color: #fffdf5;
-          border: 4px solid #e8710a;
+          border: 4px solid #a8322b;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.32);
+          box-shadow: 0 8px 18px rgba(30, 10, 20, 0.32);
       }
 
       .kid-profile {
@@ -189,8 +220,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #0d2a52;
-          box-shadow: 0 6px 16px rgba(4, 20, 50, 0.3);
+          border: 4px solid #3d2350;
+          box-shadow: 0 6px 16px rgba(30, 10, 20, 0.3);
           display: table-cell;
           vertical-align: middle;
       }
@@ -228,7 +259,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #12304f;
+          color: #3b2314;
       }
 
       li:last-child {
@@ -258,57 +289,31 @@
           background: #fffdf5;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.25);
+          box-shadow: 0 8px 18px rgba(30, 10, 20, 0.25);
           font-size: 1rem;
           font-weight: 600;
-          color: #12304f;
+          color: #3b2314;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
           background-color: rgba(255, 255, 255, 0.92);
-          border: 2px solid rgba(13, 42, 82, 0.45);
+          border: 2px solid rgba(61, 35, 80, 0.45);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(4, 20, 50, 0.25);
+          box-shadow: 0 8px 18px rgba(30, 10, 20, 0.25);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #12304f;
+          color: #3b2314;
       }
 
-      .sports-garland {
+      .harvest-row {
           text-align: center;
           margin-top: 16px;
           font-size: 26px;
           line-height: 1;
-      }
-
-      .birthday-collage {
-          text-align: center;
-          margin-top: 14px;
-      }
-
-      .photo-bubble {
-          display: inline-block;
-          vertical-align: middle;
-          width: 220px;
-          height: 260px;
-          overflow: hidden;
-          border-radius: 16px;
-          border: 2px solid #e8710a;
-          background: #fffef8;
-          box-shadow: 0 10px 24px rgba(4, 20, 50, 0.28);
-          margin: 5px;
-      }
-
-      .photo-bubble img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 15%;
       }
 
       @media (min-width: 1100px) and (orientation: landscape) {
@@ -350,24 +355,14 @@
               font-size: 0.8rem;
           }
 
-          .sports-garland {
+          .harvest-row {
               font-size: 20px;
-          }
-
-          .photo-bubble {
-              width: 130px;
-              height: 160px;
-              border-radius: 14px;
           }
       }
 
       @media (min-width: 1100px) and (orientation: landscape) and (min-height: 850px) {
-          .sports-garland {
+          .harvest-row {
               font-size: 34px;
-          }
-          .photo-bubble {
-              width: 190px;
-              height: 235px;
           }
       }
 
@@ -377,13 +372,8 @@
               margin: 0 0.5% 12px;
           }
 
-          .sports-garland {
+          .harvest-row {
               font-size: 22px;
-          }
-
-          .photo-bubble {
-              width: 170px;
-              height: 200px;
           }
       }
 
@@ -411,18 +401,9 @@
               margin: 0 0 12px;
           }
 
-          .sports-garland {
+          .harvest-row {
               margin-top: 10px;
               font-size: 15px;
-          }
-
-          .birthday-collage {
-              margin-top: 8px;
-          }
-
-          .photo-bubble {
-              width: 150px;
-              height: 175px;
           }
       }
 
@@ -444,13 +425,8 @@
               font-size: 0.9rem;
           }
 
-          .sports-garland {
+          .harvest-row {
               font-size: 16px;
-          }
-
-          .photo-bubble {
-              width: 110px;
-              height: 135px;
           }
       }
   </style>
@@ -458,35 +434,25 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon basketball" aria-hidden="true"></span>Ross Family Chores<span class="title-icon basketball" aria-hidden="true"></span></h1>
+    <h1 class="page-title"><span class="title-icon pumpkin" aria-hidden="true"></span>Ross Family Chores<span class="title-icon pumpkin" aria-hidden="true"></span></h1>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-  <section class="birthday-collage" aria-label="Birthday photos for Jordan">
-    <div class="photo-bubble"><img src="jordan-bday-1.jpg" alt="Jordan with Marrie"></div>
-    <div class="photo-bubble"><img src="jordan-bday-2.jpg" alt="Jordan with Ellie"></div>
-    <div class="photo-bubble"><img src="jordan-bday-3.jpg" alt="Jordan with Brooklyn"></div>
-    <div class="photo-bubble"><img src="jordan-bday-4.jpg" alt="Jordan with Hazel"></div>
-    <div class="photo-bubble"><img src="jordan-bday-5.jpg" alt="Jordan with Maverick"></div>
-    <div class="photo-bubble"><img src="jordan-bday-6.jpg" alt="Jordan with Hinckley"></div>
-    <div class="photo-bubble"><img src="jordan-bday-7.jpg" alt="Jordan with Adaline"></div>
-    <div class="photo-bubble"><img src="jordan-bday-8.jpg" alt="Jordan with Raleigh"></div>
-  </section>
-  <section class="sports-garland" aria-label="Basketballs, runners and ping pong">
-    <span class="basketball"></span>
-    <span class="runner" aria-hidden="true">🏃</span>
-    <span class="paddle"></span>
-    <span class="pp-ball"></span>
-    <span class="basketball"></span>
-    <span class="runner" aria-hidden="true">🏃</span>
-    <span class="paddle"></span>
-    <span class="pp-ball"></span>
-    <span class="basketball"></span>
-    <span class="runner" aria-hidden="true">🏃</span>
-    <span class="paddle"></span>
-    <span class="pp-ball"></span>
+  <section class="harvest-row" aria-label="Pumpkins, apples and hay bales">
+    <span class="hay"></span>
+    <span class="pumpkin pumpkin-small"></span>
+    <span class="apple"></span>
+    <span class="pumpkin"></span>
+    <span class="pumpkin pumpkin-white pumpkin-small"></span>
+    <span class="hay"></span>
+    <span class="apple"></span>
+    <span class="pumpkin"></span>
+    <span class="pumpkin pumpkin-small"></span>
+    <span class="apple"></span>
+    <span class="pumpkin pumpkin-white"></span>
+    <span class="hay"></span>
   </section>
 </div>
 
