@@ -20,14 +20,14 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #f3a6c8;
+          background-color: #2a1840;
           background:
-                  radial-gradient(circle at 8% 14%, rgba(255, 255, 255, 0.75), transparent 4%),
-                  radial-gradient(circle at 92% 22%, rgba(255, 255, 255, 0.65), transparent 3%),
-                  radial-gradient(circle at 78% 70%, rgba(255, 255, 255, 0.55), transparent 3%),
-                  radial-gradient(circle at 18% 82%, rgba(255, 236, 160, 0.6), transparent 5%),
-                  radial-gradient(circle at 50% 0%, rgba(255, 240, 248, 0.7), transparent 45%),
-                  linear-gradient(180deg, #ffc9df 0%, #f7a1c6 35%, #e2a3e6 70%, #b99af0 100%);
+                  radial-gradient(circle at 88% 10%, rgba(255, 244, 200, 0.95), rgba(255, 230, 150, 0.55) 4%, transparent 9%),
+                  radial-gradient(circle at 10% 18%, rgba(255, 255, 255, 0.5), transparent 0.5%),
+                  radial-gradient(circle at 30% 8%, rgba(255, 255, 255, 0.45), transparent 0.4%),
+                  radial-gradient(circle at 65% 14%, rgba(255, 255, 255, 0.45), transparent 0.4%),
+                  radial-gradient(circle at 50% 100%, rgba(255, 120, 20, 0.45), transparent 50%),
+                  linear-gradient(180deg, #120a24 0%, #2a1840 45%, #4a2350 80%, #6b2f3a 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -40,12 +40,12 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: #d63384;
-          background: linear-gradient(90deg, rgba(214, 51, 132, 0.88), rgba(155, 72, 205, 0.88));
-          border: 2px solid #ffe08a;
+          background-color: #e8661a;
+          background: linear-gradient(90deg, rgba(232, 102, 26, 0.92), rgba(110, 44, 160, 0.92));
+          border: 2px solid #ffb347;
           border-radius: 14px;
           padding: 14px 14px 12px;
-          box-shadow: 0 10px 24px rgba(120, 30, 90, 0.32);
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
       }
 
       .page-title {
@@ -54,7 +54,7 @@
           font-weight: 600;
           color: #ffffff;
           margin: 0 0 4px;
-          text-shadow: 0 4px 8px rgba(90, 20, 70, 0.45);
+          text-shadow: 0 4px 8px rgba(20, 5, 30, 0.6);
           letter-spacing: 0;
       }
 
@@ -62,95 +62,74 @@
           display: inline-block;
           margin: 0 12px;
           vertical-align: middle;
+          font-size: 0.6em;
       }
 
-      .tennis-ball {
+      .pumpkin {
           display: inline-block;
           vertical-align: middle;
           position: relative;
-          overflow: hidden;
-          width: 1.5em;
-          height: 1.5em;
-          background-color: #d7f04a;
-          background: radial-gradient(circle at 35% 30%, #f4ff94 0%, #d7f04a 55%, #a7c01d 100%);
+          width: 1.7em;
+          height: 1.4em;
+          background-color: #ff8a1f;
+          background: radial-gradient(circle at 35% 30%, #ffc266 0%, #ff8a1f 55%, #c4520a 100%);
           border-radius: 50%;
-          box-shadow: 0 6px 14px rgba(120, 30, 90, 0.35);
+          box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
       }
 
-      .tennis-ball:before,
-      .tennis-ball:after {
-          content: "";
-          position: absolute;
-          top: 6%;
-          width: 88%;
-          height: 88%;
-          border: 0.09em solid #ffffff;
-          border-radius: 50%;
-      }
-
-      .tennis-ball:before {
-          left: -58%;
-      }
-
-      .tennis-ball:after {
-          right: -58%;
-      }
-
-      .mic {
-          display: inline-block;
-          vertical-align: middle;
-          position: relative;
-          width: 0.9em;
-          height: 2em;
-      }
-
-      .mic:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 0.9em;
-          height: 0.9em;
-          background-color: #d9d4e6;
-          background: radial-gradient(circle at 35% 30%, #ffffff 0%, #d9d4e6 50%, #9a8fb5 100%);
-          border-radius: 50%;
-          box-shadow: 0 4px 10px rgba(120, 30, 90, 0.35);
-      }
-
-      .mic:after {
+      .pumpkin:before {
           content: "";
           position: absolute;
           left: 50%;
-          top: 0.8em;
-          width: 0.34em;
-          height: 1.2em;
-          margin-left: -0.17em;
-          background-color: #d63384;
-          border-radius: 0.06em 0.06em 0.17em 0.17em;
+          top: -0.25em;
+          width: 0.2em;
+          height: 0.35em;
+          margin-left: -0.1em;
+          background-color: #4f7a28;
+          border-radius: 0.05em;
       }
 
-      .title-icon.mic {
-          font-size: 0.6em;
+      .pumpkin:after {
+          content: "";
+          position: absolute;
+          left: 30%;
+          top: 0;
+          width: 40%;
+          height: 100%;
+          border-left: 0.06em solid rgba(160, 60, 0, 0.45);
+          border-right: 0.06em solid rgba(160, 60, 0, 0.45);
+          border-radius: 50%;
+          box-sizing: border-box;
       }
 
-      .title-icon.tennis-ball {
-          font-size: 0.6em;
+      .ghost {
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          width: 1.2em;
+          height: 1.5em;
+          background-color: #f6f3ff;
+          border-radius: 0.6em 0.6em 0.15em 0.15em;
+          box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
       }
 
-      .note {
-          color: #8e3fc4;
-          font-weight: 700;
-          text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6);
+      .ghost:before,
+      .ghost:after {
+          content: "";
+          position: absolute;
+          top: 0.45em;
+          width: 0.2em;
+          height: 0.28em;
+          background-color: #2a1840;
+          border-radius: 50%;
       }
 
-      .heart {
-          color: #e6227a;
-          text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6);
+      .ghost:before {
+          left: 0.28em;
       }
 
-      .star {
-          color: #ffcf33;
-          text-shadow: 0 2px 4px rgba(150, 60, 120, 0.4);
+      .ghost:after {
+          right: 0.28em;
       }
 
       .chores-container {
@@ -164,11 +143,11 @@
           display: inline-block;
           vertical-align: top;
           text-align: left;
-          background-color: #fffafd;
-          border: 4px solid #ff7eb6;
+          background-color: #fff8ef;
+          border: 4px solid #ff8a1f;
           border-radius: 16px;
           padding: 18px;
-          box-shadow: 0 8px 18px rgba(120, 30, 90, 0.28);
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
       }
 
       .kid-profile {
@@ -183,8 +162,8 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #b04fd6;
-          box-shadow: 0 6px 16px rgba(120, 30, 90, 0.3);
+          border: 4px solid #6e2ca0;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
           display: table-cell;
           vertical-align: middle;
       }
@@ -222,7 +201,7 @@
           line-height: 1.28;
           font-weight: 600;
           word-break: break-word;
-          color: #4a1d3a;
+          color: #2e1838;
       }
 
       li:last-child {
@@ -249,30 +228,30 @@
       }
 
       .empty-state {
-          background: #fffafd;
+          background: #fff8ef;
           border-radius: 16px;
           padding: 20px;
-          box-shadow: 0 8px 18px rgba(120, 30, 90, 0.25);
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
           font-size: 1rem;
           font-weight: 600;
-          color: #4a1d3a;
+          color: #2e1838;
       }
 
       .bottom-note {
           margin-top: 14px;
           text-align: center;
-          background-color: rgba(255, 255, 255, 0.92);
-          border: 2px solid rgba(214, 51, 132, 0.45);
+          background-color: rgba(255, 248, 239, 0.94);
+          border: 2px solid rgba(232, 102, 26, 0.6);
           border-radius: 14px;
           padding: 14px 16px;
-          box-shadow: 0 8px 18px rgba(120, 30, 90, 0.25);
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
           font-family: "Fredoka", sans-serif;
           font-size: 1.25rem;
           font-weight: 600;
-          color: #4a1d3a;
+          color: #2e1838;
       }
 
-      .birthday-collage {
+      .photo-collage {
           text-align: center;
           margin-top: 14px;
       }
@@ -280,14 +259,14 @@
       .photo-bubble {
           display: inline-block;
           vertical-align: middle;
-          width: 220px;
-          height: 260px;
+          width: 300px;
+          height: 230px;
           overflow: hidden;
           border-radius: 16px;
-          border: 3px solid #ffffff;
-          background: #fde3ef;
-          box-shadow: 0 10px 24px rgba(120, 30, 90, 0.3);
-          margin: 5px;
+          border: 3px solid #ff8a1f;
+          background: #3a2350;
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+          margin: 5px 8px;
       }
 
       .photo-bubble img {
@@ -295,21 +274,22 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center 15%;
+          object-position: center 30%;
       }
 
-      .party-garland {
+      .halloween-garland {
           text-align: center;
           margin-top: 16px;
           font-size: 26px;
           line-height: 1;
       }
 
-      .party-garland span {
+      .halloween-garland span {
           margin-left: 0.35em;
           margin-right: 0.35em;
           vertical-align: middle;
       }
+
 
       @media (min-width: 1100px) and (orientation: landscape) {
           body {
@@ -350,25 +330,25 @@
               font-size: 0.8rem;
           }
 
-          .party-garland {
+          .halloween-garland {
               font-size: 20px;
           }
 
           .photo-bubble {
-              width: 130px;
-              height: 160px;
+              width: 200px;
+              height: 150px;
               border-radius: 14px;
           }
       }
 
       @media (min-width: 1100px) and (orientation: landscape) and (min-height: 850px) {
-          .party-garland {
+          .halloween-garland {
               font-size: 34px;
           }
 
           .photo-bubble {
-              width: 190px;
-              height: 235px;
+              width: 380px;
+              height: 285px;
           }
       }
 
@@ -378,13 +358,13 @@
               margin: 0 0.5% 12px;
           }
 
-          .party-garland {
+          .halloween-garland {
               font-size: 22px;
           }
 
           .photo-bubble {
-              width: 170px;
-              height: 200px;
+              width: 230px;
+              height: 175px;
           }
       }
 
@@ -412,18 +392,18 @@
               margin: 0 0 12px;
           }
 
-          .party-garland {
+          .halloween-garland {
               margin-top: 10px;
               font-size: 15px;
           }
 
-          .birthday-collage {
+          .photo-collage {
               margin-top: 8px;
           }
 
           .photo-bubble {
-              width: 150px;
-              height: 175px;
+              width: 260px;
+              height: 195px;
           }
       }
 
@@ -445,13 +425,13 @@
               font-size: 0.9rem;
           }
 
-          .party-garland {
+          .halloween-garland {
               font-size: 16px;
           }
 
           .photo-bubble {
-              width: 110px;
-              height: 135px;
+              width: 160px;
+              height: 120px;
           }
       }
   </style>
@@ -459,34 +439,30 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon mic" aria-hidden="true"></span>Ross Family Chores<span class="title-icon tennis-ball" aria-hidden="true"></span></h1>
+    <h1 class="page-title"><span class="title-icon pumpkin" aria-hidden="true"></span>Ross Family Chores<span class="title-icon ghost" aria-hidden="true"></span></h1>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-  <section class="birthday-collage" aria-label="Birthday photos for Brooklyn">
-    <div class="photo-bubble"><img src="brooklyn-bday-1.jpg" alt="Brooklyn with kitty face paint"></div>
-    <div class="photo-bubble"><img src="brooklyn-bday-2.jpg" alt="Brooklyn making a silly face"></div>
-    <div class="photo-bubble"><img src="brooklyn-bday-3.jpg" alt="Brooklyn showing her teeth"></div>
-    <div class="photo-bubble"><img src="brooklyn-bday-4.jpg" alt="Brooklyn at the beach with a lei"></div>
-    <div class="photo-bubble"><img src="brooklyn-bday-5.jpg" alt="Brooklyn smiling in the kitchen"></div>
-    <div class="photo-bubble"><img src="brooklyn-bday-6.jpg" alt="Brooklyn in glasses being silly"></div>
+  <section class="photo-collage" aria-label="Halloween photos">
+    <div class="photo-bubble"><img src="halloween-1.jpg" alt="Family in Bible costumes by the Halloween fireplace"></div>
+    <div class="photo-bubble"><img src="halloween-2.jpg" alt="Kids in costumes at trunk-or-treat with Prego mom"></div>
+    <div class="photo-bubble"><img src="halloween-3.jpg" alt="Kids in costumes with pumpkins at trunk-or-treat"></div>
+    <div class="photo-bubble"><img src="halloween-4.jpg" alt="Family dressed as Jack and Jill with the kids in costumes"></div>
   </section>
-  <section class="party-garland" aria-label="Tennis balls, microphones, music notes and theater masks">
-    <span class="heart">&#9829;</span>
-    <span class="tennis-ball"></span>
-    <span class="note">&#9834;</span>
-    <span class="mic"></span>
-    <span class="star">&#9733;</span>
-    <span aria-hidden="true">🎭</span>
-    <span class="heart">&#9829;</span>
-    <span class="tennis-ball"></span>
-    <span class="note">&#9835;</span>
-    <span class="mic"></span>
-    <span class="star">&#9733;</span>
-    <span aria-hidden="true">🎭</span>
-    <span class="heart">&#9829;</span>
+  <section class="halloween-garland" aria-label="Pumpkins, ghosts, bats and candy">
+    <span class="pumpkin"></span>
+    <span class="ghost"></span>
+    <span aria-hidden="true">🦇</span>
+    <span class="pumpkin"></span>
+    <span aria-hidden="true">🕸</span>
+    <span class="ghost"></span>
+    <span aria-hidden="true">🍬</span>
+    <span class="pumpkin"></span>
+    <span aria-hidden="true">🦇</span>
+    <span class="ghost"></span>
+    <span class="pumpkin"></span>
   </section>
 </div>
 
