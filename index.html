@@ -20,14 +20,10 @@
 
       body {
           font-family: "Inter", sans-serif;
-          background-color: #2a1840;
+          background-color: #5a2a14;
           background:
-                  radial-gradient(circle at 88% 10%, rgba(255, 244, 200, 0.95), rgba(255, 230, 150, 0.55) 4%, transparent 9%),
-                  radial-gradient(circle at 10% 18%, rgba(255, 255, 255, 0.5), transparent 0.5%),
-                  radial-gradient(circle at 30% 8%, rgba(255, 255, 255, 0.45), transparent 0.4%),
-                  radial-gradient(circle at 65% 14%, rgba(255, 255, 255, 0.45), transparent 0.4%),
-                  radial-gradient(circle at 50% 100%, rgba(255, 120, 20, 0.45), transparent 50%),
-                  linear-gradient(180deg, #120a24 0%, #2a1840 45%, #4a2350 80%, #6b2f3a 100%);
+                  radial-gradient(circle at 50% 100%, rgba(255, 170, 60, 0.4), transparent 55%),
+                  linear-gradient(180deg, #3b1d10 0%, #6b2f14 50%, #a2471a 100%);
           background-attachment: fixed;
           padding: 20px;
       }
@@ -40,8 +36,8 @@
       .page-header {
           text-align: center;
           margin-bottom: 20px;
-          background-color: #e8661a;
-          background: linear-gradient(90deg, rgba(232, 102, 26, 0.92), rgba(110, 44, 160, 0.92));
+          background-color: #c4520a;
+          background: linear-gradient(90deg, rgba(214, 102, 26, 0.92), rgba(140, 40, 20, 0.92));
           border: 2px solid #ffb347;
           border-radius: 14px;
           padding: 14px 14px 12px;
@@ -102,34 +98,15 @@
           box-sizing: border-box;
       }
 
-      .ghost {
+      .leaf {
           display: inline-block;
           vertical-align: middle;
-          position: relative;
-          width: 1.2em;
-          height: 1.5em;
-          background-color: #f6f3ff;
-          border-radius: 0.6em 0.6em 0.15em 0.15em;
+          width: 1.3em;
+          height: 1.3em;
+          background-color: #d9481c;
+          background: linear-gradient(135deg, #f2a33a 0%, #d9481c 60%, #8f2a10 100%);
+          border-radius: 0 1.3em 0 1.3em;
           box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
-      }
-
-      .ghost:before,
-      .ghost:after {
-          content: "";
-          position: absolute;
-          top: 0.45em;
-          width: 0.2em;
-          height: 0.28em;
-          background-color: #2a1840;
-          border-radius: 50%;
-      }
-
-      .ghost:before {
-          left: 0.28em;
-      }
-
-      .ghost:after {
-          right: 0.28em;
       }
 
       .chores-container {
@@ -162,7 +139,7 @@
           height: 76px;
           border-radius: 50%;
           object-fit: cover;
-          border: 4px solid #6e2ca0;
+          border: 4px solid #8f2a10;
           box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
           display: table-cell;
           vertical-align: middle;
@@ -277,17 +254,21 @@
           object-position: center 30%;
       }
 
-      .halloween-garland {
+      .gratitude-quote {
           text-align: center;
           margin-top: 16px;
+          font-family: "Fredoka", sans-serif;
           font-size: 26px;
-          line-height: 1;
+          font-weight: 600;
+          line-height: 1.2;
+          color: #fff4dc;
+          text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
       }
 
-      .halloween-garland span {
-          margin-left: 0.35em;
-          margin-right: 0.35em;
-          vertical-align: middle;
+      .quote-author {
+          font-weight: 400;
+          color: #ffd28a;
+          margin-left: 0.4em;
       }
 
 
@@ -330,7 +311,7 @@
               font-size: 0.8rem;
           }
 
-          .halloween-garland {
+          .gratitude-quote {
               font-size: 20px;
           }
 
@@ -342,8 +323,8 @@
       }
 
       @media (min-width: 1100px) and (orientation: landscape) and (min-height: 850px) {
-          .halloween-garland {
-              font-size: 34px;
+          .gratitude-quote {
+              font-size: 30px;
           }
 
           .photo-bubble {
@@ -358,7 +339,7 @@
               margin: 0 0.5% 12px;
           }
 
-          .halloween-garland {
+          .gratitude-quote {
               font-size: 22px;
           }
 
@@ -392,7 +373,7 @@
               margin: 0 0 12px;
           }
 
-          .halloween-garland {
+          .gratitude-quote {
               margin-top: 10px;
               font-size: 15px;
           }
@@ -425,7 +406,7 @@
               font-size: 0.9rem;
           }
 
-          .halloween-garland {
+          .gratitude-quote {
               font-size: 16px;
           }
 
@@ -439,31 +420,13 @@
 <body>
 <div class="page-shell">
   <section class="page-header">
-    <h1 class="page-title"><span class="title-icon pumpkin" aria-hidden="true"></span>Ross Family Chores<span class="title-icon ghost" aria-hidden="true"></span></h1>
+    <h1 class="page-title"><span class="title-icon pumpkin" aria-hidden="true"></span>Ross Family Chores<span class="title-icon leaf" aria-hidden="true"></span></h1>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
 <!--  Uncomment the message below when needed-->
 <!--  <div class="bottom-note">Please get at least 1 chore done on Friday</div>-->
-  <section class="photo-collage" aria-label="Halloween photos">
-    <div class="photo-bubble"><img src="halloween-1.jpg" alt="Family in Bible costumes by the Halloween fireplace"></div>
-    <div class="photo-bubble"><img src="halloween-2.jpg" alt="Kids in costumes at trunk-or-treat with Prego mom"></div>
-    <div class="photo-bubble"><img src="halloween-3.jpg" alt="Kids in costumes with pumpkins at trunk-or-treat"></div>
-    <div class="photo-bubble"><img src="halloween-4.jpg" alt="Family dressed as Jack and Jill with the kids in costumes"></div>
-  </section>
-  <section class="halloween-garland" aria-label="Pumpkins, ghosts, bats and candy">
-    <span class="pumpkin"></span>
-    <span class="ghost"></span>
-    <span aria-hidden="true">🦇</span>
-    <span class="pumpkin"></span>
-    <span aria-hidden="true">🕸</span>
-    <span class="ghost"></span>
-    <span aria-hidden="true">🍬</span>
-    <span class="pumpkin"></span>
-    <span aria-hidden="true">🦇</span>
-    <span class="ghost"></span>
-    <span class="pumpkin"></span>
-  </section>
+  <p class="gratitude-quote">&ldquo;Happiness is not having what you want. It is wanting what you have.&rdquo;<span class="quote-author">&mdash; Hyman Schachtel</span></p>
 </div>
 
   <script>
