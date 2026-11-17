@@ -45,6 +45,8 @@
       }
 
       .page-title {
+          display: inline-block;
+          vertical-align: middle;
           font-family: "Fredoka", sans-serif;
           font-size: 2.5rem;
           font-weight: 600;
@@ -52,6 +54,26 @@
           margin: 0 0 4px;
           text-shadow: 0 4px 8px rgba(20, 5, 30, 0.6);
           letter-spacing: 0;
+      }
+
+      .song-link {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 4px 12px;
+          padding: 10px 16px;
+          background-color: #fff8ef;
+          border: 2px solid #ffb347;
+          border-radius: 10px;
+          color: #2e1838;
+          font-size: 18px;
+          font-weight: 600;
+          text-decoration: none;
+      }
+
+      .song-link:hover,
+      .song-link:focus {
+          background-color: #ffd28a;
+          outline: 3px solid #ffffff;
       }
 
       .title-icon {
@@ -421,6 +443,7 @@
 <div class="page-shell">
   <section class="page-header">
     <h1 class="page-title"><span class="title-icon pumpkin" aria-hidden="true"></span>Ross Family Chores<span class="title-icon leaf" aria-hidden="true"></span></h1>
+    <a class="song-link" href="https://suno.com/s/f45epIxjgWaKG09D">Play Chore Song</a>
   </section>
 
   <div class="chores-container" id="choresContainer"></div>
